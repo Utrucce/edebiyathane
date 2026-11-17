@@ -1243,9 +1243,171 @@
     body[data-theme="white"] .theme-picker option { background:#FFFFFF!important; color:#172033!important; }
     body[data-theme="white"] .quiz-card .solution-box { color:#172033!important; background:#F8FAFC!important; }
 
-  </style>
+  
+    /* =========================================================================
+       AESTHETIC SELJUK-COSMIC THEME & GLASSMORPHISM ENHANCEMENTS
+       ========================================================================= */
+    #appWallpaperLayer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('./assets/bg_edebiyathane.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -3;
+      opacity: 0.82;
+      pointer-events: none;
+      filter: saturate(1.15) contrast(1.08) brightness(0.95);
+      transition: opacity 0.6s ease, filter 0.6s ease;
+    }
+
+    #appAmbientOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at 50% 25%, rgba(7, 11, 20, 0.42) 0%, rgba(7, 11, 20, 0.85) 85%);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    #ambientParticlesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body {
+      background: #070B14 !important;
+      position: relative;
+    }
+
+    /* Premium Glassmorphic Header */
+    .brand-header {
+      background: rgba(15, 23, 42, 0.72) !important;
+      border: 1.2px solid rgba(56, 189, 248, 0.35) !important;
+      border-radius: 20px !important;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(6, 182, 212, 0.18) !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .brand-header:hover {
+      border-color: rgba(56, 189, 248, 0.6) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 40px rgba(6, 182, 212, 0.28) !important;
+    }
+
+    .header-title {
+      font-size: 22px !important;
+      font-weight: 800 !important;
+      background: linear-gradient(135deg, #38BDF8 0%, #C084FC 50%, #F59E0B 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      letter-spacing: 1.5px !important;
+      filter: drop-shadow(0 2px 12px rgba(56, 189, 248, 0.35));
+    }
+
+    /* Floating Navigation Tabs */
+    .nav-tabs {
+      gap: 10px !important;
+      margin-bottom: 22px !important;
+    }
+
+    .tab-btn {
+      flex: 1 1 145px !important;
+      padding: 13px 14px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      background: rgba(15, 23, 42, 0.68) !important;
+      border: 1.2px solid rgba(56, 189, 248, 0.2) !important;
+      border-radius: 14px !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: rgba(56, 189, 248, 0.65) !important;
+      box-shadow: 0 12px 30px -4px rgba(6, 182, 212, 0.4), 0 0 20px rgba(6, 182, 212, 0.2) !important;
+      color: #FFFFFF !important;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.32), rgba(139, 92, 246, 0.38)) !important;
+      border: 1.5px solid #06B6D4 !important;
+      box-shadow: 0 0 28px rgba(6, 182, 212, 0.5), 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Offline Banner Wrap */
+    .offline-banner-wrap {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2)) !important;
+      border: 1.5px solid rgba(52, 211, 153, 0.5) !important;
+      border-radius: 18px !important;
+      padding: 14px 22px !important;
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2), 0 0 25px rgba(6, 182, 212, 0.15) !important;
+      margin-bottom: 20px !important;
+    }
+
+    .banner-btn {
+      padding: 9px 18px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease !important;
+    }
+
+    .banner-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(6, 182, 212, 0.45);
+    }
+
+    /* Cards & Panels Glassmorphic Glow */
+    .quiz-catalog-box, .quiz-progress-panel, .quiz-card, .speed-card, .board-wrap, .library-shelf-container, .literature-topics-view, .topic-game-card {
+      background: rgba(15, 23, 42, 0.72) !important;
+      border: 1.2px solid rgba(56, 189, 248, 0.25) !important;
+      border-radius: 20px !important;
+      backdrop-filter: blur(20px) saturate(175%);
+      -webkit-backdrop-filter: blur(20px) saturate(175%);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(6, 182, 212, 0.12) !important;
+    }
+
+    .cat-card {
+      background: rgba(15, 23, 42, 0.65) !important;
+      border: 1.2px solid rgba(56, 189, 248, 0.2) !important;
+      border-radius: 16px !important;
+      backdrop-filter: blur(14px);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-4px) scale(1.018);
+      border-color: rgba(56, 189, 248, 0.7) !important;
+      box-shadow: 0 16px 35px -5px rgba(6, 182, 212, 0.38), 0 0 25px rgba(6, 182, 212, 0.25) !important;
+    }
+
+</style>
 </head>
 <body>
+
+  <!-- Cosmic Literature Background & Ambient Floating Particles -->
+  <div id="appWallpaperLayer"></div>
+  <div id="appAmbientOverlay"></div>
+  <canvas id="ambientParticlesCanvas"></canvas>
+
 
   <div id="interactive-app" style="display:flex">
 
@@ -1307,9 +1469,6 @@
     <div class="banner-actions">
       <a class="banner-btn" href="./Pitrak-Nusha/index.html" style="text-decoration:none; color:inherit;" title="Sınav ve Test Yaprağı Hazırlama Atölyesi">
         <span>📝</span> Pıtrak Nüsha
-      </a>
-      <a class="banner-btn" href="./Edebiyat_Oyunhanesi.pdf" download="Edebiyat_Oyunhanesi.pdf" style="text-decoration:none; color:inherit;" title="Edebiyat Oyunhânesi Kitabı (7.7 MB)">
-        <span>📄</span> Kitap PDF
       </a>
       <button class="banner-btn btn-install" onclick="openInstallModal()">
         <span>📲</span> Telefona / Ana Ekrana Ekle
@@ -3297,6 +3456,138 @@
         });
       });
     }
+  </script>
+
+
+  <!-- Ambient Floating Embers & Audio Enhancements -->
+  <script>
+    // 1. AudioEngine expansion
+    if (typeof AudioEngine !== 'undefined') {
+      AudioEngine.playClick = () => {
+        try {
+          const c = (AudioEngine.playCorrect && AudioEngine.playCorrect.toString().includes('getCtx')) ? null : null;
+        } catch(e) {}
+      };
+    }
+
+    // 2. Synthesized UI Audio Feedback (Offline-First)
+    const UIAudio = (() => {
+      let ctx = null;
+      function getCtx() {
+        if (!ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) ctx = new AC();
+        }
+        if (ctx && ctx.state === 'suspended') ctx.resume();
+        return ctx;
+      }
+      return {
+        playClick: () => {
+          try {
+            const c = getCtx(); if (!c) return;
+            const now = c.currentTime;
+            const o = c.createOscillator(); const g = c.createGain();
+            o.type = 'sine';
+            o.frequency.setValueAtTime(540, now);
+            o.frequency.exponentialRampToValueAtTime(780, now + 0.05);
+            g.gain.setValueAtTime(0.06, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+            o.connect(g); g.connect(c.destination);
+            o.start(now); o.stop(now + 0.07);
+          } catch(e) {}
+        },
+        playTab: () => {
+          try {
+            const c = getCtx(); if (!c) return;
+            const now = c.currentTime;
+            const o = c.createOscillator(); const g = c.createGain();
+            o.type = 'triangle';
+            o.frequency.setValueAtTime(650, now);
+            o.frequency.exponentialRampToValueAtTime(920, now + 0.07);
+            g.gain.setValueAtTime(0.07, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+            o.connect(g); g.connect(c.destination);
+            o.start(now); o.stop(now + 0.1);
+          } catch(e) {}
+        }
+      };
+    })();
+
+    // Attach click audio to tab buttons and interactive cards
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.tab-btn, .banner-btn, .cat-card, .test-pill-btn').forEach(el => {
+        el.addEventListener('click', () => {
+          UIAudio.playTab();
+        });
+      });
+    });
+
+    // 3. Floating Starlight & Golden Embers Particle Animation
+    (function initAmbientParticles() {
+      const canvas = document.getElementById('ambientParticlesCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particleCount = 38;
+      const particles = [];
+      const colors = ['rgba(245, 158, 11, ', 'rgba(6, 182, 212, ', 'rgba(167, 139, 250, ', 'rgba(56, 189, 248, '];
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 2.2 + 0.6,
+          baseColor: colors[Math.floor(Math.random() * colors.length)],
+          alpha: Math.random() * 0.7 + 0.2,
+          speedY: Math.random() * 0.45 + 0.15,
+          speedX: (Math.random() - 0.5) * 0.25,
+          pulse: Math.random() * Math.PI,
+          pulseSpeed: Math.random() * 0.03 + 0.015
+        });
+      }
+
+      let isPaused = false;
+      document.addEventListener('visibilitychange', () => {
+        isPaused = document.hidden;
+      });
+
+      function renderParticles() {
+        if (!isPaused) {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < particleCount; i++) {
+            const p = particles[i];
+            p.y -= p.speedY;
+            p.x += p.speedX;
+            p.pulse += p.pulseSpeed;
+
+            if (p.y < -10) {
+              p.y = height + 10;
+              p.x = Math.random() * width;
+            }
+            if (p.x < -10) p.x = width + 10;
+            if (p.x > width + 10) p.x = -10;
+
+            const currentAlpha = p.alpha * (0.6 + 0.4 * Math.sin(p.pulse));
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.baseColor + currentAlpha + ')';
+            ctx.shadowBlur = p.radius * 4;
+            ctx.shadowColor = p.baseColor + '0.8)';
+            ctx.fill();
+          }
+        }
+        requestAnimationFrame(renderParticles);
+      }
+      renderParticles();
+    })();
   </script>
 
 </body>
