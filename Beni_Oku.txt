@@ -1,0 +1,10 @@
+EDEBİYAT OYUNHÂNESİ — ÇEVRİMDIŞI KULLANIM
+
+Oyun ve Pıtrak dosyaları bu pakette ayrı dosyalar hâlindedir; PDF’nin içine gömülü değildir.
+
+1. ZIP dosyasını bütünüyle ayıklayın.
+2. Edebiyat_Oyunhanesi.pdf, Edebiyat_Oyunhanesi_Interaktif.html ve Pitrak-Nusha klasörünü aynı yerde bırakın.
+3. PDF’yi açıp oyun kartına dokunun/tıklayın. PDF okuyucunuz yerel dosya bağlantılarını engellerse HTML dosyasını doğrudan tarayıcıda açın.
+4. Pıtrak için PDF’deki Pıtrak kartına dokunun/tıklayın. Açılmazsa Pitrak-Nusha klasöründeki index.html dosyasını tarayıcıda açın.
+
+Not: ZIP içinden dosya açmayın; önce ayıklayın. Bazı mobil PDF okuyucuları güvenlik nedeniyle yerel dosya bağlantılarını engelleyebilir. Bu durumda aynı klasördeki HTML dosyasını Dosyalar / Dosya Yöneticisi üzerinden tarayıcıyla açın.

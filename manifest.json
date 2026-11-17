@@ -1,0 +1,54 @@
+{
+  "name": "Edebiyat Oyunhânesi • ALΣF",
+  "short_name": "Edebiyathane",
+  "description": "4784 Eser-Yazar Kaydı, 67 Konu Testi ve 2 Boyutlu Edebiyat Oyun Merkezi",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070B14",
+  "theme_color": "#0F172A",
+  "lang": "tr",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bilgi Testleri",
+      "url": "./index.html#quiz-catalog",
+      "description": "67 Konu Testi ve Soru Bankası"
+    },
+    {
+      "name": "Kitap Yağmuru",
+      "url": "./index.html#catcher-game-view",
+      "description": "2 Boyutlu Kitap Yağmuru Oyunu"
+    },
+    {
+      "name": "Eser Kütüphanesi",
+      "url": "./index.html#library-view",
+      "description": "1957 Eserlik Sanal Kütüphane"
+    },
+    {
+      "name": "Pıtrak Nüsha",
+      "url": "./Pitrak-Nusha/index.html",
+      "description": "Sınav ve Test Yaprağı Hazırlama Atölyesi"
+    }
+  ]
+}

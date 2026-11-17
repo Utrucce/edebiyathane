@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pıtrak Nüsha — Sayfanın Zarif Hâli</title>
+<meta name="description" content="Soru bankası, test kitabı ve deneme sınavlarınızı sade bir arayüzle hazırlayın; PDF ve Word olarak indirin.">
+<meta name="theme-color" content="#6b4426">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ANA EKRAN -->
+<main id="home" class="view">
+  <header class="topbar">
+    <div class="brand"><img src="assets/pitrak.jpg" alt=""><span>Pıtrak <em>Nüsha</em></span></div>
+    <div class="topbar-actions">
+      <button class="btn ghost" id="btnInstall" hidden>Uygulamayı Yükle</button>
+      <button class="btn ghost" id="btnImport">Yedek Aç</button>
+      <input type="file" id="importFile" accept=".pitrak,.json" hidden>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img class="hero-img" src="assets/pitrak.jpg" alt="Pıtrak">
+    <h1>Pıtrak <em>Nüsha</em></h1>
+    <p class="lead">Soruların dağınık, emeğin yarım kalmasın.<br>Her sayfa bir nakış, her nüsha bir hatıra olsun.</p>
+    <div class="hero-cta">
+      <button class="btn primary big" id="btnNew">✦ Yeni Nüsha Başlat</button>
+    </div>
+    <div class="kinds">
+      <button class="kind" data-kind="Soru Bankası"><b>Soru Bankası</b><span>Birikimin, tertipli bir hazine</span></button>
+      <button class="kind" data-kind="Test Kitabı"><b>Test Kitabı</b><span>Bölüm bölüm, nefis bir sınav yolu</span></button>
+      <button class="kind" data-kind="Deneme"><b>Deneme Sınavı</b><span>Bir oturumluk, tek soluklu imtihan</span></button>
+    </div>
+  </section>
+
+  <section class="shelf">
+    <div class="section-head"><h2>Rafım</h2><span class="muted">Kaydettiğin nüshalar tarayıcında saklanır</span></div>
+    <div id="shelfList" class="shelf-list"></div>
+  </section>
+
+  <footer class="site-footer">
+    <img src="assets/alef.png" alt="ALEF">
+    <p>Pıtrak Nüsha · Emekle yoğrulmuş sayfalar için</p>
+  </footer>
+</main>
+
+<!-- DÜZENLEYİCİ -->
+<div id="editor" class="view" hidden>
+  <header class="ed-top">
+    <button class="icon-btn" id="btnBack" title="Rafa dön">←</button>
+    <input id="docTitle" class="title-input" placeholder="Nüshanın adı" maxlength="80">
+    <span id="saveState" class="muted small">Kaydedildi</span>
+    <button class="btn primary" id="btnDownload">İndir</button>
+  </header>
+
+  <div class="ed-body">
+    <aside class="panel" id="panel">
+      <nav class="tabs" id="tabs">
+        <button data-tab="sorular" class="on">Sorular</button>
+        <button data-tab="kapak">Kapak</button>
+        <button data-tab="onsoz">Önsöz</button>
+        <button data-tab="duzen">Düzen</button>
+        <button data-tab="yazi">Yazı</button>
+        <button data-tab="muhur">Filigran</button>
+      </nav>
+      <div class="tab-pages" id="tabPages"></div>
+    </aside>
+
+    <section class="preview" id="previewWrap">
+      <div class="preview-bar">
+        <button class="icon-btn" id="zoomOut">−</button>
+        <span id="zoomLbl" class="small">Sığdır</span>
+        <button class="icon-btn" id="zoomIn">+</button>
+        <button class="btn ghost small" id="zoomFit">Sığdır</button>
+      </div>
+      <div class="preview-scroll" id="previewScroll"><div id="pages"></div></div>
+    </section>
+  </div>
+
+  <div class="mobile-switch" id="mobileSwitch">
+    <button data-m="panel" class="on">✎ Düzenle</button>
+    <button data-m="preview">◫ Önizle</button>
+  </div>
+</div>
+
+<!-- İNDİRME PENCERESİ -->
+<dialog id="dlgDownload">
+  <h3>Nüshayı İndir</h3>
+  <div class="dl-grid">
+    <button class="btn primary" id="dlPdf">PDF olarak indir</button>
+    <button class="btn" id="dlDocx">Word (.docx) olarak indir</button>
+    <button class="btn ghost" id="dlBackup">Yedek dosyası (.pitrak)</button>
+  </div>
+  <label class="check"><input type="checkbox" id="optSingleAns"> Tek soru çıktılarında doğru cevabı da göster</label>
+  <p class="muted small">Tek soru çıktısı için soru kartındaki “Tek Soru” düğmesini kullan.</p>
+  <div id="dlProgress" class="muted small"></div>
+  <div class="dlg-actions"><button class="btn ghost" id="dlClose">Kapat</button></div>
+</dialog>
+
+<dialog id="dlgBulk">
+  <h3>Toplu Soru Ekle</h3>
+  <p class="muted small">Soruları şu biçimde yapıştır; Pıtrak kendisi ayıklar:</p>
+  <pre class="hint">1. Soru metni
+A) Birinci
+B) İkinci
+C) Üçüncü
+D) Dördüncü
+Cevap: C
+Açıklama: İsteğe bağlı</pre>
+  <textarea id="bulkText" rows="10" placeholder="Buraya yapıştır…"></textarea>
+  <div class="dlg-actions"><button class="btn ghost" id="bulkCancel">Vazgeç</button><button class="btn primary" id="bulkOk">Ekle</button></div>
+</dialog>
+
+<dialog id="dlgSingle">
+  <h3>Tek Soru Çıktısı</h3>
+  <div class="dl-grid">
+    <button class="btn primary" id="sPng">Görsel (PNG)</button>
+    <button class="btn" id="sPdf">PDF</button>
+  </div>
+  <div class="dlg-actions"><button class="btn ghost" id="sClose">Kapat</button></div>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+<div id="exportRoot" aria-hidden="true"></div>
+
+<script src="assets/vendor/html2canvas.min.js"></script>
+<script src="assets/vendor/jspdf.umd.min.js"></script>
+<script src="assets/vendor/docx.umd.js"></script>
+<script src="assets/db.js"></script>
+<script src="assets/render.js"></script>
+<script src="assets/export.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
