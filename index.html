@@ -1986,9 +1986,7 @@
     <a class="action-pill-btn" href="./Pitrak-Nusha/index.html" title="Soru & Yaprak Test Modülü">
       <span>📝</span> Pıtrak Nüsha
     </a>
-    <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()" title="Cihaza / Ana Ekrana Ekle">
-      <span>📲</span> Cihaza Ekle
-    </button>
+    
   </div>
 
   <!-- ============================================================ -->
@@ -2038,9 +2036,7 @@
       <span>⬅</span> Efsanevi Ana Menüye Dön
     </button>
     <div class="return-bar-title">📝 BİLGİ TESTLERİ • KONU SEÇİMİ</div>
-    <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-      <span>📲</span> Cihaza Ekle
-    </button>
+    
   </div>
     <section id="quiz-catalog">
       <section class="progress-panel" id="quiz-progress-panel" aria-label="Kullanıcı ilerlemesi">
@@ -2138,9 +2134,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">⚡ HIZLI EŞLEŞTİRME DÜELLOSU</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
@@ -2206,9 +2200,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🧩 PANO EŞLEŞTİRME ARENASI</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
@@ -2251,9 +2243,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🧺 KİTAP YAĞMURU OYUNU</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
@@ -2300,9 +2290,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🎯 TÜR NİŞANCISI OYUNU</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
@@ -2345,9 +2333,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">📚 ESER VE YAZAR KÜTÜPHANESİ</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
     <div class="lib-filter-bar">
       <input type="text" id="lib-search-input" class="lib-input" placeholder="🔍 Eser veya yazar ara (Örn: Makber, Tanpınar)..." oninput="renderLibrary()">
@@ -2374,9 +2360,7 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">📖 EDEBİYAT KONU VE ÖZET KARTLARI</div>
-      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
-        <span>📲</span> Cihaza Ekle
-      </button>
+      
     </div>
     <section class="topic-game">
       <div class="topic-game-head"><div class="topic-game-title">🃏 Edebiyat Bilgi Eşleştirme</div><div class="topic-game-meta"><span id="topic-game-score">Puan: 0</span><span id="topic-game-streak">Seri: 0</span><span id="topic-game-round">Tur: 0</span><span id="topic-game-best">Rekor: 0</span><span id="topic-game-accuracy">İsabet: %0</span></div></div>
@@ -2400,32 +2384,6 @@
     <div class="topic-card-stage" id="literature-topics-container"></div>
     <div class="topic-card-nav"><button type="button" id="topic-card-prev" onclick="moveTopicCard(-1)">← Önceki kart</button><span class="topic-card-position" id="topic-card-position">0 / 0</span><button type="button" id="topic-card-next" onclick="moveTopicCard(1)">Sonraki kart →</button></div>
   </section>
-
-    <!-- INSTALL MODAL -->
-  <div id="install-modal" class="modal-backdrop" onclick="if(event.target===this) closeInstallModal()">
-    <div class="install-modal-box">
-      <div class="modal-head-row">
-        <div class="modal-head-title">📲 Cihaza Ekleme & Doğrudan Kurulum</div>
-        <button class="modal-close-x" onclick="closeInstallModal()">&times;</button>
-      </div>
-      <div class="step-row">
-        <div class="step-badge-num">1</div>
-        <div><b>Doğrudan Yükleme:</b> Aşağıdaki <b>"Hemen Cihaza Yükle"</b> butonuna basarak uygulamayı telefonunuza veya bilgisayarınıza tek tıkla yükleyebilirsiniz.</div>
-      </div>
-      <div class="step-row">
-        <div class="step-badge-num">2</div>
-        <div><b>iPhone / iPad (Safari):</b> Safari'de alttaki <b>Paylaş</b> simgesine ve ardından <b>"Ana Ekrana Ekle"</b> seçeneğine dokunun.</div>
-      </div>
-      <div class="step-row">
-        <div class="step-badge-num">3</div>
-        <div><b>Android / Bilgisayar (Chrome / Edge):</b> Sağ üstteki <b>üç noktaya (⋮)</b> dokunup <b>"Uygulamayı Yükle / Ana Ekrana Ekle"</b> seçeneğini de kullanabilirsiniz.</div>
-      </div>
-      <div style="display:flex;gap:10px;margin-top:16px;">
-        <button class="modal-install-btn" style="flex:1.4;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-weight:700;padding:12px;border:none;border-radius:10px;cursor:pointer;" onclick="executeInstallFromModal()">🚀 Hemen Cihaza Yükle</button>
-        <button class="modal-bottom-btn" style="flex:1;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;" onclick="handleAnladimClick()">Tamam, Anladım</button>
-      </div>
-    </div>
-  </div>
 
   <!-- WebAudio Synthesizer -->
   <script>
@@ -2471,8 +2429,7 @@
       };
     })();
 
-    function openInstallModal() { document.getElementById('install-modal').classList.add('show'); }
-    function closeInstallModal() { document.getElementById('install-modal').classList.remove('show'); }
+    
   </script>
 
   <!-- COMPLETE EMBEDDED DATASET (ALL 4784 RECORDS) & ENGINE -->
@@ -2605,95 +2562,12 @@
     }
 
     // NAVIGATION & QUIZ GENERATION ENGINE (4784 ITEMS, CATEGORY-BASED TESTS)
-    // ============================================================
-    
-    // ============================================================
-    // GERÇEK PWA CİHAZA YÜKLEME MOTORU (Real PWA Install Engine)
-    // ============================================================
-    let deferredInstallPrompt = null;
-
+        // Service Worker & Banner Suppression
     window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredInstallPrompt = e;
-      console.log('beforeinstallprompt yakalandı ve hazırlandı.');
-      document.querySelectorAll('.btn-install-trigger').forEach(btn => {
-        btn.classList.add('install-ready');
-        btn.title = "Uygulamayı Cihazınıza Yükleyin (Hazır)";
-      });
+      e.preventDefault(); // Tarayıcının alttan çıkan otomatik bildirimini engeller
     });
 
-    window.addEventListener('appinstalled', () => {
-      deferredInstallPrompt = null;
-      alert('🎉 ALΣF Edebiyat Oyunhânesi cihazınıza başarıyla yüklendi! Artık ana ekranınızdan bağımsız bir uygulama olarak erişebilirsiniz.');
-      closeInstallModal();
-    });
-
-    async function triggerRealInstall() {
-      if (deferredInstallPrompt) {
-        try {
-          deferredInstallPrompt.prompt();
-          const choiceResult = await deferredInstallPrompt.userChoice;
-          if (choiceResult && choiceResult.outcome === 'accepted') {
-            deferredInstallPrompt = null;
-            closeInstallModal();
-            return;
-          }
-        } catch (err) {
-          console.warn('Yükleme hatası:', err);
-        }
-      }
-
-      // Standalone kontrolü
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-      if (isStandalone) {
-        alert('✨ ALΣF Edebiyat Oyunhânesi zaten cihazınızda kurulu ve bağımsız çalışıyor!');
-        return;
-      }
-
-      openInstallModal();
-    }
-
-    async function executeInstallFromModal() {
-      if (deferredInstallPrompt) {
-        try {
-          deferredInstallPrompt.prompt();
-          const choice = await deferredInstallPrompt.userChoice;
-          if (choice && choice.outcome === 'accepted') {
-            deferredInstallPrompt = null;
-            closeInstallModal();
-            return;
-          }
-        } catch(err) {
-          console.warn('Modal yükleme hatası:', err);
-        }
-      }
-      handleAnladimClick();
-    }
-
-    function handleAnladimClick() {
-      if (deferredInstallPrompt) {
-        try {
-          deferredInstallPrompt.prompt().catch(() => {});
-        } catch(e) {}
-      }
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      if (isIOS) {
-        alert("📱 iPhone / iPad: Safari'de alttaki 'Paylaş' (kare ve yukarı ok) simgesine dokunun, ardından listeden 'Ana Ekrana Ekle' [+] seçeneğine dokunun.");
-      } else {
-        alert("💡 Tarayıcınızın adres çubuğundaki (sağ tarafta) 'Yükle / Uygulamayı Yükle' simgesine tıklayarak hemen kurabilirsiniz!");
-      }
-      closeInstallModal();
-    }
-
-    function openInstallModal() {
-      const modal = document.getElementById('install-modal');
-      if (modal) modal.classList.add('show');
-    }
-
-    function closeInstallModal() {
-      const modal = document.getElementById('install-modal');
-      if (modal) modal.classList.remove('show');
-    }
+    
 
     // ============================================================
     // EFSANEVİ ANA MENÜ & TEK TUŞ VİTRİNİ & TAM EKRAN OYUN MOTORU
