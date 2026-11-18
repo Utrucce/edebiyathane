@@ -1443,11 +1443,11 @@
     .nav-tabs,
     .install-card {
       position: relative !important;
-      border: 2.5px solid transparent !important;
+      border: 1.2px solid transparent !important;
       background-clip: padding-box, border-box !important;
       background-origin: padding-box, border-box !important;
       background-image: 
-        linear-gradient(135deg, rgba(10, 15, 29, 0.94), rgba(15, 23, 42, 0.96)),
+        linear-gradient(135deg, rgba(10, 15, 29, 0.42), rgba(15, 23, 42, 0.48)),
         linear-gradient(135deg, #FFE082 0%, #D4AF37 28%, #7A5C14 52%, #FFF1AA 78%, #9E7924 100%) !important;
       box-shadow: 
         0 14px 34px rgba(0, 0, 0, 0.75),
@@ -1462,11 +1462,11 @@
     .cat-card,
     .topic-card {
       position: relative !important;
-      border: 2px solid transparent !important;
+      border: 1px solid transparent !important;
       background-clip: padding-box, border-box !important;
       background-origin: padding-box, border-box !important;
       background-image: 
-        linear-gradient(135deg, rgba(8, 13, 26, 0.92), rgba(15, 23, 42, 0.95)),
+        linear-gradient(135deg, rgba(8, 13, 26, 0.38), rgba(15, 23, 42, 0.46)),
         linear-gradient(135deg, #FFE082 0%, #D4AF37 30%, #6E4F0E 50%, #FFE58F 80%, #99731C 100%) !important;
       border-radius: 16px !important;
       box-shadow: 
@@ -1805,6 +1805,476 @@
       display: none !important;
     }
 
+
+    /* ============================================================ */
+    /* 🏛️ ULTRA-TRANSLUCENT FLOATING MUSEUM GLASS INTERFACE         */
+    /* (Arka planı kapatmayan şeffaf, zarif altın tel çerçeveler)   */
+    /* ============================================================ */
+
+    #appAmbientOverlay {
+      background: radial-gradient(circle at 50% 25%, rgba(7, 11, 20, 0.1) 0%, rgba(7, 11, 20, 0.5) 100%) !important;
+      opacity: 0.55 !important;
+    }
+
+    /* Şeffaf ve Zarif Cam Çerçeveler */
+    .brand-header {
+      background: rgba(10, 15, 29, 0.45) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      backdrop-filter: blur(14px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(212, 175, 55, 0.08) !important;
+      border-radius: 16px !important;
+    }
+
+    .offline-banner-wrap {
+      background: rgba(10, 15, 29, 0.38) !important;
+      border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35) !important;
+      border-radius: 14px !important;
+      padding: 10px 16px !important;
+    }
+
+    .nav-tabs {
+      background: rgba(10, 15, 29, 0.3) !important;
+      border: 1px solid rgba(212, 175, 55, 0.22) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35) !important;
+      border-radius: 16px !important;
+      padding: 6px 8px !important;
+    }
+
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.35) !important;
+      border: 1px solid rgba(212, 175, 55, 0.22) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      color: #E2E8F0 !important;
+      transition: all 0.25s ease !important;
+    }
+    .tab-btn:hover {
+      background: rgba(30, 41, 59, 0.65) !important;
+      border-color: #FFE082 !important;
+      color: #FFE082 !important;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.35) !important;
+      transform: translateY(-2px) !important;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(15, 23, 42, 0.65)) !important;
+      border: 1.2px solid #FFE082 !important;
+      color: #FFE082 !important;
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.4) !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .progress-panel,
+    .quiz-tests-panel,
+    .score-board,
+    .game-container {
+      background: rgba(10, 15, 29, 0.38) !important;
+      border: 1px solid rgba(212, 175, 55, 0.25) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+      border-radius: 16px !important;
+    }
+
+    .quiz-category-card,
+    .cat-card,
+    .topic-card {
+      background: rgba(8, 13, 26, 0.42) !important;
+      border: 1px solid rgba(212, 175, 55, 0.28) !important;
+      backdrop-filter: blur(12px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 0 12px rgba(212, 175, 55, 0.05) !important;
+      border-radius: 14px !important;
+    }
+    .quiz-category-card:hover,
+    .cat-card:hover {
+      background: rgba(15, 23, 42, 0.6) !important;
+      border-color: #FFE082 !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.35) !important;
+    }
+
+    .museum-brass-plaque {
+      background: linear-gradient(180deg, rgba(243, 217, 120, 0.85) 0%, rgba(212, 175, 55, 0.75) 45%, rgba(138, 109, 31, 0.85) 100%) !important;
+      border: 1px solid rgba(255, 224, 130, 0.6) !important;
+      font-size: 10px !important;
+      padding: 4px 10px !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* ============================================================ */
+    /* 🏛️ YAZAR MÜZESİ & BİYOGRAFİ ANSİKLOPEDİSİ STİLLERİ           */
+    /* ============================================================ */
+    #author-museum-view {
+      width: 100%;
+      max-width: 1020px;
+    }
+
+    .author-museum-head {
+      text-align: center;
+      margin-bottom: 18px;
+      padding: 16px;
+      background: rgba(10, 15, 29, 0.45);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+    .author-museum-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFE082;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .author-museum-sub {
+      font-size: 13px;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    .author-museum-filters {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .author-search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 15, 29, 0.5);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      padding: 8px 14px;
+      backdrop-filter: blur(10px);
+    }
+    .author-search-bar input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #F8FAFC;
+      font-size: 14px;
+    }
+    .author-period-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: #D4AF37 transparent;
+    }
+    .author-period-pill {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      color: #CBD5E1;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+    }
+    .author-period-pill:hover,
+    .author-period-pill.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(15, 23, 42, 0.7));
+      border-color: #FFE082;
+      color: #FFE082;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .author-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 14px;
+    }
+
+    .author-portrait-card {
+      position: relative;
+      background: rgba(8, 13, 26, 0.42);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 14px;
+      padding: 14px;
+      backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      cursor: pointer;
+      transition: all 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .author-portrait-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      border-color: #FFE082;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.35);
+      background: rgba(15, 23, 42, 0.65);
+    }
+
+    .author-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-seal-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6D1F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 17px;
+      color: #1A1305;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.6);
+      flex-shrink: 0;
+    }
+    .author-card-info {
+      flex: 1;
+      overflow: hidden;
+    }
+    .author-card-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #FFE082;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .author-card-title {
+      font-size: 11px;
+      color: #38BDF8;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+    .author-card-period {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    .author-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      font-size: 11px;
+      color: #CBD5E1;
+    }
+    .author-view-monograph-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FFE082;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Yazar Monografi & Bilgi Modalı */
+    #authorMonographModal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    #authorMonographModal.active {
+      display: flex;
+    }
+    .author-monograph-dialog {
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: rgba(10, 15, 29, 0.88);
+      border: 1.5px solid #D4AF37;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 35px rgba(212, 175, 55, 0.35);
+      backdrop-filter: blur(20px);
+      padding: 24px;
+      box-sizing: border-box;
+      position: relative;
+      color: #F8FAFC;
+    }
+    .author-monograph-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FFE082;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .author-monograph-close:hover {
+      background: #EF4444;
+      border-color: #EF4444;
+      color: #FFF;
+    }
+
+    .monograph-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .monograph-seal {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6D1F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: #1A1305;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      flex-shrink: 0;
+    }
+    .monograph-title-group h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      color: #FFE082;
+      margin-bottom: 4px;
+    }
+    .monograph-honorific {
+      font-size: 14px;
+      color: #38BDF8;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .monograph-badges {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .monograph-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #FFE082;
+    }
+
+    .monograph-section {
+      margin-bottom: 18px;
+    }
+    .monograph-section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFE082;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+    .monograph-bio-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #E2E8F0;
+      background: rgba(15, 23, 42, 0.4);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border-left: 3px solid #D4AF37;
+    }
+
+    .monograph-works-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .monograph-work-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #F8FAFC;
+      font-size: 12px;
+    }
+    .monograph-work-genre {
+      font-size: 10px;
+      color: #38BDF8;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .monograph-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .monograph-btn-quiz {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #9E7924 100%);
+      color: #1A1305;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid #FFE082;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+      transition: all 0.2s ease;
+    }
+    .monograph-btn-quiz:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(212, 175, 55, 0.6);
+    }
+
 </style>
   <script src="./assets/three.min.js"></script>
 </head>
@@ -1851,6 +2321,7 @@
     <div class="museum-teleport-bar">
       <div class="museum-teleport-label">🏛️ SALON IŞINLANMA • İSTEDİĞİN DÖNEM SERGİSİNE DÖN</div>
       <div class="museum-teleport-items">
+        <button class="museum-teleport-btn" style="border-color:#FFE082; color:#FFE082;" onclick="exitMuseumMode(); switchNavTab('author-museum-view')">🏛️ Yazar Müzesi</button>
         <button class="museum-teleport-btn" onclick="teleportToExhibit(0)">🏺 Dîvân Sarayı</button>
         <button class="museum-teleport-btn" onclick="teleportToExhibit(45)">🎶 Âşık Meydanı</button>
         <button class="museum-teleport-btn" onclick="teleportToExhibit(90)">🖋️ Tanzimat Salonu</button>
@@ -1935,6 +2406,10 @@
 
   <!-- Navigation Tabs -->
   <nav class="nav-tabs">
+<button class="tab-btn" onclick="switchNavTab('author-museum-view')">
+<span>🏛️</span> Yazar Müzesi & Ansiklopedi
+</button>
+
 <button class="tab-btn" onclick="enterMuseumMode()" style="border-color:#FFE082; color:#FFE082; background:rgba(212,175,55,0.15);">
 <span>🏛️</span> 360° Sanal Sergi
 </button>
@@ -1965,6 +2440,83 @@
   <!-- ============================================================ -->
   <!-- 1. QUIZ VIEW: CATEGORY PICKER, THEN ONE SELECTED TEST         -->
   <!-- ============================================================ -->
+  
+<!-- ============================================================ -->
+<!-- 🏛️ YAZAR MÜZESİ & EDEBİ BİYOGRAFİ ANSİKLOPEDİSİ               -->
+<!-- ============================================================ -->
+<main id="author-museum-view" class="view-container">
+  <section class="author-museum-head">
+    <div class="author-museum-title">🏛️ TÜRK EDEBİYATÇILARI MÜZESİ & YAZAR ANSİKLOPEDİSİ</div>
+    <div class="author-museum-sub">Tüm yazarlarımızın edebi kişiliği, sanat anlayışı, dönem bilgisi ve kütüphanemizdeki eser dökümü</div>
+  </section>
+
+  <section class="author-museum-filters">
+    <div class="author-search-bar">
+      <span>🔍</span>
+      <input type="text" id="author-search-input" placeholder="Yazar veya şair ara (Örn: Namık Kemal, Tanpınar, Yunus Emre, Halit Ziya...)" oninput="filterAuthorMuseum()">
+    </div>
+    <div class="author-period-pills" id="authorPeriodPills">
+      <button class="author-period-pill active" onclick="setAuthorPeriodFilter('all', this)">🌟 Tüm Yazarlar</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('divan', this)">🏺 Dîvân Edebiyatı</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('halk', this)">🎶 Halk Edebiyatı</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('tanzimat', this)">🖋️ Tanzimat Edebiyatı</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('servet', this)">🪶 Servet-i Fünûn & Fecr-i Âtî</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('milli', this)">🇹🇷 Millî Edebiyat</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('cumhuriyet', this)">📚 Cumhuriyet & Çağdaş</button>
+      <button class="author-period-pill" onclick="setAuthorPeriodFilter('cocuk', this)">🪁 Çocuk Edebiyatı</button>
+    </div>
+  </section>
+
+  <div style="margin-bottom: 12px; font-size: 13px; color: #FFE082; display: flex; justify-content: space-between; align-items: center;">
+    <span id="authorMuseumCount">Yazarlar yükleniyor...</span>
+    <span style="font-size:12px; color:#94A3B8;">💡 Bir yazara tıklayarak estetik edebi monografisini okuyabilirsiniz.</span>
+  </div>
+
+  <div class="author-grid-container" id="authorMuseumGrid"></div>
+</main>
+
+<!-- YAZAR MONOGRAFİ & BİYOGRAFİ MODALI -->
+<div id="authorMonographModal" onclick="if(event.target===this) closeAuthorMonograph()">
+  <div class="author-monograph-dialog">
+    <button class="author-monograph-close" onclick="closeAuthorMonograph()" title="Kapat">✕</button>
+    <div class="monograph-head">
+      <div class="monograph-seal" id="monoSeal">NK</div>
+      <div class="monograph-title-group">
+        <h2 id="monoName">Namık Kemal</h2>
+        <div class="monograph-honorific" id="monoHonorific">Vatan ve Hürriyet Şairi</div>
+        <div class="monograph-badges" id="monoBadges">
+          <span class="monograph-badge">Tanzimat I. Dönem</span>
+          <span class="monograph-badge">Romantizm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="monograph-section">
+      <div class="monograph-section-title"><span>📜</span> Edebî Kişiliği & Sanat Anlayışı</div>
+      <div class="monograph-bio-text" id="monoBio">...</div>
+    </div>
+
+    <div class="monograph-section">
+      <div class="monograph-section-title"><span>📚</span> Kütüphanemizdeki Eserleri (<span id="monoWorksCount">0</span> Kayıt)</div>
+      <div class="monograph-works-grid" id="monoWorksList"></div>
+    </div>
+
+    <div class="monograph-section" id="monoCluesSection">
+      <div class="monograph-section-title"><span>💡</span> Sınav & İmtihan İpuçları (Soru Havuzu Bilgileri)</div>
+      <div class="monograph-bio-text" id="monoClues" style="border-left-color: #38BDF8; font-size: 13px;">...</div>
+    </div>
+
+    <div class="monograph-actions">
+      <button class="monograph-btn-quiz" id="monoQuizBtn" onclick="startQuizForAuthor(currentMonographAuthor)">
+        <span>⚡</span> Bu Yazarın Eserleriyle Pratik Yap
+      </button>
+      <button class="banner-btn" onclick="closeAuthorMonograph()" style="padding:10px 18px; border-radius:12px;">
+        Kapat
+      </button>
+    </div>
+  </div>
+</div>
+
   <main id="quiz-view" class="view-container active">
     <section id="quiz-catalog">
       <section class="progress-panel" id="quiz-progress-panel" aria-label="Kullanıcı ilerlemesi">
@@ -3651,6 +4203,14 @@
           const avatar = document.createElement('img'); avatar.className = 'author-avatar'; avatar.alt = `${author} için özgün yazar simgesi`; avatar.src = createAuthorIcon(author, SORTED_LIBRARY_AUTHORS.indexOf(author));
           const name = document.createElement('span'); name.className = 'author-directory-name'; name.textContent = author;
           const count = document.createElement('span'); count.className = 'author-directory-meta'; count.textContent = `${works.length} eser`;
+          const bioBtn = document.createElement('button');
+          bioBtn.type = 'button';
+          bioBtn.className = 'quiz-back-btn';
+          bioBtn.style.padding = '2px 8px';
+          bioBtn.style.fontSize = '11px';
+          bioBtn.style.marginLeft = 'auto';
+          bioBtn.innerHTML = '📜 Biyografi';
+          bioBtn.onclick = (e) => { e.stopPropagation(); openAuthorMonograph(author); };
           const allAuthorWorks = AUTHOR_WORKS.get(author) || [];
           const hasGeneralWorks = allAuthorWorks.some(item => !isChildLiteratureRecord(item));
           const hasChildWorks = allAuthorWorks.some(isChildLiteratureRecord);
@@ -4467,5 +5027,6 @@ window.addEventListener('keydown', (e) => {
 });
 </script>
 
+  <script src="./assets/author_engine.js"></script>
 </body>
 </html>
