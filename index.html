@@ -2834,38 +2834,8 @@
       }
     }
 
-    // Klavye yön tuşları ve dokunmatik swipe desteği
-    window.addEventListener('keydown', (e) => {
-      const homeView = document.getElementById('home-portal-view');
-      if (homeView && homeView.classList.contains('active') && portalLayoutMode === 'hero') {
-        if (e.key === 'ArrowLeft') {
-          cycleHeroPortal(-1);
-        } else if (e.key === 'ArrowRight') {
-          cycleHeroPortal(1);
-        } else if (e.key === 'Enter') {
-          if (PORTALS[activeHeroIndex]) PORTALS[activeHeroIndex].action();
-        }
-      }
-    });
-
     window.addEventListener('DOMContentLoaded', () => {
       renderGridPortals();
-      const heroStageElem = document.getElementById('heroStage');
-      if (heroStageElem) {
-        let touchStartX = 0;
-        let touchEndX = 0;
-        heroStageElem.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        heroStageElem.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          if (touchStartX - touchEndX > 50) {
-            cycleHeroPortal(1);
-          } else if (touchEndX - touchStartX > 50) {
-            cycleHeroPortal(-1);
-          }
-        }, { passive: true });
-      }
     });
 
     function switchNavTab(viewId) {
@@ -3359,9 +3329,11 @@
       document.getElementById('speed-active-screen').style.display = 'block';
       updateSpeedHUD();
       if (saved) {
-        const previous = {answered:Boolean(saved.answered),chosen:saved.chosen,correct:saved.correct};
-        nextSpeedCard(Number.isInteger(saved.currentIdx) ? saved.currentIdx : null);
-        if (previous.answered) restoreSpeedAnswer(previous);
+        if (saved.answered) {
+          nextSpeedCard();
+        } else {
+          nextSpeedCard(Number.isInteger(saved.currentIdx) ? saved.currentIdx : null);
+        }
       } else nextSpeedCard(selectedIndex);
 
       speedTimer = setInterval(() => {
