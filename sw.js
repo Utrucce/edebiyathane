@@ -1,5 +1,5 @@
 // Edebiyat Oyunhânesi - Çevrimdışı Hizmet Çalışanı (Offline-First Service Worker)
-const CACHE_NAME = 'edebiyathane-v15';
+const CACHE_NAME = 'edebiyathane-v16';
 
 const PRECACHE_ASSETS = [
   './',
@@ -10,6 +10,7 @@ const PRECACHE_ASSETS = [
   './assets/bg_edebiyathane.jpg',
   './assets/logo_alef.png',
   './assets/logo_sertan.png',
+  './assets/logo_batman_silver.png',
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/icon-maskable.png',

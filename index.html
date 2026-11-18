@@ -1529,6 +1529,14 @@
       object-fit: contain;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
     }
+    .sertan-box .brand-logo-img {
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.75)) drop-shadow(0 0 10px rgba(226, 232, 240, 0.45));
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    .sertan-box:hover .brand-logo-img {
+      transform: scale(1.15) !important;
+      filter: drop-shadow(0 4px 14px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 20px rgba(203, 213, 225, 0.7)) !important;
+    }
 
     .header-center {
       text-align: center;
@@ -2244,8 +2252,8 @@
       <div class="header-title">EDEBİYAT OYUNHÂNESİ</div>
       <div class="header-sub">ALΣF | Türkçe & Edebiyat ÖABT • AYT Edebiyat</div>
     </div>
-    <div class="header-logo-box sertan-box" title="Sertan Çubukcu">
-      <img src="./assets/logo_sertan.png" alt="Sertan Çubukcu Logo" class="brand-logo-img">
+    <div class="header-logo-box sertan-box" title="Batman">
+      <img src="./assets/logo_batman_silver.png" alt="Batman Logo" class="brand-logo-img">
     </div>
   </header>
 
@@ -2865,7 +2873,7 @@
         id: 'dunya-edebiyati',
         icon: '🌍',
         badge: '289 ÖZGÜN SORU • 10 TEST',
-        title: 'Dünya Edebiyatı Soru Kitabı',
+        title: 'Dünya Edebiyatı',
         desc: 'Klasik, Realist ve Modern başyapıtlar, 282 resimli eser fihristi, Shakespeare özel denemesi ve tiyatro kuramları.',
         btnText: 'Dünya Edebiyatı\'na Git',
         action: () => { window.location.href = './dunya-edebiyati.html'; }
@@ -2874,7 +2882,7 @@
         id: 'cocuk-edebiyati',
         icon: '🪁',
         badge: '181 ÖZGÜN SORU • 8 TEST',
-        title: 'Çocuk Edebiyatı Soru Kitabı',
+        title: 'Çocuk Edebiyatı',
         desc: 'Tarihsel gelişim, ilkler, masal, şiir, roman ve Dünya çocuk klasikleri çitlemelik bilgi testleri.',
         btnText: 'Çocuk Edebiyatı\'na Git',
         action: () => { window.location.href = './cocuk-edebiyati.html'; }
