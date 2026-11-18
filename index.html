@@ -1593,30 +1593,30 @@
       color: #93C5FD !important;
     }
     .social-pill-link.tg:hover {
-      background: rgba(37, 99, 235, 0.22) !important;
+      background: rgba(37, 99, 235, 0.3) !important;
       border-color: #60A5FA !important;
-      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4) !important;
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.55), 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+      transform: translateY(-3px) scale(1.03) !important;
     }
     .social-pill-link.ig {
       border-color: rgba(236, 72, 153, 0.38) !important;
       color: #F9A8D4 !important;
     }
     .social-pill-link.ig:hover {
-      background: rgba(219, 39, 119, 0.22) !important;
+      background: rgba(219, 39, 119, 0.3) !important;
       border-color: #F472B6 !important;
-      box-shadow: 0 0 16px rgba(236, 72, 153, 0.4) !important;
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.55), 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+      transform: translateY(-3px) scale(1.03) !important;
     }
     .social-pill-link.yt {
       border-color: rgba(239, 68, 68, 0.38) !important;
       color: #FCA5A5 !important;
     }
     .social-pill-link.yt:hover {
-      background: rgba(220, 38, 38, 0.22) !important;
+      background: rgba(220, 38, 38, 0.3) !important;
       border-color: #F87171 !important;
-      box-shadow: 0 0 16px rgba(239, 68, 68, 0.4) !important;
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.55), 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+      transform: translateY(-3px) scale(1.03) !important;
     }
 
     .action-pills-wrap {
@@ -1629,28 +1629,49 @@
       flex-wrap: wrap;
     }
     .action-pill-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 20px;
-      border-radius: 12px;
-      background: rgba(10, 16, 32, 0.28) !important;
-      border: 1px solid rgba(212, 175, 55, 0.28) !important;
-      backdrop-filter: blur(8px) !important;
-      -webkit-backdrop-filter: blur(8px) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      padding: 9px 22px !important;
+      border-radius: 14px !important;
+      background: rgba(10, 16, 32, 0.38) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
       color: #FFE082 !important;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-      transition: all 0.25s ease;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    .action-pill-btn::after {
+      content: '' !important;
+      position: absolute !important;
+      top: -50% !important;
+      left: -120% !important;
+      width: 60% !important;
+      height: 200% !important;
+      background: linear-gradient(105deg, transparent, rgba(255, 224, 130, 0.3), transparent) !important;
+      transform: rotate(25deg) !important;
+      pointer-events: none !important;
+      transition: left 0.65s ease !important;
+    }
+    .action-pill-btn:hover::after {
+      left: 140% !important;
     }
     .action-pill-btn:hover {
-      background: rgba(212, 175, 55, 0.16) !important;
+      background: rgba(212, 175, 55, 0.22) !important;
       border-color: #FFE082 !important;
-      box-shadow: 0 0 16px rgba(212, 175, 55, 0.35) !important;
-      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(212, 175, 55, 0.55), 0 8px 22px rgba(0, 0, 0, 0.5) !important;
+      transform: translateY(-3px) scale(1.03) !important;
+      color: #FFFFFF !important;
+    }
+    .action-pill-btn:active {
+      transform: translateY(1px) scale(0.97) !important;
     }
 
     /* Arka Plana Yedirilmiş Şeffaf Sekmeler */
@@ -1763,18 +1784,54 @@
     }
 
     
-    /* Portal Grid Showcase - Doğrudan ve Efsanevi Tuş Dizilimi */
+    /* Portal Grid Showcase - Efsanevi Efektli Tuş ve Kart Dizilimi */
     .portal-grid-showcase {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-      gap: 20px !important;
+      gap: 22px !important;
       width: 100% !important;
       max-width: 1150px !important;
       margin: 15px auto 40px auto !important;
       box-sizing: border-box !important;
+      perspective: 1000px !important;
     }
+
+    @keyframes portalIconLevitate {
+      0% {
+        transform: translateY(0px) scale(1);
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45));
+      }
+      50% {
+        transform: translateY(-7px) scale(1.08) rotate(1.5deg);
+        filter: drop-shadow(0 8px 22px rgba(255, 224, 130, 0.85));
+      }
+      100% {
+        transform: translateY(0px) scale(1);
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.45));
+      }
+    }
+
+    @keyframes badgeBreathingGlow {
+      0%, 100% {
+        box-shadow: 0 0 6px rgba(212, 175, 55, 0.25);
+        border-color: rgba(212, 175, 55, 0.45);
+      }
+      50% {
+        box-shadow: 0 0 16px rgba(255, 224, 130, 0.65);
+        border-color: rgba(255, 224, 130, 0.85);
+      }
+    }
+
+    @keyframes liquidGoldGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .portal-grid-card {
-      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(8, 14, 28, 0.45)) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16), rgba(8, 14, 28, 0.65)) !important;
       border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
       border-radius: 20px !important;
       backdrop-filter: blur(14px) !important;
@@ -1785,25 +1842,95 @@
       align-items: center !important;
       text-align: center !important;
       cursor: pointer !important;
-      transition: all 0.28s ease !important;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease !important;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      will-change: transform, box-shadow !important;
     }
+
+    /* Üst Işık Çizgisi */
+    .portal-grid-card::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 15% !important;
+      right: 15% !important;
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, #FFE082, transparent) !important;
+      opacity: 0.55 !important;
+      transition: all 0.35s ease !important;
+      pointer-events: none !important;
+    }
+
+    /* Işıltılı Işık Süpürme Efekti (Shimmer Sweep) */
+    .portal-grid-card::after {
+      content: '' !important;
+      position: absolute !important;
+      top: -60% !important;
+      left: -130% !important;
+      width: 70% !important;
+      height: 220% !important;
+      background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 224, 130, 0.1) 40%,
+        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 224, 130, 0.1) 60%,
+        transparent 80%
+      ) !important;
+      transform: rotate(25deg) !important;
+      pointer-events: none !important;
+      transition: left 0.85s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.35s ease !important;
+      opacity: 0 !important;
+    }
+
     .portal-grid-card:hover {
       border-color: #FFE082 !important;
-      background: rgba(15, 23, 42, 0.55) !important;
-      transform: translateY(-5px) !important;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.65), 0 0 26px rgba(212, 175, 55, 0.4) !important;
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.25), rgba(15, 23, 42, 0.78)) !important;
+      transform: translateY(-8px) scale(1.02) !important;
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.75), 0 0 35px rgba(212, 175, 55, 0.45), inset 0 0 16px rgba(255, 224, 130, 0.15) !important;
     }
+    .portal-grid-card:hover::before {
+      left: 5% !important;
+      right: 5% !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 12px #FFE082 !important;
+    }
+    .portal-grid-card:hover::after {
+      opacity: 1 !important;
+      left: 170% !important;
+    }
+    .portal-grid-card:active {
+      transform: translateY(-2px) scale(0.99) !important;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.3) !important;
+    }
+
     .portal-grid-icon {
-      font-size: 46px !important;
-      margin-bottom: 10px !important;
-      filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.55)) !important;
+      font-size: 48px !important;
+      margin-bottom: 12px !important;
+      display: inline-block !important;
+      animation: portalIconLevitate 3.6s ease-in-out infinite alternate !important;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease !important;
     }
+    .portal-grid-card:hover .portal-grid-icon {
+      transform: translateY(-10px) scale(1.18) !important;
+      filter: drop-shadow(0 10px 28px rgba(255, 224, 130, 0.95)) !important;
+    }
+    /* Doğal canlılık için kartlar arası gecikmeli süzülme */
+    .portal-grid-card:nth-child(2) .portal-grid-icon { animation-delay: 0.35s !important; }
+    .portal-grid-card:nth-child(3) .portal-grid-icon { animation-delay: 0.7s !important; }
+    .portal-grid-card:nth-child(4) .portal-grid-icon { animation-delay: 1.05s !important; }
+    .portal-grid-card:nth-child(5) .portal-grid-icon { animation-delay: 1.4s !important; }
+    .portal-grid-card:nth-child(6) .portal-grid-icon { animation-delay: 1.75s !important; }
+    .portal-grid-card:nth-child(7) .portal-grid-icon { animation-delay: 2.1s !important; }
+    .portal-grid-card:nth-child(8) .portal-grid-icon { animation-delay: 2.45s !important; }
+    .portal-grid-card:nth-child(9) .portal-grid-icon { animation-delay: 2.8s !important; }
+    .portal-grid-card:nth-child(10) .portal-grid-icon { animation-delay: 3.15s !important; }
+
     .portal-grid-badge {
       display: inline-block !important;
-      padding: 3px 12px !important;
+      padding: 4px 14px !important;
       border-radius: 999px !important;
-      background: rgba(212, 175, 55, 0.18) !important;
+      background: rgba(212, 175, 55, 0.16) !important;
       border: 1px solid rgba(212, 175, 55, 0.45) !important;
       color: #FFE082 !important;
       font-size: 10px !important;
@@ -1811,7 +1938,17 @@
       letter-spacing: 1.2px !important;
       text-transform: uppercase !important;
       margin-bottom: 10px !important;
+      animation: badgeBreathingGlow 3s ease-in-out infinite !important;
+      transition: all 0.25s ease !important;
     }
+    .portal-grid-card:hover .portal-grid-badge {
+      background: rgba(212, 175, 55, 0.32) !important;
+      border-color: #FFE082 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 20px rgba(255, 224, 130, 0.75) !important;
+      transform: scale(1.05) !important;
+    }
+
     .portal-grid-title {
       font-size: 20px !important;
       font-weight: 800 !important;
@@ -1819,31 +1956,77 @@
       font-family: 'Cinzel', serif !important;
       margin-bottom: 8px !important;
       letter-spacing: 0.5px !important;
+      transition: color 0.25s ease, text-shadow 0.25s ease !important;
     }
+    .portal-grid-card:hover .portal-grid-title {
+      color: #FFFFFF !important;
+      text-shadow: 0 0 16px rgba(255, 224, 130, 0.65) !important;
+    }
+
     .portal-grid-desc {
       font-size: 13px !important;
       line-height: 1.55 !important;
-      color: rgba(255, 255, 255, 0.85) !important;
-      margin-bottom: 18px !important;
+      color: rgba(255, 255, 255, 0.88) !important;
+      margin-bottom: 20px !important;
       flex-grow: 1 !important;
     }
+
     .portal-grid-btn {
+      position: relative !important;
+      overflow: hidden !important;
       width: 100% !important;
-      padding: 12px !important;
+      padding: 13px 18px !important;
       font-size: 14px !important;
       font-weight: 800 !important;
-      letter-spacing: 0.5px !important;
+      letter-spacing: 0.6px !important;
       color: #0F172A !important;
-      background: linear-gradient(135deg, #FFE082, #D4AF37) !important;
-      border: none !important;
-      border-radius: 12px !important;
+      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 32%, #FFF9C4 50%, #D4AF37 68%, #FFE082 100%) !important;
+      background-size: 250% 250% !important;
+      animation: liquidGoldGradient 6s ease infinite !important;
+      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+      border-radius: 14px !important;
       cursor: pointer !important;
-      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35) !important;
-      transition: all 0.2s ease !important;
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+    }
+    .portal-grid-btn::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -120% !important;
+      width: 65% !important;
+      height: 100% !important;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent) !important;
+      transform: skewX(-25deg) !important;
+      transition: left 0.6s ease !important;
+      pointer-events: none !important;
+    }
+    .portal-grid-btn:hover::before,
+    .portal-grid-card:hover .portal-grid-btn::before {
+      left: 150% !important;
     }
     .portal-grid-btn:hover {
-      transform: scale(1.03) !important;
-      box-shadow: 0 8px 22px rgba(212, 175, 55, 0.5) !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 10px 26px rgba(212, 175, 55, 0.65), 0 0 25px rgba(255, 224, 130, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+      color: #000000 !important;
+    }
+    .portal-grid-btn:active {
+      transform: translateY(1px) scale(0.97) !important;
+      box-shadow: 0 3px 10px rgba(212, 175, 55, 0.4) !important;
+    }
+    .portal-grid-btn .btn-arrow {
+      display: inline-block !important;
+      font-size: 16px !important;
+      line-height: 1 !important;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    .portal-grid-card:hover .portal-grid-btn .btn-arrow,
+    .portal-grid-btn:hover .btn-arrow {
+      transform: translateX(6px) scale(1.2) !important;
     }
 
     
@@ -2765,13 +2948,14 @@
       const gridContainer = document.getElementById('portalGridList');
       if (!gridContainer) return;
       gridContainer.innerHTML = PORTALS.map((portal, idx) => `
-        <div class="portal-grid-card" onclick="PORTALS[${idx}].action()">
+        <div class="portal-grid-card" onclick="if(window.UIAudio) UIAudio.playClick(); PORTALS[${idx}].action()">
           <div class="portal-grid-icon">${portal.icon}</div>
           <div class="portal-grid-badge">${portal.badge}</div>
           <div class="portal-grid-title">${portal.title}</div>
           <div class="portal-grid-desc">${portal.desc}</div>
-          <button class="portal-grid-btn" onclick="event.stopPropagation(); PORTALS[${idx}].action()">
-            ${portal.btnText} ➔
+          <button class="portal-grid-btn" onclick="event.stopPropagation(); if(window.UIAudio) UIAudio.playClick(); PORTALS[${idx}].action()">
+            <span>${portal.btnText}</span>
+            <span class="btn-arrow">➔</span>
           </button>
         </div>
       `).join('');

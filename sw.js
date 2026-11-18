@@ -1,5 +1,5 @@
 // Edebiyat Oyunhânesi - Çevrimdışı Hizmet Çalışanı (Offline-First Service Worker)
-const CACHE_NAME = 'edebiyathane-v14';
+const CACHE_NAME = 'edebiyathane-v15';
 
 const PRECACHE_ASSETS = [
   './',
