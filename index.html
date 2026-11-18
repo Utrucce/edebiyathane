@@ -286,7 +286,17 @@
       border-color: rgba(99, 102, 241, 0.4);
     }
 
+    
     .tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(15, 23, 42, 0.98)) !important;
+      border: 2px solid #FFE082 !important;
+      color: #FFE082 !important;
+      font-weight: 800 !important;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9), 0 0 10px rgba(255, 224, 130, 0.5) !important;
+      box-shadow: 0 0 22px rgba(212, 175, 55, 0.45) !important;
+    }
+
+    .old-tab-btn-active {
       color: #FFF;
       background: linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(6, 182, 212, 0.3));
       border-color: #6366F1;
@@ -1399,7 +1409,396 @@
       box-shadow: 0 16px 35px -5px rgba(6, 182, 212, 0.38), 0 0 25px rgba(6, 182, 212, 0.25) !important;
     }
 
+
+    /* ============================================================ */
+    /* 🏛️ MÜZE ÇERÇEVELERİ & ALTIN VARAKLI TEŞHİR ESTETİĞİ           */
+    /* ============================================================ */
+
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #FFE082;
+      --gold-dark: #8C6D1F;
+      --gold-deep: #5B4310;
+      --gold-gradient: linear-gradient(135deg, #FFE082 0%, #D4AF37 25%, #7A5C14 50%, #FFF1AA 75%, #9E7924 100%);
+      --brass-gradient: linear-gradient(180deg, #F3D978 0%, #D4AF37 40%, #AA771C 85%, #6B490B 100%);
+      --museum-matting: #080D1A;
+      --frame-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Varaklı Antika Müze Çerçeveleri */
+    .brand-header,
+    .offline-banner-wrap,
+    .progress-panel,
+    .quiz-tests-panel,
+    .score-board,
+    .game-container,
+    .nav-tabs,
+    .install-card {
+      position: relative !important;
+      border: 2.5px solid transparent !important;
+      background-clip: padding-box, border-box !important;
+      background-origin: padding-box, border-box !important;
+      background-image: 
+        linear-gradient(135deg, rgba(10, 15, 29, 0.94), rgba(15, 23, 42, 0.96)),
+        linear-gradient(135deg, #FFE082 0%, #D4AF37 28%, #7A5C14 52%, #FFF1AA 78%, #9E7924 100%) !important;
+      box-shadow: 
+        0 14px 34px rgba(0, 0, 0, 0.75),
+        inset 0 0 0 1px rgba(255, 224, 130, 0.35),
+        inset 0 3px 14px rgba(0, 0, 0, 0.65) !important;
+      border-radius: 18px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Kategori ve Konu Test Kartları için Antika Varaklı Çerçeve */
+    .quiz-category-card,
+    .cat-card,
+    .topic-card {
+      position: relative !important;
+      border: 2px solid transparent !important;
+      background-clip: padding-box, border-box !important;
+      background-origin: padding-box, border-box !important;
+      background-image: 
+        linear-gradient(135deg, rgba(8, 13, 26, 0.92), rgba(15, 23, 42, 0.95)),
+        linear-gradient(135deg, #FFE082 0%, #D4AF37 30%, #6E4F0E 50%, #FFE58F 80%, #99731C 100%) !important;
+      border-radius: 16px !important;
+      box-shadow: 
+        0 12px 28px rgba(0, 0, 0, 0.65),
+        inset 0 0 0 1px rgba(255, 224, 130, 0.25),
+        inset 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
+    /* Köşe Tezhipleri (Arabesque corner filigree) */
+    .quiz-category-card::before,
+    .cat-card::before {
+      content: '❦';
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      font-size: 13px;
+      color: var(--gold-light);
+      opacity: 0.7;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+      pointer-events: none;
+    }
+    .quiz-category-card::after,
+    .cat-card::after {
+      content: '❦';
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 13px;
+      color: var(--gold-light);
+      opacity: 0.7;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+      pointer-events: none;
+      transform: rotate(180deg);
+    }
+
+    /* 3D Perspektif ve Işıltı Efekti */
+    .quiz-category-card:hover,
+    .cat-card:hover {
+      transform: translateY(-6px) scale(1.02) perspective(700px) rotateX(2deg) !important;
+      box-shadow: 
+        0 22px 48px rgba(0, 0, 0, 0.85),
+        0 0 30px rgba(212, 175, 55, 0.45),
+        inset 0 0 0 1.5px rgba(255, 224, 130, 0.6) !important;
+    }
+
+    /* Pirinç Müze Teşhir Plaketi */
+    .museum-brass-plaque {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(100% - 16px);
+      margin: 10px 8px 4px;
+      padding: 5px 12px;
+      background: linear-gradient(180deg, #F3D978 0%, #D4AF37 40%, #AA771C 85%, #6B490B 100%);
+      border: 1px solid #FFE082;
+      border-radius: 4px;
+      box-shadow: 
+        0 3px 6px rgba(0, 0, 0, 0.6),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+      color: #1A1305;
+      font-family: 'Cinzel', 'Georgia', serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    .museum-brass-plaque span.screw {
+      font-size: 8px;
+      opacity: 0.8;
+      color: #382404;
+    }
+
+    /* Tab Butonları Varak Uyum */
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.75) !important;
+      border: 1.2px solid rgba(212, 175, 55, 0.3) !important;
+      color: #E2E8F0 !important;
+    }
+    .tab-btn:hover {
+      background: rgba(30, 41, 59, 0.95) !important;
+      border-color: #FFE082 !important;
+      color: #FFE082 !important;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.35) !important;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(15, 23, 42, 0.95)) !important;
+      border: 1.8px solid #FFE082 !important;
+      color: #FFE082 !important;
+      box-shadow: 0 0 22px rgba(212, 175, 55, 0.45) !important;
+    }
+
+    /* 360° Özel Müze Butonları */
+    .museum-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: 12px;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #1A1305;
+      background: linear-gradient(135deg, #FFF1AA 0%, #D4AF37 50%, #9E7924 100%);
+      border: 1.5px solid #FFE082;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .museum-toggle-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.7);
+    }
+
+    /* ============================================================ */
+    /* 🏛️ 3D 360° SANAL MÜZE SAHNESİ & HUD                          */
+    /* ============================================================ */
+    #museum3DContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+    
+    #museum3DContainer.museum-mode-active {
+      z-index: 99999;
+      pointer-events: auto;
+    }
+
+    #museum3DCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Müze Başüstü Ekranı (HUD) */
+    .museum-hud {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    #museum3DContainer.museum-mode-active .museum-hud {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* HUD Top Bar */
+    .museum-hud-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .museum-hud-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: rgba(10, 15, 29, 0.88);
+      border: 1.5px solid #D4AF37;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(12px);
+    }
+    .museum-hud-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: #FFE082;
+      letter-spacing: 0.8px;
+    }
+    .museum-hud-sub {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+
+    .museum-hud-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hud-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1.2px solid rgba(212, 175, 55, 0.45);
+      color: #F8FAFC;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+    .hud-btn:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: #FFE082;
+      color: #FFE082;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+    }
+
+    .hud-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(15, 23, 42, 0.95));
+      border-color: #FFE082;
+      color: #FFE082;
+    }
+
+    /* 360° Compass Pill */
+    .museum-compass {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(10, 15, 29, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 20px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #FFE082;
+    }
+
+    /* Bottom Teleport Bar (Salon Seçici) */
+    .museum-teleport-bar {
+      align-self: center;
+      max-width: 960px;
+      width: 100%;
+      background: rgba(10, 15, 29, 0.92);
+      border: 2px solid #D4AF37;
+      border-radius: 16px;
+      padding: 8px 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(14px);
+    }
+    .museum-teleport-label {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFE082;
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: 0.8px;
+    }
+    .museum-teleport-items {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: #D4AF37 transparent;
+    }
+    .museum-teleport-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #E2E8F0;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .museum-teleport-btn:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(15, 23, 42, 0.95));
+      border-color: #FFE082;
+      color: #FFE082;
+      transform: translateY(-2px);
+    }
+
+    /* Reticle / Crosshair Guide */
+    .museum-reticle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid rgba(255, 224, 130, 0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+    .museum-reticle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px;
+      height: 4px;
+      background: #FFE082;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #FFE082;
+    }
+    .museum-reticle.hovering {
+      width: 40px;
+      height: 40px;
+      border-color: #FFE082;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    }
+
+    /* Interactive app container visibility switch */
+    body.museum-mode-on #interactive-app {
+      display: none !important;
+    }
+
 </style>
+  <script src="./assets/three.min.js"></script>
 </head>
 <body>
 
@@ -1409,7 +1808,55 @@
   <canvas id="ambientParticlesCanvas"></canvas>
 
 
-  <div id="interactive-app" style="display:flex">
+  
+<!-- 🏛️ 3D 360° SANAL EDEBİYAT MÜZESİ (Three.js WebGL Engine) -->
+<div id="museum3DContainer">
+  <canvas id="museum3DCanvas"></canvas>
+  <div class="museum-hud" id="museum3DHUD">
+    <div class="museum-hud-top">
+      <div class="museum-hud-badge">
+        <span style="font-size:24px;">🏛️</span>
+        <div>
+          <div class="museum-hud-title">SANAL EDEBİYAT MÜZESİ • 360° TUR</div>
+          <div class="museum-hud-sub">Farenizle veya dokunarak 360° etrafınıza bakın • Tablolara tıklayın</div>
+        </div>
+      </div>
+      <div class="museum-hud-controls">
+        <div class="museum-compass" id="museumCompass">🧭 KUZEY 0°</div>
+        <button class="hud-btn active" id="btnAutoTour" onclick="toggleAutoTour()">
+          <span>🔄</span> Otomatik Gezinti
+        </button>
+        <button class="hud-btn" onclick="zoomMuseum(-10)">
+          <span>🔍</span>+
+        </button>
+        <button class="hud-btn" onclick="zoomMuseum(10)">
+          <span>🔍</span>-
+        </button>
+        <button class="hud-btn" onclick="exitMuseumMode()">
+          <span>📋</span> Masa Moduna Geç
+        </button>
+      </div>
+    </div>
+    
+    <div class="museum-reticle" id="museumReticle"></div>
+
+    <div class="museum-teleport-bar">
+      <div class="museum-teleport-label">🏛️ SALON IŞINLANMA • İSTEDİĞİN DÖNEM SERGİSİNE DÖN</div>
+      <div class="museum-teleport-items">
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(0)">🏺 Dîvân Sarayı</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(45)">🎶 Âşık Meydanı</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(90)">🖋️ Tanzimat Salonu</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(135)">🪶 Servet-i Fünûn Odası</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(180)">🇹🇷 Millî Edebiyat</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(225)">📚 Cumhuriyet Kubbesi</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(270)">🎯 Oyun Odası</button>
+        <button class="museum-teleport-btn" onclick="teleportToExhibit(315)">📝 Pıtrak Nüsha</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="interactive-app" style="display:flex">
 
 
   <!-- Top Header -->
@@ -1440,6 +1887,8 @@
       <div class="header-sub">ALΣF | Türkçe & Edebiyat ÖABT • AYT Edebiyat</div>
     </div>
     <div class="header-tools">
+<button type="button" class="museum-toggle-btn" onclick="enterMuseumMode()"><span>🏛️</span> 360° 3D Sanal Müze</button>
+
       <label class="theme-picker" title="Renk paletini ve arka planı değiştir">🎨 Tema
         <select id="theme-select" aria-label="Renk temasını seç" onchange="applyTheme(this.value)">
           <option value="night">🌌 Gece Mavisi</option>
@@ -1478,6 +1927,10 @@
 
   <!-- Navigation Tabs -->
   <nav class="nav-tabs">
+<button class="tab-btn" onclick="enterMuseumMode()" style="border-color:#FFE082; color:#FFE082; background:rgba(212,175,55,0.15);">
+<span>🏛️</span> 360° Sanal Sergi
+</button>
+
     <button class="tab-btn active" onclick="switchNavTab('quiz-view')">
       <span>📝</span> Bilgi Testleri • Konu Seç
     </button>
@@ -2186,7 +2639,11 @@
         const meta = document.createElement('span'); meta.className = 'quiz-category-meta'; meta.textContent = `${categoryQs.length} soru • ${testCount} test • ${answered} yanıtlandı`;
         const track = document.createElement('span'); track.className = 'progress-track';
         const fill = document.createElement('span'); fill.className = 'progress-fill'; fill.style.width = `${Math.round(answered / categoryQs.length * 100)}%`;
-        track.appendChild(fill); card.append(icon,name,meta,track);
+        track.appendChild(fill);
+        const plaque = document.createElement('div');
+        plaque.className = 'museum-brass-plaque';
+        plaque.innerHTML = '<span class="screw">🔩</span><span>🏛️ SALON: ' + category.toUpperCase() + ' • ENV: ' + categoryQs.length + '</span><span class="screw">🔩</span>';
+        card.append(icon, name, meta, track, plaque);
         card.onclick = () => showTestsForCategory(category);
         categoryGrid.appendChild(card);
       });
@@ -3589,6 +4046,418 @@
       renderParticles();
     })();
   </script>
+
+
+<!-- ============================================================ -->
+<!-- 🏛️ THREE.JS 3D 360° VIRTUAL MUSEUM ENGINE                    -->
+<!-- ============================================================ -->
+<script>
+let museumRenderer, museumScene, museumCamera, sphereMesh;
+let museumCanvas = null;
+let isMuseumActive = false;
+let autoTourEnabled = true;
+let isUserDragging = false;
+let downPointerX = 0, downPointerY = 0;
+let curLon = 0, curLat = 0;
+let targetLon = 0, targetLat = 0;
+let targetFov = 70;
+let raycaster = null, mouse = null;
+let exhibitMeshes = [];
+let hoveredExhibit = null;
+
+const EXHIBIT_DATA = [
+  { angle: 0, title: "Dîvân Edebiyatı Sarayı", category: "Eski Türk Edebiyatı", count: "480 Eser & Soru", icon: "🏺", desc: "Gazel, Kaside, Mesnevi • Fuzûlî, Bâkî, Nedim, Şeyh Galip" },
+  { angle: 45, title: "Halk Edebiyatı & Âşıklar", category: "Halk Edebiyatı", count: "390 Eser & Soru", icon: "🎶", desc: "Koşma, Mani, Destan • Yunus Emre, Karacaoğlan, Dadaloğlu" },
+  { angle: 90, title: "Tanzimat & Batılılaşma", category: "Yeni Türk Edebiyatı", count: "420 Eser & Soru", icon: "🖋️", desc: "Tiyatro, Roman, Gazete • Şinasi, Namık Kemal, Ziya Paşa" },
+  { angle: 135, title: "Servet-i Fünûn & Fecr-i Âtî", category: "Yeni Türk Edebiyatı", count: "310 Eser & Soru", icon: "🪶", desc: "Edebi Yenilikler • Tevfik Fikret, Cenap Şahabettin, Halit Ziya" },
+  { angle: 180, title: "Millî Edebiyat & İstiklal", category: "Yeni Türk Edebiyatı", count: "450 Eser & Soru", icon: "🇹🇷", desc: "Dilde Sadeleşme • Ömer Seyfettin, Ziya Gökalp, M. Emin" },
+  { angle: 225, title: "Cumhuriyet & Çağdaş Kubbe", category: "Eser-Yazar", count: "560 Eser & Soru", icon: "📚", desc: "Şiir, Roman, Tiyatro • Ahmet Hamdi, Orhan Veli, Attilâ İlhan" },
+  { angle: 270, title: "Oyunhâne & Bilgi Meydanı", action: "game", count: "4 Farklı Oyun", icon: "🎯", desc: "Hızlı Eşleştirme, Kitap Yağmuru, Nişancı" },
+  { angle: 315, title: "Pıtrak Nüsha Hattat Masası", action: "pitrak", count: "Yaprak Test Modülü", icon: "📝", desc: "Özel Sınav ve Test Yaprağı Çıkar" }
+];
+
+function init3DMuseum() {
+  if (typeof THREE === 'undefined') {
+    console.warn('Three.js henüz yüklenmedi.');
+    return;
+  }
+  museumCanvas = document.getElementById('museum3DCanvas');
+  if (!museumCanvas) return;
+
+  museumRenderer = new THREE.WebGLRenderer({ canvas: museumCanvas, antialias: true, alpha: true });
+  museumRenderer.setSize(window.innerWidth, window.innerHeight);
+  museumRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  museumScene = new THREE.Scene();
+  museumCamera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1500);
+  museumCamera.position.set(0, 0, 0.1);
+
+  // Inverted Sphere for 360 Panorama
+  const sphereGeo = new THREE.SphereGeometry(600, 60, 40);
+  sphereGeo.scale(-1, 1, 1);
+  const texLoader = new THREE.TextureLoader();
+  texLoader.load('./assets/museum_360_equirect.jpg', (tex) => {
+    tex.minFilter = THREE.LinearFilter;
+    const sphereMat = new THREE.MeshBasicMaterial({ map: tex });
+    sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
+    museumScene.add(sphereMesh);
+  });
+
+  // Build 3D Gilded Museum Exhibits
+  EXHIBIT_DATA.forEach(data => {
+    const mesh = buildExhibitFrameMesh(data);
+    exhibitMeshes.push(mesh);
+    mesh.visible = false; // Hidden until full 360 museum mode is entered
+    museumScene.add(mesh);
+  });
+
+  raycaster = new THREE.Raycaster();
+  mouse = new THREE.Vector2(-999, -999);
+
+  setupMuseumEvents();
+  requestAnimationFrame(renderMuseumLoop);
+}
+
+function buildExhibitFrameMesh(data) {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 360;
+  const ctx = c.getContext('2d');
+
+  // Background
+  ctx.fillStyle = '#070B14';
+  ctx.fillRect(0, 0, 512, 360);
+
+  // Gold frame gradient
+  const goldGrad = ctx.createLinearGradient(0, 0, 512, 360);
+  goldGrad.addColorStop(0, '#FFE082');
+  goldGrad.addColorStop(0.3, '#D4AF37');
+  goldGrad.addColorStop(0.65, '#8C6D1F');
+  goldGrad.addColorStop(1, '#FFF1AA');
+
+  ctx.lineWidth = 14;
+  ctx.strokeStyle = goldGrad;
+  ctx.strokeRect(7, 7, 498, 346);
+
+  // Inner gold border
+  ctx.lineWidth = 2.5;
+  ctx.strokeStyle = 'rgba(255, 224, 130, 0.75)';
+  ctx.strokeRect(20, 20, 472, 320);
+
+  // Inner Velvet Matting
+  ctx.fillStyle = 'rgba(11, 17, 33, 0.96)';
+  ctx.fillRect(22, 22, 468, 316);
+
+  // Corner tezhipler
+  ctx.fillStyle = '#FFE082';
+  ctx.font = '24px serif';
+  ctx.fillText('❦', 28, 48);
+  ctx.fillText('❦', 465, 48);
+  ctx.fillText('❦', 28, 326);
+  ctx.fillText('❦', 465, 326);
+
+  // Icon
+  ctx.font = '64px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(data.icon, 256, 115);
+
+  // Title
+  ctx.font = 'bold 27px serif';
+  ctx.fillStyle = '#FFE082';
+  ctx.fillText(data.title, 256, 175);
+
+  // Description / Sub
+  ctx.font = '16px sans-serif';
+  ctx.fillStyle = '#94A3B8';
+  ctx.fillText(data.count, 256, 215);
+
+  // Brass Plaque
+  const brassGrad = ctx.createLinearGradient(60, 255, 452, 305);
+  brassGrad.addColorStop(0, '#E6C65A');
+  brassGrad.addColorStop(0.5, '#FFE082');
+  brassGrad.addColorStop(1, '#AA771C');
+  ctx.fillStyle = brassGrad;
+  ctx.fillRect(60, 255, 392, 44);
+  ctx.strokeStyle = '#5B4310';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(60, 255, 392, 44);
+
+  ctx.font = 'bold 15px serif';
+  ctx.fillStyle = '#1A1305';
+  ctx.fillText('🏛️ SALON GİRİŞİ • GÖRÜNTÜLEMEK İÇİN TIKLA', 256, 283);
+
+  const tex = new THREE.CanvasTexture(c);
+  const geo = new THREE.PlaneGeometry(120, 84);
+  const mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
+  const mesh = new THREE.Mesh(geo, mat);
+
+  const rad = (data.angle * Math.PI) / 180;
+  const radius = 370;
+  mesh.position.x = Math.sin(rad) * radius;
+  mesh.position.z = -Math.cos(rad) * radius;
+  mesh.position.y = 8;
+  mesh.lookAt(0, 8, 0);
+
+  mesh.userData = data;
+  return mesh;
+}
+
+function setupMuseumEvents() {
+  window.addEventListener('resize', onMuseumResize);
+
+  const container = document.getElementById('museum3DContainer');
+
+  container.addEventListener('pointerdown', (e) => {
+    if (!isMuseumActive) return;
+    isUserDragging = true;
+    downPointerX = e.clientX;
+    downPointerY = e.clientY;
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    // Parallax background tracking when not in full museum mode
+    if (!isMuseumActive) {
+      targetLon = ((e.clientX / window.innerWidth) - 0.5) * 40;
+      targetLat = -((e.clientY / window.innerHeight) - 0.5) * 20;
+      return;
+    }
+
+    // Full 360 drag interaction
+    if (isUserDragging) {
+      const dx = e.clientX - downPointerX;
+      const dy = e.clientY - downPointerY;
+      targetLon -= dx * 0.18;
+      targetLat += dy * 0.18;
+      downPointerX = e.clientX;
+      downPointerY = e.clientY;
+      autoTourEnabled = false;
+      const btn = document.getElementById('btnAutoTour');
+      if (btn) btn.classList.remove('active');
+    }
+
+    // Raycast for hover state on exhibits
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    checkExhibitHover();
+  });
+
+  window.addEventListener('pointerup', () => {
+    isUserDragging = false;
+  });
+
+  // Touch Support
+  let touchStartDist = 0;
+  container.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      touchStartDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    }
+  }, { passive: true });
+
+  container.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      const diff = dist - touchStartDist;
+      zoomMuseum(-diff * 0.1);
+      touchStartDist = dist;
+    }
+  }, { passive: true });
+
+  // Wheel zoom
+  container.addEventListener('wheel', (e) => {
+    if (!isMuseumActive) return;
+    zoomMuseum(e.deltaY * 0.05);
+  }, { passive: true });
+
+  // Click on 3D Exhibits
+  container.addEventListener('click', (e) => {
+    if (!isMuseumActive) return;
+    if (hoveredExhibit) {
+      triggerExhibitAction(hoveredExhibit.userData);
+    }
+  });
+}
+
+function checkExhibitHover() {
+  if (!raycaster || !museumCamera) return;
+  raycaster.setFromCamera(mouse, museumCamera);
+  const intersects = raycaster.intersectObjects(exhibitMeshes);
+  const reticle = document.getElementById('museumReticle');
+
+  if (intersects.length > 0) {
+    const obj = intersects[0].object;
+    if (hoveredExhibit !== obj) {
+      if (hoveredExhibit) hoveredExhibit.scale.set(1, 1, 1);
+      hoveredExhibit = obj;
+      hoveredExhibit.scale.set(1.08, 1.08, 1.08);
+      if (typeof UIAudio !== 'undefined' && UIAudio.playPlaqueHover) UIAudio.playPlaqueHover();
+    }
+    if (reticle) reticle.classList.add('hovering');
+    document.body.style.cursor = 'pointer';
+  } else {
+    if (hoveredExhibit) {
+      hoveredExhibit.scale.set(1, 1, 1);
+      hoveredExhibit = null;
+    }
+    if (reticle) reticle.classList.remove('hovering');
+    document.body.style.cursor = 'default';
+  }
+}
+
+function triggerExhibitAction(data) {
+  if (typeof UIAudio !== 'undefined' && UIAudio.playChime) UIAudio.playChime();
+  exitMuseumMode();
+
+  if (data.action === 'game') {
+    switchNavTab('speed-game-view');
+  } else if (data.action === 'pitrak') {
+    window.location.href = './Pitrak-Nusha/index.html';
+  } else if (data.category) {
+    switchNavTab('quiz-view');
+    showTestsForCategory(data.category);
+  }
+}
+
+function teleportToExhibit(angle) {
+  targetLon = angle;
+  targetLat = 0;
+  autoTourEnabled = false;
+  const btn = document.getElementById('btnAutoTour');
+  if (btn) btn.classList.remove('active');
+  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
+}
+
+function zoomMuseum(delta) {
+  targetFov = Math.max(35, Math.min(95, targetFov + delta));
+}
+
+function toggleAutoTour() {
+  autoTourEnabled = !autoTourEnabled;
+  const btn = document.getElementById('btnAutoTour');
+  if (btn) btn.classList.toggle('active', autoTourEnabled);
+  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
+}
+
+function enterMuseumMode() {
+  isMuseumActive = true;
+  exhibitMeshes.forEach(m => m.visible = true);
+  document.body.classList.add('museum-mode-on');
+  const container = document.getElementById('museum3DContainer');
+  if (container) container.classList.add('museum-mode-active');
+  if (typeof UIAudio !== 'undefined' && UIAudio.playChime) UIAudio.playChime();
+  onMuseumResize();
+}
+
+function exitMuseumMode() {
+  isMuseumActive = false;
+  exhibitMeshes.forEach(m => m.visible = false);
+  document.body.classList.remove('museum-mode-on');
+  const container = document.getElementById('museum3DContainer');
+  if (container) container.classList.remove('museum-mode-active');
+  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
+}
+
+function toggleMuseumMode() {
+  if (isMuseumActive) exitMuseumMode();
+  else enterMuseumMode();
+}
+
+function onMuseumResize() {
+  if (!museumCamera || !museumRenderer) return;
+  museumCamera.aspect = window.innerWidth / window.innerHeight;
+  museumCamera.updateProjectionMatrix();
+  museumRenderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function renderMuseumLoop() {
+  requestAnimationFrame(renderMuseumLoop);
+
+  if (autoTourEnabled && isMuseumActive) {
+    targetLon += 0.08;
+  }
+
+  // Smooth lerp camera rotation
+  curLon += (targetLon - curLon) * 0.08;
+  curLat += (targetLat - curLat) * 0.08;
+  museumCamera.fov += (targetFov - museumCamera.fov) * 0.1;
+  museumCamera.updateProjectionMatrix();
+
+  curLat = Math.max(-85, Math.min(85, curLat));
+  const phi = THREE.MathUtils.degToRad(90 - curLat);
+  const theta = THREE.MathUtils.degToRad(curLon);
+
+  const lookTarget = new THREE.Vector3(
+    500 * Math.sin(phi) * Math.cos(theta),
+    500 * Math.cos(phi),
+    500 * Math.sin(phi) * Math.sin(theta)
+  );
+  museumCamera.lookAt(lookTarget);
+
+  // Update Compass Indicator
+  const compass = document.getElementById('museumCompass');
+  if (compass) {
+    const deg = Math.round(((curLon % 360) + 360) % 360);
+    let dir = "KUZEY";
+    if (deg >= 45 && deg < 135) dir = "DOĞU";
+    else if (deg >= 135 && deg < 225) dir = "GÜNEY";
+    else if (deg >= 225 && deg < 315) dir = "BATI";
+    compass.textContent = `🧭 ${dir} ${deg}°`;
+  }
+
+  museumRenderer.render(museumScene, museumCamera);
+}
+
+// Enhance UIAudio with chime and hover
+if (typeof UIAudio !== 'undefined') {
+  UIAudio.playChime = () => {
+    try {
+      const c = (typeof getAudioCtx === 'function' ? getAudioCtx() : null);
+      if (!c) return;
+      const now = c.currentTime;
+      [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+        const osc = c.createOscillator();
+        const g = c.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.07);
+        g.gain.setValueAtTime(0.001, now + i * 0.07);
+        g.gain.exponentialRampToValueAtTime(0.09, now + i * 0.07 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.07 + 0.9);
+        osc.connect(g); g.connect(c.destination);
+        osc.start(now + i * 0.07);
+        osc.stop(now + i * 0.07 + 1.0);
+      });
+    } catch(e) {}
+  };
+  UIAudio.playPlaqueHover = () => {
+    try {
+      const c = (typeof getAudioCtx === 'function' ? getAudioCtx() : null);
+      if (!c) return;
+      const now = c.currentTime;
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.06);
+      g.gain.setValueAtTime(0.02, now);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+      osc.connect(g); g.connect(c.destination);
+      osc.start(now); osc.stop(now + 0.13);
+    } catch(e) {}
+  };
+}
+
+// Auto-initialize 3D Museum on window load
+window.addEventListener('load', () => {
+  setTimeout(init3DMuseum, 300);
+});
+
+// Keyboard shortcut: Press 'M' to toggle 3D Museum mode
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'm' || e.key === 'M') {
+    if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) return;
+    toggleMuseumMode();
+  }
+});
+</script>
 
 </body>
 </html>
