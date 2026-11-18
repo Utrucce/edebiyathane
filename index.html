@@ -1667,6 +1667,486 @@
       display: none !important;
     }
 
+
+    /* ============================================================ */
+    /* EFSANEVİ ANA MENÜ & TEK TUŞ VİTRİNİ & TAM EKRAN OYUNLAR      */
+    /* ============================================================ */
+    .nav-tabs {
+      display: none !important;
+    }
+
+    #home-portal-view {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 16px 40px 16px;
+      box-sizing: border-box;
+      animation: portalFadeIn 0.35s ease-out;
+    }
+    #home-portal-view.active {
+      display: flex !important;
+    }
+    @keyframes portalFadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Portal Layout Switcher */
+    .portal-mode-toggle {
+      display: flex;
+      gap: 8px;
+      background: rgba(10, 16, 32, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 999px;
+      padding: 4px;
+      margin: 10px auto 18px auto;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .portal-toggle-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .portal-toggle-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(184, 134, 11, 0.25));
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      color: #FFE082;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Hero Showcase - Tek Tuş Vitrini ("Bir ekranda sadece bir tuş") */
+    .hero-stage-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      margin: 10px 0 16px 0;
+      position: relative;
+    }
+    .hero-arrow-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(10, 16, 32, 0.55);
+      border: 1.5px solid rgba(212, 175, 55, 0.4);
+      color: #FFE082;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .hero-arrow-btn:hover {
+      background: rgba(212, 175, 55, 0.28);
+      border-color: #FFE082;
+      transform: scale(1.12);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+    .hero-arrow-btn:active {
+      transform: scale(0.96);
+    }
+
+    .hero-card-showcase {
+      flex: 1;
+      max-width: 560px;
+      min-height: 380px;
+      background: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.18), rgba(8, 14, 28, 0.45)) !important;
+      border: 2px solid rgba(212, 175, 55, 0.45) !important;
+      border-radius: 24px !important;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 35px rgba(212, 175, 55, 0.25) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero-card-showcase:hover {
+      border-color: #FFE082 !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(212, 175, 55, 0.4) !important;
+      transform: translateY(-4px);
+    }
+    .hero-card-icon {
+      font-size: 64px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+      animation: heroIconFloat 3s ease-in-out infinite alternate;
+    }
+    @keyframes heroIconFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    .hero-card-badge {
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: #FFE082;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero-card-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #FFF8E1;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+    .hero-card-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 440px;
+      margin: 0 auto 24px auto;
+    }
+    .hero-launch-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 15px 28px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      color: #0F172A;
+      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B8860B 100%);
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .hero-launch-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+      filter: brightness(1.08);
+    }
+    .hero-launch-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Hero Dots */
+    .hero-dots-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .hero-dot.active {
+      width: 30px;
+      background: #D4AF37;
+      box-shadow: 0 0 12px #D4AF37;
+    }
+
+    /* Grid Showcase - Bütün Tuşlar */
+    .portal-grid-showcase {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      width: 100%;
+      margin: 10px 0 20px 0;
+    }
+    .portal-grid-card {
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(8, 14, 28, 0.4)) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.3) !important;
+      border-radius: 18px !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.28s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .portal-grid-card:hover {
+      border-color: #FFE082 !important;
+      background: rgba(15, 23, 42, 0.5) !important;
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 24px rgba(212, 175, 55, 0.35);
+    }
+    .portal-grid-icon {
+      font-size: 42px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+    }
+    .portal-grid-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #FFE082;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .portal-grid-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #FFF8E1;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 6px;
+    }
+    .portal-grid-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+    .portal-grid-btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      background: linear-gradient(135deg, #FFE082, #D4AF37);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    /* Universal Return Bar ("Bir ekranda sadece bir tuşun ekranı olsun") */
+    .view-return-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 16px auto;
+      padding: 10px 16px;
+      background: rgba(10, 16, 32, 0.45);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+    .btn-return-portal {
+      background: rgba(212, 175, 55, 0.16);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #FFE082;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-return-portal:hover {
+      background: rgba(212, 175, 55, 0.3);
+      border-color: #FFE082;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+      transform: translateX(-2px);
+    }
+    .return-bar-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFF8E1;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+      text-align: center;
+      flex: 1;
+    }
+
+    /* ============================================================ */
+    /* FULLSCREEN GAME ARENA ("Oyunlar tam ekranda olsun")          */
+    /* ============================================================ */
+    .fullscreen-game-arena {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 10000 !important;
+      background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.96), rgba(5, 9, 18, 0.98)) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 10px 14px !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      animation: gameArenaFadeIn 0.3s ease-out;
+    }
+    @keyframes gameArenaFadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .game-top-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 10px auto;
+      padding: 8px 14px;
+      background: rgba(10, 16, 32, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .game-exit-btn {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: #FCA5A5;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .game-exit-btn:hover {
+      background: rgba(239, 68, 68, 0.35);
+      color: #FFFFFF;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+    }
+    .game-bar-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFE082;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.8px;
+      text-align: center;
+      flex: 1;
+    }
+    .game-fs-btn {
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #FFE082;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .game-fs-btn:hover {
+      background: rgba(212, 175, 55, 0.35);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    }
+    .fullscreen-game-arena .canvas-wrap {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 0;
+    }
+    .fullscreen-game-arena .game-2d-canvas {
+      width: 100% !important;
+      max-width: 1000px !important;
+      max-height: calc(100vh - 190px) !important;
+      object-fit: contain !important;
+      border-radius: 14px !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25) !important;
+    }
+    .fullscreen-game-arena .touch-controls {
+      display: flex !important;
+      gap: 14px !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      margin: 8px auto 0 auto !important;
+    }
+    .fullscreen-game-arena .touch-btn {
+      flex: 1 !important;
+      padding: 14px !important;
+      font-size: 15px !important;
+      font-weight: 800 !important;
+      background: rgba(212, 175, 55, 0.22) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+      color: #FFE082 !important;
+      border-radius: 12px !important;
+      cursor: pointer !important;
+    }
+    .fullscreen-game-arena .speed-game-arena {
+      max-width: 950px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      flex: 1 1 auto;
+    }
+
+    /* PWA Ready Indicator */
+    .btn-install-trigger.install-ready {
+      border-color: #34D399 !important;
+      box-shadow: 0 0 16px rgba(52, 211, 153, 0.4) !important;
+      color: #6EE7B7 !important;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card-showcase {
+        min-height: 340px;
+        padding: 24px 16px;
+      }
+      .hero-card-icon {
+        font-size: 48px;
+      }
+      .hero-card-title {
+        font-size: 22px;
+      }
+      .hero-arrow-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -1703,10 +2183,35 @@
     <a class="action-pill-btn" href="./Pitrak-Nusha/index.html" title="Soru & Yaprak Test Modülü">
       <span>📝</span> Pıtrak Nüsha
     </a>
-    <button class="action-pill-btn" onclick="openInstallModal()" title="Cihaza / Ana Ekrana Ekle">
+    <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()" title="Cihaza / Ana Ekrana Ekle">
       <span>📲</span> Cihaza Ekle
     </button>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- 0. EFSANEVİ ANA MENÜ & PORTAL (TEK TUŞ VİTRİNİ VE IZGARA)   -->
+  <!-- ============================================================ -->
+  <section id="home-portal-view" class="view-container active">
+    <div class="portal-mode-toggle">
+      <button class="portal-toggle-btn active" id="btnModeHero" onclick="setPortalLayout('hero')">🪐 Tekli Vitrin Modu</button>
+      <button class="portal-toggle-btn" id="btnModeGrid" onclick="setPortalLayout('grid')">✨ Bütün Tuşlar</button>
+    </div>
+
+    <!-- Tek Tuş Vitrini ("Bir ekranda sadece bir tuş") -->
+    <div class="hero-stage-container" id="heroStage">
+      <button class="hero-arrow-btn" onclick="cycleHeroPortal(-1)" aria-label="Önceki Kapı">⟨</button>
+      <div class="hero-card-showcase" id="heroCardActive">
+        <!-- Javascript renders active hero portal here -->
+      </div>
+      <button class="hero-arrow-btn" onclick="cycleHeroPortal(1)" aria-label="Sonraki Kapı">⟩</button>
+    </div>
+    <div class="hero-dots-row" id="heroDotsRow"></div>
+
+    <!-- Bütün Kapılar (Izgara Görünümü) -->
+    <div class="portal-grid-showcase" id="portalGridList">
+      <!-- Javascript renders all 8 portals here -->
+    </div>
+  </section>
 
   <nav class="nav-tabs">
 <button class="tab-btn active" onclick="switchNavTab('quiz-view')">
@@ -1739,7 +2244,16 @@
 <!-- ============================================================ -->
 <!-- 🏛️ YAZAR MÜZESİ & EDEBİ BİYOGRAFİ ANSİKLOPEDİSİ               -->
 <!-- ============================================================ -->
-<main id="quiz-view" class="view-container active">
+<main id="quiz-view" class="view-container">
+  <div class="view-return-bar">
+    <button class="btn-return-portal" onclick="returnToPortal()">
+      <span>⬅</span> Efsanevi Ana Menüye Dön
+    </button>
+    <div class="return-bar-title">📝 BİLGİ TESTLERİ • KONU SEÇİMİ</div>
+    <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+      <span>📲</span> Cihaza Ekle
+    </button>
+  </div>
     <section id="quiz-catalog">
       <section class="progress-panel" id="quiz-progress-panel" aria-label="Kullanıcı ilerlemesi">
         <div class="progress-panel-head"><div class="progress-panel-title">📈 Öğrenme İlerlemen</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="progress-reset-btn" id="resume-quiz-btn" type="button" onclick="resumeSavedQuiz()" hidden>Kaldığın yerden devam et</button><button class="progress-reset-btn" type="button" onclick="resetAllProgress()">İlerlemeyi Sıfırla</button></div></div>
@@ -1831,6 +2345,11 @@
   <!-- 2. SPEED MATCH GAME VIEW                                     -->
   <!-- ============================================================ -->
   <section id="speed-game-view" class="view-container">
+    <div class="game-top-nav-bar">
+      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
+      <div class="game-bar-title">⚡ HIZLI EŞLEŞTİRME</div>
+      <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
+    </div>
     <div class="game-stats-header">
       <div class="g-stat-box">
         <div class="g-stat-label">Süre</div>
@@ -1888,6 +2407,11 @@
   <!-- 3. BOARD PAIR MATCHING GAME VIEW                             -->
   <!-- ============================================================ -->
   <section id="board-game-view" class="view-container">
+    <div class="game-top-nav-bar">
+      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
+      <div class="game-bar-title">🧩 PANO EŞLEŞTİRME</div>
+      <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
+    </div>
     <div class="game-stats-header">
       <div class="g-stat-box">
         <div class="g-stat-label">Tur</div>
@@ -1919,9 +2443,14 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- 4. 2 BOYUTLU OYUN 1: EDEBİYAT YAĞMURU                        -->
+  <!-- 4. EDEBİYAT YAĞMURU                        -->
   <!-- ============================================================ -->
   <section id="catcher-game-view" class="view-container">
+    <div class="game-top-nav-bar">
+      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
+      <div class="game-bar-title">🧺 KİTAP YAĞMURU</div>
+      <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
+    </div>
     <div class="game-stats-header">
       <div class="g-stat-box">
         <div class="g-stat-label">Hedef Yazar</div>
@@ -1944,7 +2473,7 @@
 
     <div class="speed-game-arena">
       <div class="game-desc" style="margin-bottom: 12px; text-align:center;">
-        <b>2 Boyutlu Kitap Yağmuru:</b> Yukarıda yazan <b>Hedef Yazar</b>'a ait olan eserleri sepetle yakalayın, başka yazarların eserlerinden kaçının! (Klavye Sol/Sağ ok tuşları, Fare veya aşağıdaki dokunmatik düğmelerle oynanır).
+        <b>Kitap Yağmuru Oyunu:</b> Yukarıda yazan <b>Hedef Yazar</b>'a ait olan eserleri sepetle yakalayın, başka yazarların eserlerinden kaçının! (Klavye Sol/Sağ ok tuşları, Fare veya aşağıdaki dokunmatik düğmelerle oynanır).
       </div>
       <div class="canvas-wrap">
         <canvas id="catcher-canvas" class="game-2d-canvas" width="900" height="440"></canvas>
@@ -1957,9 +2486,14 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- 5. 2 BOYUTLU OYUN 2: TÜR NİŞANCISI                           -->
+  <!-- 5. TÜR NİŞANCISI                           -->
   <!-- ============================================================ -->
   <section id="shooter-game-view" class="view-container">
+    <div class="game-top-nav-bar">
+      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
+      <div class="game-bar-title">🎯 TÜR NİŞANCISI</div>
+      <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
+    </div>
     <div class="game-stats-header">
       <div class="g-stat-box">
         <div class="g-stat-label">Sıradaki Eser</div>
@@ -1982,7 +2516,7 @@
 
     <div class="speed-game-arena">
       <div class="game-desc" style="margin-bottom: 12px; text-align:center;">
-        <b>2 Boyutlu Tür Nişancısı:</b> Ekranda verilen eserin <b>edebi türünü</b> (Roman, Şiir, Tiyatro, Hikâye, Deneme/Makale, Hatıra/Gezi, Masal/Çocuk) taşıyan hareketli hedef balonunu vurun! Hedefe tıklayın veya dokunun.
+        <b>Tür Nişancısı Oyunu:</b> Ekranda verilen eserin <b>edebi türünü</b> (Roman, Şiir, Tiyatro, Hikâye, Deneme/Makale, Hatıra/Gezi, Masal/Çocuk) taşıyan hareketli hedef balonunu vurun! Hedefe tıklayın veya dokunun.
       </div>
       <div class="canvas-wrap">
         <canvas id="shooter-canvas" class="game-2d-canvas" width="900" height="440"></canvas>
@@ -1994,6 +2528,15 @@
   <!-- 6. LIBRARY VIEW (WORK-AUTHOR RECORDS ONLY)                     -->
   <!-- ============================================================ -->
   <section id="library-view" class="view-container">
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">📚 ESER VE YAZAR KÜTÜPHANESİ</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
     <div class="lib-filter-bar">
       <input type="text" id="lib-search-input" class="lib-input" placeholder="🔍 Eser veya yazar ara (Örn: Makber, Tanpınar)..." oninput="renderLibrary()">
       <select id="lib-category-select" class="lib-select" onchange="renderLibrary()">
@@ -2014,6 +2557,15 @@
   </section>
 
   <section id="literature-topics-view" class="view-container">
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">📖 EDEBİYAT KONU VE ÖZET KARTLARI</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
     <section class="topic-game">
       <div class="topic-game-head"><div class="topic-game-title">🃏 Edebiyat Bilgi Eşleştirme</div><div class="topic-game-meta"><span id="topic-game-score">Puan: 0</span><span id="topic-game-streak">Seri: 0</span><span id="topic-game-round">Tur: 0</span><span id="topic-game-best">Rekor: 0</span><span id="topic-game-accuracy">İsabet: %0</span></div></div>
       <div class="game-desc" style="margin-top:7px">İpucunu oku, doğru edebiyat terimini, bilgiyi ya da sanatçıyı seçenekler arasından bul. Oyun, seçtiğin konu filtresine göre soru getirir.</div>
@@ -2037,26 +2589,29 @@
     <div class="topic-card-nav"><button type="button" id="topic-card-prev" onclick="moveTopicCard(-1)">← Önceki kart</button><span class="topic-card-position" id="topic-card-position">0 / 0</span><button type="button" id="topic-card-next" onclick="moveTopicCard(1)">Sonraki kart →</button></div>
   </section>
 
-  <!-- INSTALL MODAL -->
+    <!-- INSTALL MODAL -->
   <div id="install-modal" class="modal-backdrop" onclick="if(event.target===this) closeInstallModal()">
     <div class="install-modal-box">
       <div class="modal-head-row">
-        <div class="modal-head-title">📲 Telefon / Tablet / Bilgisayarda Çalıştırma</div>
+        <div class="modal-head-title">📲 Cihaza Ekleme & Doğrudan Kurulum</div>
         <button class="modal-close-x" onclick="closeInstallModal()">&times;</button>
       </div>
       <div class="step-row">
         <div class="step-badge-num">1</div>
-        <div><b>iPhone / iPad (Safari):</b> Dosyayı açtıktan sonra alt ortadaki <b>Paylaş</b> simgesine ve ardından <b>"Ana Ekrana Ekle"</b> seçeneğine dokunun.</div>
+        <div><b>Doğrudan Yükleme:</b> Aşağıdaki <b>"Hemen Cihaza Yükle"</b> butonuna basarak uygulamayı telefonunuza veya bilgisayarınıza tek tıkla yükleyebilirsiniz.</div>
       </div>
       <div class="step-row">
         <div class="step-badge-num">2</div>
-        <div><b>Android (Chrome):</b> Sağ üstteki <b>üç noktaya (⋮)</b> dokunup <b>"Ana Ekrana Ekle"</b> seçeneğini kullanın.</div>
+        <div><b>iPhone / iPad (Safari):</b> Safari'de alttaki <b>Paylaş</b> simgesine ve ardından <b>"Ana Ekrana Ekle"</b> seçeneğine dokunun.</div>
       </div>
       <div class="step-row">
         <div class="step-badge-num">3</div>
-        <div><b>%100 Çevrimdışı:</b> Tüm 4784 eser verisi, özel çizim kitap kapakları ve 2 boyutlu oyun motorları tek dosya içindedir.</div>
+        <div><b>Android / Bilgisayar (Chrome / Edge):</b> Sağ üstteki <b>üç noktaya (⋮)</b> dokunup <b>"Uygulamayı Yükle / Ana Ekrana Ekle"</b> seçeneğini de kullanabilirsiniz.</div>
       </div>
-      <button class="modal-bottom-btn" onclick="closeInstallModal()">Tamam, Anladım</button>
+      <div style="display:flex;gap:10px;margin-top:16px;">
+        <button class="modal-install-btn" style="flex:1.4;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-weight:700;padding:12px;border:none;border-radius:10px;cursor:pointer;" onclick="executeInstallFromModal()">🚀 Hemen Cihaza Yükle</button>
+        <button class="modal-bottom-btn" style="flex:1;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:12px;border-radius:10px;cursor:pointer;" onclick="handleAnladimClick()">Tamam, Anladım</button>
+      </div>
     </div>
   </div>
 
@@ -2239,6 +2794,343 @@
 
     // NAVIGATION & QUIZ GENERATION ENGINE (4784 ITEMS, CATEGORY-BASED TESTS)
     // ============================================================
+    
+    // ============================================================
+    // GERÇEK PWA CİHAZA YÜKLEME MOTORU (Real PWA Install Engine)
+    // ============================================================
+    let deferredInstallPrompt = null;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      console.log('beforeinstallprompt yakalandı ve hazırlandı.');
+      document.querySelectorAll('.btn-install-trigger').forEach(btn => {
+        btn.classList.add('install-ready');
+        btn.title = "Uygulamayı Cihazınıza Yükleyin (Hazır)";
+      });
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      alert('🎉 ALΣF Edebiyat Oyunhânesi cihazınıza başarıyla yüklendi! Artık ana ekranınızdan bağımsız bir uygulama olarak erişebilirsiniz.');
+      closeInstallModal();
+    });
+
+    async function triggerRealInstall() {
+      if (deferredInstallPrompt) {
+        try {
+          deferredInstallPrompt.prompt();
+          const choiceResult = await deferredInstallPrompt.userChoice;
+          if (choiceResult && choiceResult.outcome === 'accepted') {
+            deferredInstallPrompt = null;
+            closeInstallModal();
+            return;
+          }
+        } catch (err) {
+          console.warn('Yükleme hatası:', err);
+        }
+      }
+
+      // Standalone kontrolü
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (isStandalone) {
+        alert('✨ ALΣF Edebiyat Oyunhânesi zaten cihazınızda kurulu ve bağımsız çalışıyor!');
+        return;
+      }
+
+      openInstallModal();
+    }
+
+    async function executeInstallFromModal() {
+      if (deferredInstallPrompt) {
+        try {
+          deferredInstallPrompt.prompt();
+          const choice = await deferredInstallPrompt.userChoice;
+          if (choice && choice.outcome === 'accepted') {
+            deferredInstallPrompt = null;
+            closeInstallModal();
+            return;
+          }
+        } catch(err) {
+          console.warn('Modal yükleme hatası:', err);
+        }
+      }
+      handleAnladimClick();
+    }
+
+    function handleAnladimClick() {
+      if (deferredInstallPrompt) {
+        try {
+          deferredInstallPrompt.prompt().catch(() => {});
+        } catch(e) {}
+      }
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        alert("📱 iPhone / iPad: Safari'de alttaki 'Paylaş' (kare ve yukarı ok) simgesine dokunun, ardından listeden 'Ana Ekrana Ekle' [+] seçeneğine dokunun.");
+      } else {
+        alert("💡 Tarayıcınızın adres çubuğundaki (sağ tarafta) 'Yükle / Uygulamayı Yükle' simgesine tıklayarak hemen kurabilirsiniz!");
+      }
+      closeInstallModal();
+    }
+
+    function openInstallModal() {
+      const modal = document.getElementById('install-modal');
+      if (modal) modal.classList.add('show');
+    }
+
+    function closeInstallModal() {
+      const modal = document.getElementById('install-modal');
+      if (modal) modal.classList.remove('show');
+    }
+
+    // ============================================================
+    // EFSANEVİ ANA MENÜ & TEK TUŞ VİTRİNİ & TAM EKRAN OYUN MOTORU
+    // ============================================================
+    const PORTALS = [
+      {
+        id: 'quiz-view',
+        icon: '📝',
+        badge: '4.784 SORU • 67 KONU',
+        title: 'Bilgi Testleri',
+        desc: 'Tüm edebi dönem ve akımlardan binlerce özgün soru ile kendini sına, öğrenme ilerlemeni canlı takip et.',
+        btnText: 'Testlere Başla',
+        action: () => switchNavTab('quiz-view')
+      },
+      {
+        id: 'speed-game-view',
+        icon: '⚡',
+        badge: 'ZAMANA KARŞI • 35 SN',
+        title: 'Hızlı Eşleştirme',
+        desc: 'Ekrana gelen eseri saniyeler içinde doğru yazarıyla eşleştir, kombo serisi yakalayarak zirveye çık!',
+        btnText: 'Düelloya Başla (Tam Ekran)',
+        action: () => openGameFullscreen('speed-game-view')
+      },
+      {
+        id: 'catcher-game-view',
+        icon: '🧺',
+        badge: 'REFLEKS & CANLI OYUN',
+        title: 'Kitap Yağmuru',
+        desc: 'Gökyüzünden süzülen kitapları sepetinle yakala; hedef yazarın eserlerini topla, tuzaklardan kaç!',
+        btnText: 'Oyuna Başla (Tam Ekran)',
+        action: () => openGameFullscreen('catcher-game-view')
+      },
+      {
+        id: 'shooter-game-view',
+        icon: '🎯',
+        badge: 'HEDEF VURMA & TÜR',
+        title: 'Tür Nişancısı',
+        desc: 'Roman, Şiir, Tiyatro, Hikâye balonlarını nişan alıp vur; edebi tür bilginle rekor kır!',
+        btnText: 'Nişancıya Başla (Tam Ekran)',
+        action: () => openGameFullscreen('shooter-game-view')
+      },
+      {
+        id: 'board-game-view',
+        icon: '🧩',
+        badge: 'HAFIZA & KARTLAR',
+        title: 'Pano Eşleştirme',
+        desc: '12 gizemli kartı aç, yazar ve eser çiftlerini en az hamlede bulup hafıza panosunu tamamla.',
+        btnText: 'Panoyu Aç (Tam Ekran)',
+        action: () => openGameFullscreen('board-game-view')
+      },
+      {
+        id: 'library-view',
+        icon: '📚',
+        badge: '4.784 ESER FİHRİSTİ',
+        title: 'Eser Kütüphanesi',
+        desc: 'Tüm Türk ve Dünya edebiyatı külliyatında anında arama yap, yazar ve eser bilgilerini incele.',
+        btnText: 'Kütüphaneyi Aç',
+        action: () => switchNavTab('library-view')
+      },
+      {
+        id: 'literature-topics-view',
+        icon: '📖',
+        badge: 'DÖNEMLER & AKIMLAR',
+        title: 'Konu Kartları',
+        desc: 'İslamiyet Öncesi\'nden Cumhuriyet\'e tüm edebi dönemler, nazım şekilleri ve akımlar tek dokunuşta.',
+        btnText: 'Kartları İncele',
+        action: () => switchNavTab('literature-topics-view')
+      },
+      {
+        id: 'pitrak-nusha',
+        icon: '🖨️',
+        badge: 'YAPRAK TEST MODÜLÜ',
+        title: 'Pıtrak Nüsha',
+        desc: 'Öğretmenler ve öğrenciler için soru ve yaprak test hazırlama atölyesi; anında PDF ve test yaprağı oluştur.',
+        btnText: 'Pıtrak Nüsha\'ya Git',
+        action: () => { window.location.href = './Pitrak-Nusha/index.html'; }
+      }
+    ];
+
+    let activeHeroIndex = 0;
+    let portalLayoutMode = 'hero';
+
+    function renderHeroPortal() {
+      const portal = PORTALS[activeHeroIndex];
+      const cardContainer = document.getElementById('heroCardActive');
+      if (!cardContainer || !portal) return;
+
+      cardContainer.innerHTML = `
+        <div class="hero-card-icon">${portal.icon}</div>
+        <div class="hero-card-badge">${portal.badge}</div>
+        <div class="hero-card-title">${portal.title}</div>
+        <div class="hero-card-desc">${portal.desc}</div>
+        <button class="hero-launch-btn" onclick="PORTALS[${activeHeroIndex}].action()">
+          <span>${portal.btnText}</span> <span>➔</span>
+        </button>
+      `;
+
+      const dotsContainer = document.getElementById('heroDotsRow');
+      if (dotsContainer) {
+        dotsContainer.innerHTML = PORTALS.map((p, idx) => `
+          <div class="hero-dot ${idx === activeHeroIndex ? 'active' : ''}" 
+               onclick="setHeroPortalIndex(${idx})" 
+               title="${p.title} (${idx + 1}/${PORTALS.length})"></div>
+        `).join('');
+      }
+    }
+
+    function renderGridPortals() {
+      const gridContainer = document.getElementById('portalGridList');
+      if (!gridContainer) return;
+      gridContainer.innerHTML = PORTALS.map((portal, idx) => `
+        <div class="portal-grid-card" onclick="PORTALS[${idx}].action()">
+          <div class="portal-grid-icon">${portal.icon}</div>
+          <div class="portal-grid-badge">${portal.badge}</div>
+          <div class="portal-grid-title">${portal.title}</div>
+          <div class="portal-grid-desc">${portal.desc}</div>
+          <button class="portal-grid-btn" onclick="event.stopPropagation(); PORTALS[${idx}].action()">
+            ${portal.btnText} ➔
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function cycleHeroPortal(direction) {
+      activeHeroIndex = (activeHeroIndex + direction + PORTALS.length) % PORTALS.length;
+      renderHeroPortal();
+    }
+
+    function setHeroPortalIndex(index) {
+      activeHeroIndex = index;
+      renderHeroPortal();
+    }
+
+    function setPortalLayout(mode) {
+      portalLayoutMode = mode;
+      const heroStage = document.getElementById('heroStage');
+      const heroDots = document.getElementById('heroDotsRow');
+      const gridStage = document.getElementById('portalGridList');
+      const btnHero = document.getElementById('btnModeHero');
+      const btnGrid = document.getElementById('btnModeGrid');
+
+      if (mode === 'hero') {
+        if (heroStage) heroStage.style.display = 'flex';
+        if (heroDots) heroDots.style.display = 'flex';
+        if (gridStage) gridStage.style.display = 'none';
+        if (btnHero) btnHero.classList.add('active');
+        if (btnGrid) btnGrid.classList.remove('active');
+        renderHeroPortal();
+      } else {
+        if (heroStage) heroStage.style.display = 'none';
+        if (heroDots) heroDots.style.display = 'none';
+        if (gridStage) gridStage.style.display = 'grid';
+        if (btnHero) btnHero.classList.remove('active');
+        if (btnGrid) btnGrid.classList.add('active');
+        renderGridPortals();
+      }
+    }
+
+    function returnToPortal() {
+      document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.fullscreen-game-arena').forEach(el => el.classList.remove('fullscreen-game-arena'));
+      const home = document.getElementById('home-portal-view');
+      if (home) home.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openGameFullscreen(viewId) {
+      switchNavTab(viewId);
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.add('fullscreen-game-arena');
+      }
+      if (viewId === 'speed-game-view') {
+        startSpeedGame();
+      } else if (viewId === 'board-game-view') {
+        initBoardGame();
+      } else if (viewId === 'catcher-game-view') {
+        startCatcherGame();
+      } else if (viewId === 'shooter-game-view') {
+        startShooterGame();
+      }
+      tryNativeFullscreen();
+    }
+
+    function exitGameFullscreen() {
+      document.querySelectorAll('.fullscreen-game-arena').forEach(el => el.classList.remove('fullscreen-game-arena'));
+      if (document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+      returnToPortal();
+    }
+
+    function tryNativeFullscreen() {
+      const el = document.documentElement;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (el.requestFullscreen) {
+          el.requestFullscreen().catch(() => {});
+        } else if (el.webkitRequestFullscreen) {
+          el.webkitRequestFullscreen();
+        }
+      }
+    }
+
+    function toggleNativeFullscreen() {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        tryNativeFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+      }
+    }
+
+    // Klavye yön tuşları ve dokunmatik swipe desteği
+    window.addEventListener('keydown', (e) => {
+      const homeView = document.getElementById('home-portal-view');
+      if (homeView && homeView.classList.contains('active') && portalLayoutMode === 'hero') {
+        if (e.key === 'ArrowLeft') {
+          cycleHeroPortal(-1);
+        } else if (e.key === 'ArrowRight') {
+          cycleHeroPortal(1);
+        } else if (e.key === 'Enter') {
+          if (PORTALS[activeHeroIndex]) PORTALS[activeHeroIndex].action();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderHeroPortal();
+      const heroStageElem = document.getElementById('heroStage');
+      if (heroStageElem) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        heroStageElem.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        heroStageElem.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 50) {
+            cycleHeroPortal(1);
+          } else if (touchEndX - touchStartX > 50) {
+            cycleHeroPortal(-1);
+          }
+        }, { passive: true });
+      }
+    });
+
     function switchNavTab(viewId) {
       document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
       document.querySelectorAll('.nav-tabs .tab-btn').forEach(b => b.classList.remove('active'));
@@ -2929,7 +3821,7 @@
     }
 
     // ============================================================
-    // 4. 2 BOYUTLU OYUN 1: EDEBİYAT YAĞMURU (KİTAP YAKALAMA)
+    // 4. EDEBİYAT YAĞMURU (KİTAP YAKALAMA)
     // ============================================================
     let catcherAnim = null;
     const CATCHER_SESSION_KEY = 'edebiyatOyunhanesiCatcherSession_v1';
@@ -3130,7 +4022,7 @@
     }
 
     // ============================================================
-    // 5. 2 BOYUTLU OYUN 2: TÜR NİŞANCISI
+    // 5. TÜR NİŞANCISI
     // ============================================================
     const MAIN_GENRES = ["Şiir", "Roman", "Tiyatro", "Hikâye", "Deneme", "Masal/Çocuk", "Diğer"];
     let shooterAnim = null;
