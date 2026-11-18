@@ -1778,298 +1778,151 @@
       box-shadow: 0 8px 22px rgba(212, 175, 55, 0.5) !important;
     }
 
+    
     /* ============================================================ */
-    /* FULLSCREEN GAME ARENA - KUSURSUZ MERKEZLEME (ORTALAMA)       */
+    /* DOĞAL, ORTALANMIŞ VE ESTETİK OYUN ALANLARI                   */
     /* ============================================================ */
-    .fullscreen-game-arena {
-      position: fixed !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: 10000 !important;
-      background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.96), rgba(5, 9, 18, 0.98)) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
+    #speed-game-view,
+    #board-game-view,
+    #catcher-game-view,
+    #shooter-game-view,
+    #quiz-view,
+    #library-view,
+    #literature-topics-view {
+      width: 100% !important;
+      max-width: 1050px !important;
+      margin: 0 auto !important;
+      padding: 10px 14px 45px 14px !important;
+      box-sizing: border-box !important;
+      display: none;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      animation: fadeIn 0.3s ease;
+    }
+    #speed-game-view.active,
+    #board-game-view.active,
+    #catcher-game-view.active,
+    #shooter-game-view.active,
+    #quiz-view.active,
+    #library-view.active,
+    #literature-topics-view.active {
+      display: flex !important;
+    }
+
+    .game-stats-header {
+      width: 100% !important;
+      max-width: 900px !important;
+      margin: 0 auto 16px auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important;
+      justify-content: center !important;
+    }
+
+    .speed-game-arena {
+      width: 100% !important;
+      max-width: 900px !important;
+      margin: 0 auto !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: flex-start !important;
-      padding: 12px 16px !important;
-      box-sizing: border-box !important;
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-      text-align: center !important;
-      animation: gameArenaFadeIn 0.3s ease-out;
-    }
-
-    .fullscreen-game-arena .game-top-nav-bar,
-    .fullscreen-game-arena .game-stats-header,
-    .fullscreen-game-arena .speed-game-arena,
-    .fullscreen-game-arena .board-grid-wrapper,
-    .fullscreen-game-arena .board-ctrl-row,
-    .fullscreen-game-arena .canvas-wrap,
-    .fullscreen-game-arena #speed-active-screen,
-    .fullscreen-game-arena #speed-start-screen,
-    .fullscreen-game-arena #speed-game-over,
-    .fullscreen-game-arena .game-overlay-card {
-      width: 100% !important;
-      max-width: 1000px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      box-sizing: border-box !important;
-    }
-
-    .fullscreen-game-arena .canvas-wrap {
-      display: flex !important;
       justify-content: center !important;
-      align-items: center !important;
-      margin: 0 auto !important;
       text-align: center !important;
-      background: transparent !important;
-      border: none !important;
-      width: 100% !important;
+      background: rgba(10, 16, 32, 0.35) !important;
+      border: 1px solid rgba(212, 175, 55, 0.28) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 18px !important;
+      padding: 24px 20px !important;
+      box-sizing: border-box !important;
     }
 
-    .fullscreen-game-arena .game-2d-canvas {
-      display: block !important;
+    #speed-start-screen,
+    #speed-active-screen,
+    #speed-game-over,
+    .game-overlay-card {
+      width: 100% !important;
+      max-width: 780px !important;
       margin: 0 auto !important;
-      width: 100% !important;
-      max-width: 950px !important;
-      height: auto !important;
-      max-height: calc(100vh - 210px) !important;
-      object-fit: contain !important;
-      border-radius: 14px !important;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
     }
 
-    .fullscreen-game-arena .board-grid-wrapper {
+    .speed-card-display {
+      margin: 0 auto 20px auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+    .speed-options-grid {
+      width: 100% !important;
+      max-width: 700px !important;
+      margin: 0 auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+
+    .board-grid-wrapper {
+      width: 100% !important;
+      max-width: 860px !important;
+      margin: 0 auto 20px auto !important;
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
       gap: 14px !important;
-      margin: 16px auto !important;
-      max-width: 860px !important;
       justify-content: center !important;
     }
     @media (max-width: 720px) {
-      .fullscreen-game-arena .board-grid-wrapper {
+      .board-grid-wrapper {
         grid-template-columns: repeat(2, 1fr) !important;
       }
     }
 
-    .fullscreen-game-arena .speed-game-arena {
-      margin: 0 auto !important;
-      max-width: 950px !important;
+    .board-ctrl-row {
       display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
       justify-content: center !important;
-      text-align: center !important;
+      align-items: center !important;
+      margin: 16px auto !important;
+      width: 100% !important;
     }
 
-    .fullscreen-game-arena #speed-active-screen {
+    .canvas-wrap {
       width: 100% !important;
-      max-width: 800px !important;
+      max-width: 900px !important;
       margin: 0 auto !important;
       display: flex !important;
-      flex-direction: column !important;
+      justify-content: center !important;
       align-items: center !important;
+      background: #060913 !important;
+      border: 2px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 16px !important;
+      overflow: hidden !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+      box-sizing: border-box !important;
     }
 
-    .fullscreen-game-arena .speed-options-grid {
-      width: 100% !important;
-      max-width: 700px !important;
+    canvas.game-2d-canvas {
+      display: block !important;
       margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 900px !important;
+      height: auto !important;
+      aspect-ratio: 900 / 440 !important;
     }
 
-    .fullscreen-game-arena .touch-controls {
+    .touch-controls {
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
       gap: 16px !important;
       width: 100% !important;
       max-width: 500px !important;
-      margin: 10px auto 0 auto !important;
-    }
-
-    .fullscreen-game-arena .game-stats-header {
-      margin: 0 auto 12px auto !important;
-      max-width: 1000px !important;
-      width: 100% !important;
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 10px !important;
-      justify-content: center !important;
-    }
-
-    /* Universal Return Bar ("Bir ekranda sadece bir tuşun ekranı olsun") */
-    .view-return-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto 16px auto;
-      padding: 10px 16px;
-      background: rgba(10, 16, 32, 0.45);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 14px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    }
-    .btn-return-portal {
-      background: rgba(212, 175, 55, 0.16);
-      border: 1px solid rgba(212, 175, 55, 0.45);
-      color: #FFE082;
-      padding: 8px 18px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .btn-return-portal:hover {
-      background: rgba(212, 175, 55, 0.3);
-      border-color: #FFE082;
-      box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
-      transform: translateX(-2px);
-    }
-    .return-bar-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: #FFF8E1;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.5px;
-      text-align: center;
-      flex: 1;
-    }
-
-    /* ============================================================ */
-    /* FULLSCREEN GAME ARENA ("Oyunlar tam ekranda olsun")          */
-    /* ============================================================ */
-    .fullscreen-game-arena {
-      position: fixed !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: 10000 !important;
-      background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.96), rgba(5, 9, 18, 0.98)) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
-      display: flex !important;
-      flex-direction: column !important;
-      padding: 10px 14px !important;
-      box-sizing: border-box !important;
-      overflow-y: auto !important;
-      animation: gameArenaFadeIn 0.3s ease-out;
-    }
-    @keyframes gameArenaFadeIn {
-      from { opacity: 0; transform: scale(0.97); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .game-top-nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto 10px auto;
-      padding: 8px 14px;
-      background: rgba(10, 16, 32, 0.6);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      border-radius: 12px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .game-exit-btn {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.45);
-      color: #FCA5A5;
-      padding: 7px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-    .game-exit-btn:hover {
-      background: rgba(239, 68, 68, 0.35);
-      color: #FFFFFF;
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
-    }
-    .game-bar-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #FFE082;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.8px;
-      text-align: center;
-      flex: 1;
-    }
-    .game-fs-btn {
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid rgba(212, 175, 55, 0.45);
-      color: #FFE082;
-      padding: 7px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .game-fs-btn:hover {
-      background: rgba(212, 175, 55, 0.35);
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
-    }
-    .fullscreen-game-arena .canvas-wrap {
-      flex: 1 1 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      min-height: 0;
-    }
-    .fullscreen-game-arena .game-2d-canvas {
-      width: 100% !important;
-      max-width: 1000px !important;
-      max-height: calc(100vh - 190px) !important;
-      object-fit: contain !important;
-      border-radius: 14px !important;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25) !important;
-    }
-    .fullscreen-game-arena .touch-controls {
-      display: flex !important;
-      gap: 14px !important;
-      width: 100% !important;
-      max-width: 600px !important;
-      margin: 8px auto 0 auto !important;
-    }
-    .fullscreen-game-arena .touch-btn {
-      flex: 1 !important;
-      padding: 14px !important;
-      font-size: 15px !important;
-      font-weight: 800 !important;
-      background: rgba(212, 175, 55, 0.22) !important;
-      border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
-      color: #FFE082 !important;
-      border-radius: 12px !important;
-      cursor: pointer !important;
-    }
-    .fullscreen-game-arena .speed-game-arena {
-      max-width: 950px !important;
-      margin: 0 auto !important;
-      width: 100% !important;
-      flex: 1 1 auto;
+      margin: 14px auto 0 auto !important;
     }
 
     /* PWA Ready Indicator */
@@ -2280,9 +2133,15 @@
   <!-- 2. SPEED MATCH GAME VIEW                                     -->
   <!-- ============================================================ -->
   <section id="speed-game-view" class="view-container">
-    <div class="game-top-nav-bar">
-      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
-      <div class="game-bar-title">⚡ HIZLI EŞLEŞTİRME</div>
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">⚡ HIZLI EŞLEŞTİRME DÜELLOSU</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2342,9 +2201,15 @@
   <!-- 3. BOARD PAIR MATCHING GAME VIEW                             -->
   <!-- ============================================================ -->
   <section id="board-game-view" class="view-container">
-    <div class="game-top-nav-bar">
-      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
-      <div class="game-bar-title">🧩 PANO EŞLEŞTİRME</div>
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">🧩 PANO EŞLEŞTİRME ARENASI</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2381,9 +2246,15 @@
   <!-- 4. EDEBİYAT YAĞMURU                        -->
   <!-- ============================================================ -->
   <section id="catcher-game-view" class="view-container">
-    <div class="game-top-nav-bar">
-      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
-      <div class="game-bar-title">🧺 KİTAP YAĞMURU</div>
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">🧺 KİTAP YAĞMURU OYUNU</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2424,9 +2295,15 @@
   <!-- 5. TÜR NİŞANCISI                           -->
   <!-- ============================================================ -->
   <section id="shooter-game-view" class="view-container">
-    <div class="game-top-nav-bar">
-      <button class="game-exit-btn" onclick="exitGameFullscreen()">⬅ Oyundan Çık</button>
-      <div class="game-bar-title">🎯 TÜR NİŞANCISI</div>
+    <div class="view-return-bar">
+      <button class="btn-return-portal" onclick="returnToPortal()">
+        <span>⬅</span> Efsanevi Ana Menüye Dön
+      </button>
+      <div class="return-bar-title">🎯 TÜR NİŞANCISI OYUNU</div>
+      <button class="action-pill-btn btn-install-trigger" onclick="triggerRealInstall()">
+        <span>📲</span> Cihaza Ekle
+      </button>
+    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2821,7 +2698,7 @@
     // ============================================================
     // EFSANEVİ ANA MENÜ & TEK TUŞ VİTRİNİ & TAM EKRAN OYUN MOTORU
     // ============================================================
-    const PORTALS = [
+        const PORTALS = [
       {
         id: 'quiz-view',
         icon: '📝',
@@ -2837,8 +2714,8 @@
         badge: 'ZAMANA KARŞI • 35 SN',
         title: 'Hızlı Eşleştirme',
         desc: 'Ekrana gelen eseri saniyeler içinde doğru yazarıyla eşleştir, kombo serisi yakalayarak zirveye çık!',
-        btnText: 'Düelloya Başla (Tam Ekran)',
-        action: () => openGameFullscreen('speed-game-view')
+        btnText: 'Düelloya Başla',
+        action: () => openGameView('speed-game-view')
       },
       {
         id: 'catcher-game-view',
@@ -2846,8 +2723,8 @@
         badge: 'REFLEKS & CANLI OYUN',
         title: 'Kitap Yağmuru',
         desc: 'Gökyüzünden süzülen kitapları sepetinle yakala; hedef yazarın eserlerini topla, tuzaklardan kaç!',
-        btnText: 'Oyuna Başla (Tam Ekran)',
-        action: () => openGameFullscreen('catcher-game-view')
+        btnText: 'Oyuna Başla',
+        action: () => openGameView('catcher-game-view')
       },
       {
         id: 'shooter-game-view',
@@ -2855,8 +2732,8 @@
         badge: 'HEDEF VURMA & TÜR',
         title: 'Tür Nişancısı',
         desc: 'Roman, Şiir, Tiyatro, Hikâye balonlarını nişan alıp vur; edebi tür bilginle rekor kır!',
-        btnText: 'Nişancıya Başla (Tam Ekran)',
-        action: () => openGameFullscreen('shooter-game-view')
+        btnText: 'Nişancıya Başla',
+        action: () => openGameView('shooter-game-view')
       },
       {
         id: 'board-game-view',
@@ -2864,8 +2741,8 @@
         badge: 'HAFIZA & KARTLAR',
         title: 'Pano Eşleştirme',
         desc: '12 gizemli kartı aç, yazar ve eser çiftlerini en az hamlede bulup hafıza panosunu tamamla.',
-        btnText: 'Panoyu Aç (Tam Ekran)',
-        action: () => openGameFullscreen('board-game-view')
+        btnText: 'Panoyu Aç',
+        action: () => openGameView('board-game-view')
       },
       {
         id: 'library-view',
@@ -2887,99 +2764,35 @@
       },
       {
         id: 'pitrak-nusha',
-        icon: '🖨️',
-        badge: 'YAPRAK TEST MODÜLÜ',
+        icon: '📄',
+        badge: 'YAPRAK TEST & BELGE',
         title: 'Pıtrak Nüsha',
-        desc: 'Öğretmenler ve öğrenciler için soru ve yaprak test hazırlama atölyesi; anında PDF ve test yaprağı oluştur.',
-        btnText: 'Pıtrak Nüsha\'ya Git',
+        desc: 'Öğretmenler ve öğrenciler için soru ve yaprak test hazırlama atölyesi; anında belge ve test yaprağı oluştur.',
+        btnText: 'Belge Modülüne Git',
         action: () => { window.location.href = './Pitrak-Nusha/index.html'; }
       }
     ];
 
-    let activeHeroIndex = 0;
-    let portalLayoutMode = 'hero';
-
-    function renderHeroPortal() {
-      const portal = PORTALS[activeHeroIndex];
-      const cardContainer = document.getElementById('heroCardActive');
-      if (!cardContainer || !portal) return;
-
-      cardContainer.innerHTML = `
-        <div class="hero-card-icon">${portal.icon}</div>
-        <div class="hero-card-badge">${portal.badge}</div>
-        <div class="hero-card-title">${portal.title}</div>
-        <div class="hero-card-desc">${portal.desc}</div>
-        <button class="hero-launch-btn" onclick="PORTALS[${activeHeroIndex}].action()">
-          <span>${portal.btnText}</span> <span>➔</span>
-        </button>
-      `;
-
-      const dotsContainer = document.getElementById('heroDotsRow');
-      if (dotsContainer) {
-        dotsContainer.innerHTML = PORTALS.map((p, idx) => `
-          <div class="hero-dot ${idx === activeHeroIndex ? 'active' : ''}" 
-               onclick="setHeroPortalIndex(${idx})" 
-               title="${p.title} (${idx + 1}/${PORTALS.length})"></div>
-        `).join('');
+    function openGameView(viewId) {
+      switchNavTab(viewId);
+      if (viewId === 'speed-game-view') {
+        startSpeedGame();
+      } else if (viewId === 'board-game-view') {
+        initBoardGame();
+      } else if (viewId === 'catcher-game-view') {
+        startCatcherGame();
+      } else if (viewId === 'shooter-game-view') {
+        startShooterGame();
       }
-    }
-
-    function renderGridPortals() {
-      const gridContainer = document.getElementById('portalGridList');
-      if (!gridContainer) return;
-      gridContainer.innerHTML = PORTALS.map((portal, idx) => `
-        <div class="portal-grid-card" onclick="PORTALS[${idx}].action()">
-          <div class="portal-grid-icon">${portal.icon}</div>
-          <div class="portal-grid-badge">${portal.badge}</div>
-          <div class="portal-grid-title">${portal.title}</div>
-          <div class="portal-grid-desc">${portal.desc}</div>
-          <button class="portal-grid-btn" onclick="event.stopPropagation(); PORTALS[${idx}].action()">
-            ${portal.btnText} ➔
-          </button>
-        </div>
-      `).join('');
-    }
-
-    function cycleHeroPortal(direction) {
-      activeHeroIndex = (activeHeroIndex + direction + PORTALS.length) % PORTALS.length;
-      renderGridPortals();
-    }
-
-    function setHeroPortalIndex(index) {
-      activeHeroIndex = index;
-      renderGridPortals();
-    }
-
-    function setPortalLayout(mode) {
-      portalLayoutMode = mode;
-      const heroStage = document.getElementById('heroStage');
-      const heroDots = document.getElementById('heroDotsRow');
-      const gridStage = document.getElementById('portalGridList');
-      const btnHero = document.getElementById('btnModeHero');
-      const btnGrid = document.getElementById('btnModeGrid');
-
-      if (mode === 'hero') {
-        if (heroStage) heroStage.style.display = 'flex';
-        if (heroDots) heroDots.style.display = 'flex';
-        if (gridStage) gridStage.style.display = 'none';
-        if (btnHero) btnHero.classList.add('active');
-        if (btnGrid) btnGrid.classList.remove('active');
-        renderGridPortals();
-      } else {
-        if (heroStage) heroStage.style.display = 'none';
-        if (heroDots) heroDots.style.display = 'none';
-        if (gridStage) gridStage.style.display = 'grid';
-        if (btnHero) btnHero.classList.remove('active');
-        if (btnGrid) btnGrid.classList.add('active');
-        renderGridPortals();
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function returnToPortal() {
       document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
-      document.querySelectorAll('.fullscreen-game-arena').forEach(el => el.classList.remove('fullscreen-game-arena'));
       const home = document.getElementById('home-portal-view');
       if (home) home.classList.add('active');
+      const grid = document.getElementById('portalGridList');
+      if (grid && grid.children.length === 0) renderGridPortals();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
