@@ -1694,261 +1694,211 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* Portal Layout Switcher */
-    .portal-mode-toggle {
-      display: flex;
-      gap: 8px;
-      background: rgba(10, 16, 32, 0.4);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 999px;
-      padding: 4px;
-      margin: 10px auto 18px auto;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .portal-toggle-btn {
-      background: transparent;
-      border: none;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .portal-toggle-btn.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(184, 134, 11, 0.25));
-      border: 1px solid rgba(212, 175, 55, 0.6);
-      color: #FFE082;
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
-    }
-
-    /* Hero Showcase - Tek Tuş Vitrini ("Bir ekranda sadece bir tuş") */
-    .hero-stage-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      width: 100%;
-      margin: 10px 0 16px 0;
-      position: relative;
-    }
-    .hero-arrow-btn {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: rgba(10, 16, 32, 0.55);
-      border: 1.5px solid rgba(212, 175, 55, 0.4);
-      color: #FFE082;
-      font-size: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-      transition: all 0.25s ease;
-      flex-shrink: 0;
-      user-select: none;
-    }
-    .hero-arrow-btn:hover {
-      background: rgba(212, 175, 55, 0.28);
-      border-color: #FFE082;
-      transform: scale(1.12);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    }
-    .hero-arrow-btn:active {
-      transform: scale(0.96);
-    }
-
-    .hero-card-showcase {
-      flex: 1;
-      max-width: 560px;
-      min-height: 380px;
-      background: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.18), rgba(8, 14, 28, 0.45)) !important;
-      border: 2px solid rgba(212, 175, 55, 0.45) !important;
-      border-radius: 24px !important;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 35px rgba(212, 175, 55, 0.25) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
-      padding: 32px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hero-card-showcase:hover {
-      border-color: #FFE082 !important;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(212, 175, 55, 0.4) !important;
-      transform: translateY(-4px);
-    }
-    .hero-card-icon {
-      font-size: 64px;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
-      animation: heroIconFloat 3s ease-in-out infinite alternate;
-    }
-    @keyframes heroIconFloat {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-8px); }
-    }
-    .hero-card-badge {
-      display: inline-block;
-      padding: 4px 16px;
-      border-radius: 999px;
-      background: rgba(212, 175, 55, 0.18);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      color: #FFE082;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .hero-card-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #FFF8E1;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-    }
-    .hero-card-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 440px;
-      margin: 0 auto 24px auto;
-    }
-    .hero-launch-btn {
-      width: 100%;
-      max-width: 320px;
-      padding: 15px 28px;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      color: #0F172A;
-      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #B8860B 100%);
-      border: none;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .hero-launch-btn:hover {
-      transform: scale(1.04);
-      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
-      filter: brightness(1.08);
-    }
-    .hero-launch-btn:active {
-      transform: scale(0.97);
-    }
-
-    /* Hero Dots */
-    .hero-dots-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-    .hero-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.25);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .hero-dot.active {
-      width: 30px;
-      background: #D4AF37;
-      box-shadow: 0 0 12px #D4AF37;
-    }
-
-    /* Grid Showcase - Bütün Tuşlar */
+    
+    /* Portal Grid Showcase - Doğrudan ve Efsanevi Tuş Dizilimi */
     .portal-grid-showcase {
-      display: none;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      width: 100%;
-      margin: 10px 0 20px 0;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+      gap: 20px !important;
+      width: 100% !important;
+      max-width: 1150px !important;
+      margin: 15px auto 40px auto !important;
+      box-sizing: border-box !important;
     }
     .portal-grid-card {
-      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(8, 14, 28, 0.4)) !important;
-      border: 1.5px solid rgba(212, 175, 55, 0.3) !important;
-      border-radius: 18px !important;
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), rgba(8, 14, 28, 0.45)) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+      border-radius: 20px !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
-      padding: 22px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.28s ease;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      padding: 24px 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      cursor: pointer !important;
+      transition: all 0.28s ease !important;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
     }
     .portal-grid-card:hover {
       border-color: #FFE082 !important;
-      background: rgba(15, 23, 42, 0.5) !important;
-      transform: translateY(-5px);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 24px rgba(212, 175, 55, 0.35);
+      background: rgba(15, 23, 42, 0.55) !important;
+      transform: translateY(-5px) !important;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.65), 0 0 26px rgba(212, 175, 55, 0.4) !important;
     }
     .portal-grid-icon {
-      font-size: 42px;
-      margin-bottom: 8px;
-      filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+      font-size: 46px !important;
+      margin-bottom: 10px !important;
+      filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.55)) !important;
     }
     .portal-grid-badge {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #FFE082;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      display: inline-block !important;
+      padding: 3px 12px !important;
+      border-radius: 999px !important;
+      background: rgba(212, 175, 55, 0.18) !important;
+      border: 1px solid rgba(212, 175, 55, 0.45) !important;
+      color: #FFE082 !important;
+      font-size: 10px !important;
+      font-weight: 800 !important;
+      letter-spacing: 1.2px !important;
+      text-transform: uppercase !important;
+      margin-bottom: 10px !important;
     }
     .portal-grid-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #FFF8E1;
-      font-family: 'Cinzel', serif;
-      margin-bottom: 6px;
+      font-size: 20px !important;
+      font-weight: 800 !important;
+      color: #FFF8E1 !important;
+      font-family: 'Cinzel', serif !important;
+      margin-bottom: 8px !important;
+      letter-spacing: 0.5px !important;
     }
     .portal-grid-desc {
-      font-size: 12px;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 14px;
-      flex-grow: 1;
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      margin-bottom: 18px !important;
+      flex-grow: 1 !important;
     }
     .portal-grid-btn {
-      width: 100%;
-      padding: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #0F172A;
-      background: linear-gradient(135deg, #FFE082, #D4AF37);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      width: 100% !important;
+      padding: 12px !important;
+      font-size: 14px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.5px !important;
+      color: #0F172A !important;
+      background: linear-gradient(135deg, #FFE082, #D4AF37) !important;
+      border: none !important;
+      border-radius: 12px !important;
+      cursor: pointer !important;
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35) !important;
+      transition: all 0.2s ease !important;
+    }
+    .portal-grid-btn:hover {
+      transform: scale(1.03) !important;
+      box-shadow: 0 8px 22px rgba(212, 175, 55, 0.5) !important;
+    }
+
+    /* ============================================================ */
+    /* FULLSCREEN GAME ARENA - KUSURSUZ MERKEZLEME (ORTALAMA)       */
+    /* ============================================================ */
+    .fullscreen-game-arena {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 10000 !important;
+      background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.96), rgba(5, 9, 18, 0.98)) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      padding: 12px 16px !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      text-align: center !important;
+      animation: gameArenaFadeIn 0.3s ease-out;
+    }
+
+    .fullscreen-game-arena .game-top-nav-bar,
+    .fullscreen-game-arena .game-stats-header,
+    .fullscreen-game-arena .speed-game-arena,
+    .fullscreen-game-arena .board-grid-wrapper,
+    .fullscreen-game-arena .board-ctrl-row,
+    .fullscreen-game-arena .canvas-wrap,
+    .fullscreen-game-arena #speed-active-screen,
+    .fullscreen-game-arena #speed-start-screen,
+    .fullscreen-game-arena #speed-game-over,
+    .fullscreen-game-arena .game-overlay-card {
+      width: 100% !important;
+      max-width: 1000px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+    }
+
+    .fullscreen-game-arena .canvas-wrap {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+      background: transparent !important;
+      border: none !important;
+      width: 100% !important;
+    }
+
+    .fullscreen-game-arena .game-2d-canvas {
+      display: block !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 950px !important;
+      height: auto !important;
+      max-height: calc(100vh - 210px) !important;
+      object-fit: contain !important;
+      border-radius: 14px !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25) !important;
+    }
+
+    .fullscreen-game-arena .board-grid-wrapper {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 14px !important;
+      margin: 16px auto !important;
+      max-width: 860px !important;
+      justify-content: center !important;
+    }
+    @media (max-width: 720px) {
+      .fullscreen-game-arena .board-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    .fullscreen-game-arena .speed-game-arena {
+      margin: 0 auto !important;
+      max-width: 950px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .fullscreen-game-arena #speed-active-screen {
+      width: 100% !important;
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+    .fullscreen-game-arena .speed-options-grid {
+      width: 100% !important;
+      max-width: 700px !important;
+      margin: 0 auto !important;
+    }
+
+    .fullscreen-game-arena .touch-controls {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 500px !important;
+      margin: 10px auto 0 auto !important;
+    }
+
+    .fullscreen-game-arena .game-stats-header {
+      margin: 0 auto 12px auto !important;
+      max-width: 1000px !important;
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 10px !important;
+      justify-content: center !important;
     }
 
     /* Universal Return Bar ("Bir ekranda sadece bir tuşun ekranı olsun") */
@@ -2192,24 +2142,9 @@
   <!-- 0. EFSANEVİ ANA MENÜ & PORTAL (TEK TUŞ VİTRİNİ VE IZGARA)   -->
   <!-- ============================================================ -->
   <section id="home-portal-view" class="view-container active">
-    <div class="portal-mode-toggle">
-      <button class="portal-toggle-btn active" id="btnModeHero" onclick="setPortalLayout('hero')">🪐 Tekli Vitrin Modu</button>
-      <button class="portal-toggle-btn" id="btnModeGrid" onclick="setPortalLayout('grid')">✨ Bütün Tuşlar</button>
-    </div>
-
-    <!-- Tek Tuş Vitrini ("Bir ekranda sadece bir tuş") -->
-    <div class="hero-stage-container" id="heroStage">
-      <button class="hero-arrow-btn" onclick="cycleHeroPortal(-1)" aria-label="Önceki Kapı">⟨</button>
-      <div class="hero-card-showcase" id="heroCardActive">
-        <!-- Javascript renders active hero portal here -->
-      </div>
-      <button class="hero-arrow-btn" onclick="cycleHeroPortal(1)" aria-label="Sonraki Kapı">⟩</button>
-    </div>
-    <div class="hero-dots-row" id="heroDotsRow"></div>
-
-    <!-- Bütün Kapılar (Izgara Görünümü) -->
+    <!-- Efsanevi Tuşlar (Izgara Düzeni) -->
     <div class="portal-grid-showcase" id="portalGridList">
-      <!-- Javascript renders all 8 portals here -->
+      <!-- Javascript renders all 8 portals here directly -->
     </div>
   </section>
 
@@ -3007,12 +2942,12 @@
 
     function cycleHeroPortal(direction) {
       activeHeroIndex = (activeHeroIndex + direction + PORTALS.length) % PORTALS.length;
-      renderHeroPortal();
+      renderGridPortals();
     }
 
     function setHeroPortalIndex(index) {
       activeHeroIndex = index;
-      renderHeroPortal();
+      renderGridPortals();
     }
 
     function setPortalLayout(mode) {
@@ -3029,7 +2964,7 @@
         if (gridStage) gridStage.style.display = 'none';
         if (btnHero) btnHero.classList.add('active');
         if (btnGrid) btnGrid.classList.remove('active');
-        renderHeroPortal();
+        renderGridPortals();
       } else {
         if (heroStage) heroStage.style.display = 'none';
         if (heroDots) heroDots.style.display = 'none';
@@ -3112,7 +3047,7 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
-      renderHeroPortal();
+      renderGridPortals();
       const heroStageElem = document.getElementById('heroStage');
       if (heroStageElem) {
         let touchStartX = 0;
