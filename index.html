@@ -1048,7 +1048,15 @@
     .topic-card-nav button { min-width:116px; padding:11px 15px; border:1px solid #475569; border-radius:11px; background:#111827; color:#E2E8F0; font-weight:800; cursor:pointer; }
     .topic-card-nav button:disabled { opacity:.4; cursor:default; }
     .topic-card-position { min-width:82px; color:#CBD5E1; text-align:center; font-variant-numeric:tabular-nums; font-weight:900; }
-    @media(max-width:650px) { .brand-header { flex-wrap:wrap; justify-content:center; gap:10px; } .header-center { order:3; flex:1 0 100%; } .header-tools { margin-left:auto; } }
+    @media(max-width:650px) { 
+  .brand-header { flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 10px 14px; } 
+  .header-center { order: 3; flex: 1 0 100%; text-align: center; } 
+  .header-tools { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .museum-toggle-btn { font-size: 11px; padding: 5px 10px; }
+  .logo-badge { width: 38px; height: 38px; font-size: 14px; }
+  .nav-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 8px 6px; }
+  .tab-btn { flex-shrink: 0; font-size: 12px; padding: 8px 12px; }
+}
 
     /* MODAL */
     .modal-backdrop {
