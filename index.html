@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="./assets/icon-192.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ALΣF • Edebiyat Oyunhânesi | Bilgi Testi & 2 Boyutlu Oyun Merkezi</title>
+  <title>ALΣF • Edebiyat Oyunhânesi | Bilgi Testi & Oyun Merkezi</title>
   <meta name="theme-color" content="#0F172A">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1049,8 +1049,16 @@
     .topic-card-nav button:disabled { opacity:.4; cursor:default; }
     .topic-card-position { min-width:82px; color:#CBD5E1; text-align:center; font-variant-numeric:tabular-nums; font-weight:900; }
     @media(max-width:650px) { 
-  .brand-header { flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 10px 14px; } 
-  .header-center { order: 3; flex: 1 0 100%; text-align: center; } 
+  .brand-header { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 6px !important; padding: 8px 10px !important; } 
+  .header-logo-box { width: 36px !important; height: 36px !important; flex-shrink: 0 !important; }
+  .alef-box { order: 1 !important; }
+  .header-center { order: 2 !important; flex: 1 !important; text-align: center !important; padding: 0 4px !important; overflow: hidden !important; } 
+  .header-title { font-size: 13px !important; letter-spacing: 0.5px !important; white-space: nowrap !important; text-overflow: ellipsis !important; overflow: hidden !important; }
+  .header-sub { font-size: 9px !important; white-space: nowrap !important; text-overflow: ellipsis !important; overflow: hidden !important; }
+  .sertan-box { order: 3 !important; }
+  .nav-tabs { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding: 6px 4px !important; }
+  .tab-btn { flex-shrink: 0 !important; font-size: 11px !important; padding: 6px 10px !important; }
+} 
   .header-tools { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
   .museum-toggle-btn { font-size: 11px; padding: 5px 10px; }
   .logo-badge { width: 38px; height: 38px; font-size: 14px; }
@@ -1418,867 +1426,252 @@
     }
 
 
+    
     /* ============================================================ */
-    /* 🏛️ MÜZE ÇERÇEVELERİ & ALTIN VARAKLI TEŞHİR ESTETİĞİ           */
+    /* 🏛️ NANO BANANA TEK ARKA PLAN & ŞEFFAF ARKA PLANA YEDİRİLMİŞ  */
     /* ============================================================ */
 
-    :root {
-      --gold-primary: #D4AF37;
-      --gold-light: #FFE082;
-      --gold-dark: #8C6D1F;
-      --gold-deep: #5B4310;
-      --gold-gradient: linear-gradient(135deg, #FFE082 0%, #D4AF37 25%, #7A5C14 50%, #FFF1AA 75%, #9E7924 100%);
-      --brass-gradient: linear-gradient(180deg, #F3D978 0%, #D4AF37 40%, #AA771C 85%, #6B490B 100%);
-      --museum-matting: #080D1A;
-      --frame-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 2px 10px rgba(0,0,0,0.5);
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: #060913 !important;
     }
 
-    /* Varaklı Antika Müze Çerçeveleri */
-    .brand-header,
-    .offline-banner-wrap,
-    .progress-panel,
-    .quiz-tests-panel,
-    .score-board,
-    .game-container,
-    .nav-tabs,
-    .install-card {
+    body {
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 10px 50px;
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Tek Arka Plan: Nano Banana Görseli */
+    #appWallpaperLayer {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 0 !important;
+      background: #060913 url('./assets/bg_edebiyathane.jpg') center center / cover no-repeat !important;
+      display: block !important;
+      pointer-events: none !important;
+    }
+
+    /* Hafif Derinlik Katmanı */
+    #appAmbientOverlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 1 !important;
+      background: radial-gradient(circle at 50% 30%, rgba(6, 9, 19, 0.1) 0%, rgba(6, 9, 19, 0.45) 100%) !important;
+      display: block !important;
+      pointer-events: none !important;
+    }
+
+    /* Hareketli Canlı Mürekkep Akma Tuvali */
+    #inkFlowCanvas {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+    }
+
+    #interactive-app {
       position: relative !important;
-      border: 1.2px solid transparent !important;
-      background-clip: padding-box, border-box !important;
-      background-origin: padding-box, border-box !important;
-      background-image: 
-        linear-gradient(135deg, rgba(10, 15, 29, 0.42), rgba(15, 23, 42, 0.48)),
-        linear-gradient(135deg, #FFE082 0%, #D4AF37 28%, #7A5C14 52%, #FFF1AA 78%, #9E7924 100%) !important;
-      box-shadow: 
-        0 14px 34px rgba(0, 0, 0, 0.75),
-        inset 0 0 0 1px rgba(255, 224, 130, 0.35),
-        inset 0 3px 14px rgba(0, 0, 0, 0.65) !important;
-      border-radius: 18px !important;
-      transition: all 0.3s ease !important;
+      z-index: 10 !important;
+      width: 100%;
+      max-width: 1020px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Kategori ve Konu Test Kartları için Antika Varaklı Çerçeve */
-    .quiz-category-card,
-    .cat-card,
-    .topic-card {
-      position: relative !important;
-      border: 1px solid transparent !important;
-      background-clip: padding-box, border-box !important;
-      background-origin: padding-box, border-box !important;
-      background-image: 
-        linear-gradient(135deg, rgba(8, 13, 26, 0.38), rgba(15, 23, 42, 0.46)),
-        linear-gradient(135deg, #FFE082 0%, #D4AF37 30%, #6E4F0E 50%, #FFE58F 80%, #99731C 100%) !important;
-      border-radius: 16px !important;
-      box-shadow: 
-        0 12px 28px rgba(0, 0, 0, 0.65),
-        inset 0 0 0 1px rgba(255, 224, 130, 0.25),
-        inset 0 2px 10px rgba(0, 0, 0, 0.5) !important;
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    }
-
-    /* Köşe Tezhipleri (Arabesque corner filigree) */
-    .quiz-category-card::before,
-    .cat-card::before {
-      content: '❦';
-      position: absolute;
-      top: 6px;
-      left: 8px;
-      font-size: 13px;
-      color: var(--gold-light);
-      opacity: 0.7;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
-      pointer-events: none;
-    }
-    .quiz-category-card::after,
-    .cat-card::after {
-      content: '❦';
-      position: absolute;
-      bottom: 6px;
-      right: 8px;
-      font-size: 13px;
-      color: var(--gold-light);
-      opacity: 0.7;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
-      pointer-events: none;
-      transform: rotate(180deg);
-    }
-
-    /* 3D Perspektif ve Işıltı Efekti */
-    .quiz-category-card:hover,
-    .cat-card:hover {
-      transform: translateY(-6px) scale(1.02) perspective(700px) rotateX(2deg) !important;
-      box-shadow: 
-        0 22px 48px rgba(0, 0, 0, 0.85),
-        0 0 30px rgba(212, 175, 55, 0.45),
-        inset 0 0 0 1.5px rgba(255, 224, 130, 0.6) !important;
-    }
-
-    /* Pirinç Müze Teşhir Plaketi */
-    .museum-brass-plaque {
+    /* Üst Başlık (Logolarla Arka Plana Yedirilmiş) */
+    .brand-header {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: calc(100% - 16px);
-      margin: 10px 8px 4px;
-      padding: 5px 12px;
-      background: linear-gradient(180deg, #F3D978 0%, #D4AF37 40%, #AA771C 85%, #6B490B 100%);
-      border: 1px solid #FFE082;
-      border-radius: 4px;
-      box-shadow: 
-        0 3px 6px rgba(0, 0, 0, 0.6),
-        inset 0 1px 1px rgba(255, 255, 255, 0.7),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
-      color: #1A1305;
-      font-family: 'Cinzel', 'Georgia', serif;
-      font-size: 11px;
+      padding: 10px 18px;
+      background: rgba(8, 14, 28, 0.25) !important;
+      border: 1px solid rgba(212, 175, 55, 0.3) !important;
+      border-radius: 16px !important;
+      backdrop-filter: blur(10px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 0 15px rgba(212, 175, 55, 0.05) !important;
+      margin-bottom: 12px;
+    }
+
+    .header-logo-box {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .header-logo-box:hover {
+      transform: scale(1.08);
+    }
+    .brand-logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    }
+
+    .header-center {
+      text-align: center;
+      flex: 1;
+      padding: 0 12px;
+    }
+    .header-title {
+      font-family: 'Cinzel', serif;
       font-weight: 800;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      font-size: 21px;
+      letter-spacing: 1.2px;
+      color: #FFE082;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.4);
     }
-    .museum-brass-plaque span.screw {
-      font-size: 8px;
-      opacity: 0.8;
-      color: #382404;
-    }
-
-    /* Tab Butonları Varak Uyum */
-    .tab-btn {
-      background: rgba(15, 23, 42, 0.75) !important;
-      border: 1.2px solid rgba(212, 175, 55, 0.3) !important;
-      color: #E2E8F0 !important;
-    }
-    .tab-btn:hover {
-      background: rgba(30, 41, 59, 0.95) !important;
-      border-color: #FFE082 !important;
-      color: #FFE082 !important;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.35) !important;
-    }
-    .tab-btn.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(15, 23, 42, 0.95)) !important;
-      border: 1.8px solid #FFE082 !important;
-      color: #FFE082 !important;
-      box-shadow: 0 0 22px rgba(212, 175, 55, 0.45) !important;
+    .header-sub {
+      font-size: 12px;
+      color: #CBD5E1;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
     }
 
-    /* 360° Özel Müze Butonları */
-    .museum-toggle-btn {
+    /* Hızlı Eylemler */
+    .action-pills-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .action-pill-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 7px 16px;
+      padding: 8px 20px;
       border-radius: 12px;
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
+      background: rgba(10, 16, 32, 0.28) !important;
+      border: 1px solid rgba(212, 175, 55, 0.28) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      color: #FFE082 !important;
       font-size: 13px;
-      letter-spacing: 0.5px;
-      color: #1A1305;
-      background: linear-gradient(135deg, #FFF1AA 0%, #D4AF37 50%, #9E7924 100%);
-      border: 1.5px solid #FFE082;
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45);
+      font-weight: 700;
+      text-decoration: none;
       cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
       transition: all 0.25s ease;
     }
-    .museum-toggle-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.7);
-    }
-
-    /* ============================================================ */
-    /* 🏛️ 3D 360° SANAL MÜZE SAHNESİ & HUD                          */
-    /* ============================================================ */
-    #museum3DContainer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      transition: all 0.5s ease;
-    }
-    
-    #museum3DContainer.museum-mode-active {
-      z-index: 99999;
-      pointer-events: auto;
-    }
-
-    #museum3DCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Müze Başüstü Ekranı (HUD) */
-    .museum-hud {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 16px;
-      box-sizing: border-box;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    #museum3DContainer.museum-mode-active .museum-hud {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* HUD Top Bar */
-    .museum-hud-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .museum-hud-badge {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 18px;
-      border-radius: 14px;
-      background: rgba(10, 15, 29, 0.88);
-      border: 1.5px solid #D4AF37;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
-      backdrop-filter: blur(12px);
-    }
-    .museum-hud-title {
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: 16px;
-      color: #FFE082;
-      letter-spacing: 0.8px;
-    }
-    .museum-hud-sub {
-      font-size: 11px;
-      color: #94A3B8;
-    }
-
-    .museum-hud-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hud-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      background: rgba(15, 23, 42, 0.88);
-      border: 1.2px solid rgba(212, 175, 55, 0.45);
-      color: #F8FAFC;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: all 0.25s ease;
-    }
-    .hud-btn:hover {
-      background: rgba(30, 41, 59, 0.95);
-      border-color: #FFE082;
-      color: #FFE082;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
-    }
-
-    .hud-btn.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(15, 23, 42, 0.95));
-      border-color: #FFE082;
-      color: #FFE082;
-    }
-
-    /* 360° Compass Pill */
-    .museum-compass {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      background: rgba(10, 15, 29, 0.8);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 20px;
-      font-family: monospace;
-      font-size: 11px;
-      color: #FFE082;
-    }
-
-    /* Bottom Teleport Bar (Salon Seçici) */
-    .museum-teleport-bar {
-      align-self: center;
-      max-width: 960px;
-      width: 100%;
-      background: rgba(10, 15, 29, 0.92);
-      border: 2px solid #D4AF37;
-      border-radius: 16px;
-      padding: 8px 12px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.3);
-      backdrop-filter: blur(14px);
-    }
-    .museum-teleport-label {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: #FFE082;
-      text-align: center;
-      margin-bottom: 6px;
-      letter-spacing: 0.8px;
-    }
-    .museum-teleport-items {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: thin;
-      scrollbar-color: #D4AF37 transparent;
-    }
-    .museum-teleport-btn {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: #E2E8F0;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .museum-teleport-btn:hover {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(15, 23, 42, 0.95));
-      border-color: #FFE082;
-      color: #FFE082;
+    .action-pill-btn:hover {
+      background: rgba(212, 175, 55, 0.16) !important;
+      border-color: #FFE082 !important;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.35) !important;
       transform: translateY(-2px);
     }
 
-    /* Reticle / Crosshair Guide */
-    .museum-reticle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
-      border: 1.5px solid rgba(255, 224, 130, 0.45);
-      border-radius: 50%;
-      pointer-events: none;
-      transition: all 0.2s ease;
-    }
-    .museum-reticle::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 4px;
-      height: 4px;
-      background: #FFE082;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #FFE082;
-    }
-    .museum-reticle.hovering {
-      width: 40px;
-      height: 40px;
-      border-color: #FFE082;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
-    }
-
-    /* Interactive app container visibility switch */
-    body.museum-mode-on #interactive-app {
-      display: none !important;
-    }
-
-
-    /* ============================================================ */
-    /* 🏛️ ULTRA-TRANSLUCENT FLOATING MUSEUM GLASS INTERFACE         */
-    /* (Arka planı kapatmayan şeffaf, zarif altın tel çerçeveler)   */
-    /* ============================================================ */
-
-    #appAmbientOverlay {
-      background: radial-gradient(circle at 50% 25%, rgba(7, 11, 20, 0.1) 0%, rgba(7, 11, 20, 0.5) 100%) !important;
-      opacity: 0.55 !important;
-    }
-
-    /* Şeffaf ve Zarif Cam Çerçeveler */
-    .brand-header {
-      background: rgba(10, 15, 29, 0.45) !important;
-      border: 1px solid rgba(212, 175, 55, 0.35) !important;
-      backdrop-filter: blur(14px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(212, 175, 55, 0.08) !important;
-      border-radius: 16px !important;
-    }
-
-    .offline-banner-wrap {
-      background: rgba(10, 15, 29, 0.38) !important;
-      border: 1px solid rgba(212, 175, 55, 0.25) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35) !important;
-      border-radius: 14px !important;
-      padding: 10px 16px !important;
-    }
-
+    /* Arka Plana Yedirilmiş Şeffaf Sekmeler */
     .nav-tabs {
-      background: rgba(10, 15, 29, 0.3) !important;
-      border: 1px solid rgba(212, 175, 55, 0.22) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35) !important;
-      border-radius: 16px !important;
-      padding: 6px 8px !important;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      width: 100%;
+      padding: 6px 8px;
+      background: rgba(8, 14, 28, 0.2) !important;
+      border: 1px solid rgba(212, 175, 55, 0.2) !important;
+      border-radius: 14px !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      margin-bottom: 16px;
     }
 
     .tab-btn {
-      background: rgba(15, 23, 42, 0.35) !important;
-      border: 1px solid rgba(212, 175, 55, 0.22) !important;
-      backdrop-filter: blur(8px) !important;
-      -webkit-backdrop-filter: blur(8px) !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      background: rgba(12, 18, 36, 0.25) !important;
+      border: 1px solid rgba(212, 175, 55, 0.2) !important;
       color: #E2E8F0 !important;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(6px) !important;
       transition: all 0.25s ease !important;
     }
     .tab-btn:hover {
-      background: rgba(30, 41, 59, 0.65) !important;
+      background: rgba(212, 175, 55, 0.14) !important;
       border-color: #FFE082 !important;
       color: #FFE082 !important;
-      box-shadow: 0 0 14px rgba(212, 175, 55, 0.35) !important;
-      transform: translateY(-2px) !important;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.3) !important;
+      transform: translateY(-2px);
     }
     .tab-btn.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(15, 23, 42, 0.65)) !important;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(12, 18, 36, 0.5)) !important;
       border: 1.2px solid #FFE082 !important;
       color: #FFE082 !important;
-      box-shadow: 0 0 18px rgba(212, 175, 55, 0.4) !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.35) !important;
     }
 
+    /* Paneller ve Kartlar: Şeffaf Cam */
     .progress-panel,
     .quiz-tests-panel,
     .score-board,
     .game-container {
-      background: rgba(10, 15, 29, 0.38) !important;
-      border: 1px solid rgba(212, 175, 55, 0.25) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
-      border-radius: 16px !important;
+      background: rgba(8, 14, 28, 0.28) !important;
+      border: 1px solid rgba(212, 175, 55, 0.2) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+      border-radius: 14px !important;
     }
 
     .quiz-category-card,
     .cat-card,
     .topic-card {
-      background: rgba(8, 13, 26, 0.42) !important;
-      border: 1px solid rgba(212, 175, 55, 0.28) !important;
-      backdrop-filter: blur(12px) saturate(160%) !important;
-      -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 0 12px rgba(212, 175, 55, 0.05) !important;
-      border-radius: 14px !important;
+      background: rgba(6, 12, 24, 0.3) !important;
+      border: 1px solid rgba(212, 175, 55, 0.22) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+      transition: all 0.28s ease !important;
     }
     .quiz-category-card:hover,
-    .cat-card:hover {
-      background: rgba(15, 23, 42, 0.6) !important;
+    .cat-card:hover,
+    .topic-card:hover {
+      background: rgba(15, 23, 42, 0.48) !important;
       border-color: #FFE082 !important;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.35) !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(212, 175, 55, 0.35) !important;
+      transform: translateY(-4px) !important;
     }
 
     .museum-brass-plaque {
-      background: linear-gradient(180deg, rgba(243, 217, 120, 0.85) 0%, rgba(212, 175, 55, 0.75) 45%, rgba(138, 109, 31, 0.85) 100%) !important;
-      border: 1px solid rgba(255, 224, 130, 0.6) !important;
-      font-size: 10px !important;
-      padding: 4px 10px !important;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
-    }
-
-    /* ============================================================ */
-    /* 🏛️ YAZAR MÜZESİ & BİYOGRAFİ ANSİKLOPEDİSİ STİLLERİ           */
-    /* ============================================================ */
-    #author-museum-view {
-      width: 100%;
-      max-width: 1020px;
-    }
-
-    .author-museum-head {
-      text-align: center;
-      margin-bottom: 18px;
-      padding: 16px;
-      background: rgba(10, 15, 29, 0.45);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-    }
-    .author-museum-title {
-      font-family: 'Cinzel', serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: #FFE082;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    }
-    .author-museum-sub {
-      font-size: 13px;
-      color: #94A3B8;
-      margin-top: 4px;
-    }
-
-    .author-museum-filters {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .author-search-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(10, 15, 29, 0.5);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      padding: 8px 14px;
-      backdrop-filter: blur(10px);
-    }
-    .author-search-bar input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #F8FAFC;
-      font-size: 14px;
-    }
-    .author-period-pills {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: thin;
-      scrollbar-color: #D4AF37 transparent;
-    }
-    .author-period-pill {
-      flex-shrink: 0;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      color: #CBD5E1;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      transition: all 0.2s ease;
-    }
-    .author-period-pill:hover,
-    .author-period-pill.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(15, 23, 42, 0.7));
-      border-color: #FFE082;
-      color: #FFE082;
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
-    }
-
-    .author-grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 14px;
-    }
-
-    .author-portrait-card {
-      position: relative;
-      background: rgba(8, 13, 26, 0.42);
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      border-radius: 14px;
-      padding: 14px;
-      backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-      cursor: pointer;
-      transition: all 0.28s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .author-portrait-card:hover {
-      transform: translateY(-4px) scale(1.015);
-      border-color: #FFE082;
-      box-shadow: 0 14px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.35);
-      background: rgba(15, 23, 42, 0.65);
-    }
-
-    .author-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .author-seal-badge {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6D1F 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: 17px;
-      color: #1A1305;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.6);
-      flex-shrink: 0;
-    }
-    .author-card-info {
-      flex: 1;
-      overflow: hidden;
-    }
-    .author-card-name {
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: 15px;
-      color: #FFE082;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .author-card-title {
-      font-size: 11px;
-      color: #38BDF8;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 2px;
-    }
-    .author-card-period {
-      font-size: 11px;
-      color: #94A3B8;
-      margin-top: 2px;
-    }
-
-    .author-card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 8px;
-      border-top: 1px solid rgba(212, 175, 55, 0.15);
-      font-size: 11px;
-      color: #CBD5E1;
-    }
-    .author-view-monograph-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 12px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(15, 23, 42, 0.8));
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #FFE082;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    /* Yazar Monografi & Bilgi Modalı */
-    #authorMonographModal {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(12px);
-      z-index: 100000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      box-sizing: border-box;
-    }
-    #authorMonographModal.active {
-      display: flex;
-    }
-    .author-monograph-dialog {
-      max-width: 760px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      background: rgba(10, 15, 29, 0.88);
-      border: 1.5px solid #D4AF37;
-      border-radius: 18px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 35px rgba(212, 175, 55, 0.35);
-      backdrop-filter: blur(20px);
-      padding: 24px;
-      box-sizing: border-box;
-      position: relative;
-      color: #F8FAFC;
-    }
-    .author-monograph-close {
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #FFE082;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .author-monograph-close:hover {
-      background: #EF4444;
-      border-color: #EF4444;
-      color: #FFF;
-    }
-
-    .monograph-head {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-    }
-    .monograph-seal {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6D1F 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      font-size: 24px;
-      color: #1A1305;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-      flex-shrink: 0;
-    }
-    .monograph-title-group h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 24px;
-      color: #FFE082;
-      margin-bottom: 4px;
-    }
-    .monograph-honorific {
-      font-size: 14px;
-      color: #38BDF8;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .monograph-badges {
-      display: flex;
-      gap: 8px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-    .monograph-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 700;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: #FFE082;
-    }
-
-    .monograph-section {
-      margin-bottom: 18px;
-    }
-    .monograph-section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      font-weight: 800;
-      color: #FFE082;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      letter-spacing: 0.5px;
-    }
-    .monograph-bio-text {
-      font-size: 14px;
-      line-height: 1.7;
-      color: #E2E8F0;
-      background: rgba(15, 23, 42, 0.4);
-      padding: 14px 16px;
-      border-radius: 12px;
-      border-left: 3px solid #D4AF37;
-    }
-
-    .monograph-works-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .monograph-work-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 8px;
-      background: rgba(15, 23, 42, 0.5);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: #F8FAFC;
-      font-size: 12px;
-    }
-    .monograph-work-genre {
-      font-size: 10px;
-      color: #38BDF8;
-      font-weight: 700;
-      background: rgba(56, 189, 248, 0.15);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .monograph-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 22px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-    }
-    .monograph-btn-quiz {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #9E7924 100%);
-      color: #1A1305;
-      font-family: 'Cinzel', serif;
-      font-weight: 800;
-      font-size: 13px;
-      border: 1px solid #FFE082;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
-      transition: all 0.2s ease;
-    }
-    .monograph-btn-quiz:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(212, 175, 55, 0.6);
+      display: none !important;
     }
 
 </style>
-  <script src="./assets/three.min.js"></script>
 </head>
 <body>
+<canvas id="inkFlowCanvas"></canvas>
+
 
   <!-- Cosmic Literature Background & Ambient Floating Particles -->
   <div id="appWallpaperLayer"></div>
@@ -2287,134 +1680,36 @@
 
 
   
-<!-- 🏛️ 3D 360° SANAL EDEBİYAT MÜZESİ (Three.js WebGL Engine) -->
-<div id="museum3DContainer">
-  <canvas id="museum3DCanvas"></canvas>
-  <div class="museum-hud" id="museum3DHUD">
-    <div class="museum-hud-top">
-      <div class="museum-hud-badge">
-        <span style="font-size:24px;">🏛️</span>
-        <div>
-          <div class="museum-hud-title">SANAL EDEBİYAT MÜZESİ • 360° TUR</div>
-          <div class="museum-hud-sub">Farenizle veya dokunarak 360° etrafınıza bakın • Tablolara tıklayın</div>
-        </div>
-      </div>
-      <div class="museum-hud-controls">
-        <div class="museum-compass" id="museumCompass">🧭 KUZEY 0°</div>
-        <button class="hud-btn active" id="btnAutoTour" onclick="toggleAutoTour()">
-          <span>🔄</span> Otomatik Gezinti
-        </button>
-        <button class="hud-btn" onclick="zoomMuseum(-10)">
-          <span>🔍</span>+
-        </button>
-        <button class="hud-btn" onclick="zoomMuseum(10)">
-          <span>🔍</span>-
-        </button>
-        <button class="hud-btn" onclick="exitMuseumMode()">
-          <span>📋</span> Masa Moduna Geç
-        </button>
-      </div>
-    </div>
-    
-    <div class="museum-reticle" id="museumReticle"></div>
-
-    <div class="museum-teleport-bar">
-      <div class="museum-teleport-label">🏛️ SALON IŞINLANMA • İSTEDİĞİN DÖNEM SERGİSİNE DÖN</div>
-      <div class="museum-teleport-items">
-        <button class="museum-teleport-btn" style="border-color:#FFE082; color:#FFE082;" onclick="exitMuseumMode(); switchNavTab('author-museum-view')">🏛️ Yazar Müzesi</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(0)">🏺 Dîvân Sarayı</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(45)">🎶 Âşık Meydanı</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(90)">🖋️ Tanzimat Salonu</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(135)">🪶 Servet-i Fünûn Odası</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(180)">🇹🇷 Millî Edebiyat</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(225)">📚 Cumhuriyet Kubbesi</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(270)">🎯 Oyun Odası</button>
-        <button class="museum-teleport-btn" onclick="teleportToExhibit(315)">📝 Pıtrak Nüsha</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div id="interactive-app" style="display:flex">
 
 
   <!-- Top Header -->
   <header class="brand-header">
-    <div class="butterfly-badge">
-      <svg class="butterfly-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bfWingL" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38BDF8"/>
-            <stop offset="50%" stop-color="#8B5CF6"/>
-            <stop offset="100%" stop-color="#EC4899"/>
-          </linearGradient>
-        </defs>
-        <!-- Sol Üst ve Alt Kanat -->
-        <path d="M30 30 C18 10, 4 12, 6 26 C8 34, 18 36, 30 34 Z" fill="url(#bfWingL)" opacity="0.92"/>
-        <path d="M30 34 C18 36, 10 44, 14 52 C18 58, 27 50, 30 38 Z" fill="url(#bfWingL)" opacity="0.8"/>
-        <!-- Sağ Üst ve Alt Kanat -->
-        <path d="M34 30 C46 10, 60 12, 58 26 C56 34, 46 36, 34 34 Z" fill="url(#bfWingL)" opacity="0.92"/>
-        <path d="M34 34 C46 36, 54 44, 50 52 C46 58, 37 50, 34 38 Z" fill="url(#bfWingL)" opacity="0.8"/>
-        <!-- Gövde ve Antenler -->
-        <rect x="30.5" y="20" width="3" height="24" rx="1.5" fill="#F8FAFC"/>
-        <path d="M31 20 Q25 12 20 14" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M33 20 Q39 12 44 14" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
+    <div class="header-logo-box alef-box" title="ALΣF">
+      <img src="./assets/logo_alef.png" alt="ALΣF Logo" class="brand-logo-img">
     </div>
     <div class="header-center">
       <div class="header-title">EDEBİYAT OYUNHÂNESİ</div>
       <div class="header-sub">ALΣF | Türkçe & Edebiyat ÖABT • AYT Edebiyat</div>
     </div>
-    <div class="header-tools">
-<button type="button" class="museum-toggle-btn" onclick="enterMuseumMode()"><span>🏛️</span> 360° 3D Sanal Müze</button>
-
-      <label class="theme-picker" title="Renk paletini ve arka planı değiştir">🎨 Tema
-        <select id="theme-select" aria-label="Renk temasını seç" onchange="applyTheme(this.value)">
-          <option value="night">🌌 Gece Mavisi</option>
-          <option value="ocean">🌊 Okyanus</option>
-          <option value="forest">🌿 Orman</option>
-          <option value="amethyst">🔮 Ametist</option>
-          <option value="sunset">🌅 Gün Batımı</option>
-          <option value="white">☀️ Beyaz</option>
-        </select>
-      </label>
-      <button class="theme-reset" type="button" onclick="resetTheme()">Varsayılan</button>
-      <div class="logo-badge">ALΣF</div>
+    <div class="header-logo-box sertan-box" title="Sertan Çubukcu">
+      <img src="./assets/logo_sertan.png" alt="Sertan Çubukcu Logo" class="brand-logo-img">
     </div>
   </header>
 
-  <!-- OFFLINE STATUS & INSTALL BANNER -->
-  <div class="offline-banner-wrap">
-    <div class="banner-info">
-      <div class="banner-title-line">
-        <span class="live-dot"></span>
-        <span>⚡ %100 ÇEVRİMDIŞI • TAM 4784 YAZAR-ESER KAYDI & 2 BOYUTLU OYUN MERKEZİ</span>
-      </div>
-      <div class="banner-subtext">
-        Eser-Yazar kütüphanesi, kategoriye ayrılmış edebiyat konu testleri ve etkileşimli oyunlarla çevrimdışı çalışır. İlerleme ve test istatistikleri bu cihazda saklanır.
-      </div>
-    </div>
-    <div class="banner-actions">
-      <a class="banner-btn" href="./Pitrak-Nusha/index.html" style="text-decoration:none; color:inherit;" title="Sınav ve Test Yaprağı Hazırlama Atölyesi">
-        <span>📝</span> Pıtrak Nüsha
-      </a>
-      <button class="banner-btn btn-install" onclick="openInstallModal()">
-        <span>📲</span> Telefona / Ana Ekrana Ekle
-      </button>
-    </div>
+  <!-- HIZLI EYLEMLER -->
+  <div class="action-pills-wrap">
+    <a class="action-pill-btn" href="./Pitrak-Nusha/index.html" title="Soru & Yaprak Test Modülü">
+      <span>📝</span> Pıtrak Nüsha
+    </a>
+    <button class="action-pill-btn" onclick="openInstallModal()" title="Cihaza / Ana Ekrana Ekle">
+      <span>📲</span> Cihaza Ekle
+    </button>
   </div>
 
-  <!-- Navigation Tabs -->
   <nav class="nav-tabs">
-<button class="tab-btn" onclick="switchNavTab('author-museum-view')">
-<span>🏛️</span> Yazar Müzesi & Ansiklopedi
-</button>
-
-<button class="tab-btn" onclick="enterMuseumMode()" style="border-color:#FFE082; color:#FFE082; background:rgba(212,175,55,0.15);">
-<span>🏛️</span> 360° Sanal Sergi
-</button>
-
-    <button class="tab-btn active" onclick="switchNavTab('quiz-view')">
+<button class="tab-btn active" onclick="switchNavTab('quiz-view')">
       <span>📝</span> Bilgi Testleri • Konu Seç
     </button>
     <button class="tab-btn" onclick="switchNavTab('speed-game-view')">
@@ -2424,10 +1719,10 @@
       <span>🧩</span> Pano Eşleştirme
     </button>
     <button class="tab-btn" onclick="switchNavTab('catcher-game-view')">
-      <span>🧺</span> 2 Boyutlu Kitap Yağmuru
+      <span>🧺</span> Kitap Yağmuru
     </button>
     <button class="tab-btn" onclick="switchNavTab('shooter-game-view')">
-      <span>🎯</span> 2 Boyutlu Tür Nişancısı
+      <span>🎯</span> Tür Nişancısı
     </button>
     <button class="tab-btn" onclick="switchNavTab('library-view')">
       <span>📚</span> Eser Kütüphanesi
@@ -2444,80 +1739,7 @@
 <!-- ============================================================ -->
 <!-- 🏛️ YAZAR MÜZESİ & EDEBİ BİYOGRAFİ ANSİKLOPEDİSİ               -->
 <!-- ============================================================ -->
-<main id="author-museum-view" class="view-container">
-  <section class="author-museum-head">
-    <div class="author-museum-title">🏛️ TÜRK EDEBİYATÇILARI MÜZESİ & YAZAR ANSİKLOPEDİSİ</div>
-    <div class="author-museum-sub">Tüm yazarlarımızın edebi kişiliği, sanat anlayışı, dönem bilgisi ve kütüphanemizdeki eser dökümü</div>
-  </section>
-
-  <section class="author-museum-filters">
-    <div class="author-search-bar">
-      <span>🔍</span>
-      <input type="text" id="author-search-input" placeholder="Yazar veya şair ara (Örn: Namık Kemal, Tanpınar, Yunus Emre, Halit Ziya...)" oninput="filterAuthorMuseum()">
-    </div>
-    <div class="author-period-pills" id="authorPeriodPills">
-      <button class="author-period-pill active" onclick="setAuthorPeriodFilter('all', this)">🌟 Tüm Yazarlar</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('divan', this)">🏺 Dîvân Edebiyatı</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('halk', this)">🎶 Halk Edebiyatı</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('tanzimat', this)">🖋️ Tanzimat Edebiyatı</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('servet', this)">🪶 Servet-i Fünûn & Fecr-i Âtî</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('milli', this)">🇹🇷 Millî Edebiyat</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('cumhuriyet', this)">📚 Cumhuriyet & Çağdaş</button>
-      <button class="author-period-pill" onclick="setAuthorPeriodFilter('cocuk', this)">🪁 Çocuk Edebiyatı</button>
-    </div>
-  </section>
-
-  <div style="margin-bottom: 12px; font-size: 13px; color: #FFE082; display: flex; justify-content: space-between; align-items: center;">
-    <span id="authorMuseumCount">Yazarlar yükleniyor...</span>
-    <span style="font-size:12px; color:#94A3B8;">💡 Bir yazara tıklayarak estetik edebi monografisini okuyabilirsiniz.</span>
-  </div>
-
-  <div class="author-grid-container" id="authorMuseumGrid"></div>
-</main>
-
-<!-- YAZAR MONOGRAFİ & BİYOGRAFİ MODALI -->
-<div id="authorMonographModal" onclick="if(event.target===this) closeAuthorMonograph()">
-  <div class="author-monograph-dialog">
-    <button class="author-monograph-close" onclick="closeAuthorMonograph()" title="Kapat">✕</button>
-    <div class="monograph-head">
-      <div class="monograph-seal" id="monoSeal">NK</div>
-      <div class="monograph-title-group">
-        <h2 id="monoName">Namık Kemal</h2>
-        <div class="monograph-honorific" id="monoHonorific">Vatan ve Hürriyet Şairi</div>
-        <div class="monograph-badges" id="monoBadges">
-          <span class="monograph-badge">Tanzimat I. Dönem</span>
-          <span class="monograph-badge">Romantizm</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="monograph-section">
-      <div class="monograph-section-title"><span>📜</span> Edebî Kişiliği & Sanat Anlayışı</div>
-      <div class="monograph-bio-text" id="monoBio">...</div>
-    </div>
-
-    <div class="monograph-section">
-      <div class="monograph-section-title"><span>📚</span> Kütüphanemizdeki Eserleri (<span id="monoWorksCount">0</span> Kayıt)</div>
-      <div class="monograph-works-grid" id="monoWorksList"></div>
-    </div>
-
-    <div class="monograph-section" id="monoCluesSection">
-      <div class="monograph-section-title"><span>💡</span> Sınav & İmtihan İpuçları (Soru Havuzu Bilgileri)</div>
-      <div class="monograph-bio-text" id="monoClues" style="border-left-color: #38BDF8; font-size: 13px;">...</div>
-    </div>
-
-    <div class="monograph-actions">
-      <button class="monograph-btn-quiz" id="monoQuizBtn" onclick="startQuizForAuthor(currentMonographAuthor)">
-        <span>⚡</span> Bu Yazarın Eserleriyle Pratik Yap
-      </button>
-      <button class="banner-btn" onclick="closeAuthorMonograph()" style="padding:10px 18px; border-radius:12px;">
-        Kapat
-      </button>
-    </div>
-  </div>
-</div>
-
-  <main id="quiz-view" class="view-container active">
+<main id="quiz-view" class="view-container active">
     <section id="quiz-catalog">
       <section class="progress-panel" id="quiz-progress-panel" aria-label="Kullanıcı ilerlemesi">
         <div class="progress-panel-head"><div class="progress-panel-title">📈 Öğrenme İlerlemen</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="progress-reset-btn" id="resume-quiz-btn" type="button" onclick="resumeSavedQuiz()" hidden>Kaldığın yerden devam et</button><button class="progress-reset-btn" type="button" onclick="resetAllProgress()">İlerlemeyi Sıfırla</button></div></div>
@@ -4616,417 +3838,155 @@
   </script>
 
 
+
+
+
 <!-- ============================================================ -->
-<!-- 🏛️ THREE.JS 3D 360° VIRTUAL MUSEUM ENGINE                    -->
+<!-- 🖋️ HAREKETLİ MÜREKKEP AKMA EFEKTİ (Calligraphy Ink Flow)      -->
 <!-- ============================================================ -->
 <script>
-let museumRenderer, museumScene, museumCamera, sphereMesh;
-let museumCanvas = null;
-let isMuseumActive = false;
-let autoTourEnabled = true;
-let isUserDragging = false;
-let downPointerX = 0, downPointerY = 0;
-let curLon = 0, curLat = 0;
-let targetLon = 0, targetLat = 0;
-let targetFov = 70;
-let raycaster = null, mouse = null;
-let exhibitMeshes = [];
-let hoveredExhibit = null;
+(function initInkFlow() {
+  const canvas = document.getElementById('inkFlowCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h;
 
-const EXHIBIT_DATA = [
-  { angle: 0, title: "Dîvân Edebiyatı Sarayı", category: "Eski Türk Edebiyatı", count: "480 Eser & Soru", icon: "🏺", desc: "Gazel, Kaside, Mesnevi • Fuzûlî, Bâkî, Nedim, Şeyh Galip" },
-  { angle: 45, title: "Halk Edebiyatı & Âşıklar", category: "Halk Edebiyatı", count: "390 Eser & Soru", icon: "🎶", desc: "Koşma, Mani, Destan • Yunus Emre, Karacaoğlan, Dadaloğlu" },
-  { angle: 90, title: "Tanzimat & Batılılaşma", category: "Yeni Türk Edebiyatı", count: "420 Eser & Soru", icon: "🖋️", desc: "Tiyatro, Roman, Gazete • Şinasi, Namık Kemal, Ziya Paşa" },
-  { angle: 135, title: "Servet-i Fünûn & Fecr-i Âtî", category: "Yeni Türk Edebiyatı", count: "310 Eser & Soru", icon: "🪶", desc: "Edebi Yenilikler • Tevfik Fikret, Cenap Şahabettin, Halit Ziya" },
-  { angle: 180, title: "Millî Edebiyat & İstiklal", category: "Yeni Türk Edebiyatı", count: "450 Eser & Soru", icon: "🇹🇷", desc: "Dilde Sadeleşme • Ömer Seyfettin, Ziya Gökalp, M. Emin" },
-  { angle: 225, title: "Cumhuriyet & Çağdaş Kubbe", category: "Eser-Yazar", count: "560 Eser & Soru", icon: "📚", desc: "Şiir, Roman, Tiyatro • Ahmet Hamdi, Orhan Veli, Attilâ İlhan" },
-  { angle: 270, title: "Oyunhâne & Bilgi Meydanı", action: "game", count: "4 Farklı Oyun", icon: "🎯", desc: "Hızlı Eşleştirme, Kitap Yağmuru, Nişancı" },
-  { angle: 315, title: "Pıtrak Nüsha Hattat Masası", action: "pitrak", count: "Yaprak Test Modülü", icon: "📝", desc: "Özel Sınav ve Test Yaprağı Çıkar" }
-];
-
-function init3DMuseum() {
-  if (typeof THREE === 'undefined') {
-    console.warn('Three.js henüz yüklenmedi.');
-    return;
+  function onResize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
   }
-  museumCanvas = document.getElementById('museum3DCanvas');
-  if (!museumCanvas) return;
+  window.addEventListener('resize', onResize);
+  onResize();
 
-  museumRenderer = new THREE.WebGLRenderer({ canvas: museumCanvas, antialias: true, alpha: true });
-  museumRenderer.setSize(window.innerWidth, window.innerHeight);
-  museumRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const inkColors = [
+    'rgba(10, 18, 34, ',       // Deep midnight indigo
+    'rgba(6, 10, 20, ',        // Pure calligraphy carbon
+    'rgba(212, 175, 55, ',     // Golden calligraphy shimmer
+    'rgba(25, 45, 80, '        // Celestial lapis
+  ];
 
-  museumScene = new THREE.Scene();
-  museumCamera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1500);
-  museumCamera.position.set(0, 0, 0.1);
-
-  // Inverted Sphere for 360 Panorama
-  const sphereGeo = new THREE.SphereGeometry(600, 60, 40);
-  sphereGeo.scale(-1, 1, 1);
-  const texLoader = new THREE.TextureLoader();
-  texLoader.load('./assets/museum_360_equirect.jpg', (tex) => {
-    tex.minFilter = THREE.LinearFilter;
-    const sphereMat = new THREE.MeshBasicMaterial({ map: tex });
-    sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
-    museumScene.add(sphereMesh);
-  });
-
-  // Build 3D Gilded Museum Exhibits
-  EXHIBIT_DATA.forEach(data => {
-    const mesh = buildExhibitFrameMesh(data);
-    exhibitMeshes.push(mesh);
-    mesh.visible = false; // Hidden until full 360 museum mode is entered
-    museumScene.add(mesh);
-  });
-
-  raycaster = new THREE.Raycaster();
-  mouse = new THREE.Vector2(-999, -999);
-
-  setupMuseumEvents();
-  requestAnimationFrame(renderMuseumLoop);
-}
-
-function buildExhibitFrameMesh(data) {
-  const c = document.createElement('canvas');
-  c.width = 512;
-  c.height = 360;
-  const ctx = c.getContext('2d');
-
-  // Background
-  ctx.fillStyle = '#070B14';
-  ctx.fillRect(0, 0, 512, 360);
-
-  // Gold frame gradient
-  const goldGrad = ctx.createLinearGradient(0, 0, 512, 360);
-  goldGrad.addColorStop(0, '#FFE082');
-  goldGrad.addColorStop(0.3, '#D4AF37');
-  goldGrad.addColorStop(0.65, '#8C6D1F');
-  goldGrad.addColorStop(1, '#FFF1AA');
-
-  ctx.lineWidth = 14;
-  ctx.strokeStyle = goldGrad;
-  ctx.strokeRect(7, 7, 498, 346);
-
-  // Inner gold border
-  ctx.lineWidth = 2.5;
-  ctx.strokeStyle = 'rgba(255, 224, 130, 0.75)';
-  ctx.strokeRect(20, 20, 472, 320);
-
-  // Inner Velvet Matting
-  ctx.fillStyle = 'rgba(11, 17, 33, 0.96)';
-  ctx.fillRect(22, 22, 468, 316);
-
-  // Corner tezhipler
-  ctx.fillStyle = '#FFE082';
-  ctx.font = '24px serif';
-  ctx.fillText('❦', 28, 48);
-  ctx.fillText('❦', 465, 48);
-  ctx.fillText('❦', 28, 326);
-  ctx.fillText('❦', 465, 326);
-
-  // Icon
-  ctx.font = '64px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText(data.icon, 256, 115);
-
-  // Title
-  ctx.font = 'bold 27px serif';
-  ctx.fillStyle = '#FFE082';
-  ctx.fillText(data.title, 256, 175);
-
-  // Description / Sub
-  ctx.font = '16px sans-serif';
-  ctx.fillStyle = '#94A3B8';
-  ctx.fillText(data.count, 256, 215);
-
-  // Brass Plaque
-  const brassGrad = ctx.createLinearGradient(60, 255, 452, 305);
-  brassGrad.addColorStop(0, '#E6C65A');
-  brassGrad.addColorStop(0.5, '#FFE082');
-  brassGrad.addColorStop(1, '#AA771C');
-  ctx.fillStyle = brassGrad;
-  ctx.fillRect(60, 255, 392, 44);
-  ctx.strokeStyle = '#5B4310';
-  ctx.lineWidth = 2;
-  ctx.strokeRect(60, 255, 392, 44);
-
-  ctx.font = 'bold 15px serif';
-  ctx.fillStyle = '#1A1305';
-  ctx.fillText('🏛️ SALON GİRİŞİ • GÖRÜNTÜLEMEK İÇİN TIKLA', 256, 283);
-
-  const tex = new THREE.CanvasTexture(c);
-  const geo = new THREE.PlaneGeometry(120, 84);
-  const mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
-  const mesh = new THREE.Mesh(geo, mat);
-
-  const rad = (data.angle * Math.PI) / 180;
-  const radius = 370;
-  mesh.position.x = Math.sin(rad) * radius;
-  mesh.position.z = -Math.cos(rad) * radius;
-  mesh.position.y = 8;
-  mesh.lookAt(0, 8, 0);
-
-  mesh.userData = data;
-  return mesh;
-}
-
-function setupMuseumEvents() {
-  window.addEventListener('resize', onMuseumResize);
-
-  const container = document.getElementById('museum3DContainer');
-
-  container.addEventListener('pointerdown', (e) => {
-    if (!isMuseumActive) return;
-    isUserDragging = true;
-    downPointerX = e.clientX;
-    downPointerY = e.clientY;
-  });
-
-  window.addEventListener('pointermove', (e) => {
-    // Parallax background tracking when not in full museum mode
-    if (!isMuseumActive) {
-      targetLon = ((e.clientX / window.innerWidth) - 0.5) * 40;
-      targetLat = -((e.clientY / window.innerHeight) - 0.5) * 20;
-      return;
+  class InkStream {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = -20;
+      this.vx = (Math.random() - 0.5) * 0.7;
+      this.vy = 1.0 + Math.random() * 2.0;
+      this.radius = 10 + Math.random() * 24;
+      this.maxRadius = this.radius * 2.2;
+      this.alpha = 0.45 + Math.random() * 0.35;
+      this.decay = 0.0016 + Math.random() * 0.002;
+      this.color = inkColors[Math.floor(Math.random() * inkColors.length)];
+      this.angle = Math.random() * Math.PI * 2;
+      this.va = (Math.random() - 0.5) * 0.03;
+      this.tendrils = [];
+      this.length = 0;
+      this.maxLength = 180 + Math.random() * 260;
     }
+    update() {
+      this.x += this.vx + Math.sin(this.angle) * 0.8;
+      this.y += this.vy;
+      this.angle += this.va;
+      this.alpha -= this.decay;
+      this.radius = Math.min(this.maxRadius, this.radius + 0.1);
+      this.length += this.vy;
 
-    // Full 360 drag interaction
-    if (isUserDragging) {
-      const dx = e.clientX - downPointerX;
-      const dy = e.clientY - downPointerY;
-      targetLon -= dx * 0.18;
-      targetLat += dy * 0.18;
-      downPointerX = e.clientX;
-      downPointerY = e.clientY;
-      autoTourEnabled = false;
-      const btn = document.getElementById('btnAutoTour');
-      if (btn) btn.classList.remove('active');
+      if (Math.random() < 0.08 && this.tendrils.length < 5) {
+        this.tendrils.push({
+          x: this.x,
+          y: this.y,
+          vx: (Math.random() - 0.5) * 1.4,
+          vy: this.vy * 0.6,
+          r: this.radius * 0.6,
+          alpha: this.alpha * 0.8
+        });
+      }
+
+      for (let i = this.tendrils.length - 1; i >= 0; i--) {
+        const t = this.tendrils[i];
+        t.x += t.vx;
+        t.y += t.vy;
+        t.r += 0.07;
+        t.alpha -= 0.006;
+        if (t.alpha <= 0) this.tendrils.splice(i, 1);
+      }
+
+      if (this.alpha <= 0 || this.y > h + 50 || this.length > this.maxLength) {
+        this.reset();
+      }
     }
+    draw() {
+      if (this.alpha <= 0) return;
+      const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+      grad.addColorStop(0, this.color + (this.alpha * 0.8) + ')');
+      grad.addColorStop(0.5, this.color + (this.alpha * 0.45) + ')');
+      grad.addColorStop(1, this.color + '0)');
 
-    // Raycast for hover state on exhibits
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-    checkExhibitHover();
-  });
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fill();
 
-  window.addEventListener('pointerup', () => {
-    isUserDragging = false;
-  });
-
-  // Touch Support
-  let touchStartDist = 0;
-  container.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 2) {
-      touchStartDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-    }
-  }, { passive: true });
-
-  container.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 2) {
-      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-      const diff = dist - touchStartDist;
-      zoomMuseum(-diff * 0.1);
-      touchStartDist = dist;
-    }
-  }, { passive: true });
-
-  // Wheel zoom
-  container.addEventListener('wheel', (e) => {
-    if (!isMuseumActive) return;
-    zoomMuseum(e.deltaY * 0.05);
-  }, { passive: true });
-
-  // Click on 3D Exhibits
-  container.addEventListener('click', (e) => {
-    if (!isMuseumActive) return;
-    if (hoveredExhibit) {
-      triggerExhibitAction(hoveredExhibit.userData);
-    }
-  });
-}
-
-function checkExhibitHover() {
-  if (!raycaster || !museumCamera) return;
-  raycaster.setFromCamera(mouse, museumCamera);
-  const intersects = raycaster.intersectObjects(exhibitMeshes);
-  const reticle = document.getElementById('museumReticle');
-
-  if (intersects.length > 0) {
-    const obj = intersects[0].object;
-    if (hoveredExhibit !== obj) {
-      if (hoveredExhibit) hoveredExhibit.scale.set(1, 1, 1);
-      hoveredExhibit = obj;
-      hoveredExhibit.scale.set(1.08, 1.08, 1.08);
-      if (typeof UIAudio !== 'undefined' && UIAudio.playPlaqueHover) UIAudio.playPlaqueHover();
-    }
-    if (reticle) reticle.classList.add('hovering');
-    document.body.style.cursor = 'pointer';
-  } else {
-    if (hoveredExhibit) {
-      hoveredExhibit.scale.set(1, 1, 1);
-      hoveredExhibit = null;
-    }
-    if (reticle) reticle.classList.remove('hovering');
-    document.body.style.cursor = 'default';
-  }
-}
-
-function triggerExhibitAction(data) {
-  if (typeof UIAudio !== 'undefined' && UIAudio.playChime) UIAudio.playChime();
-  exitMuseumMode();
-
-  if (data.action === 'game') {
-    switchNavTab('speed-game-view');
-  } else if (data.action === 'pitrak') {
-    window.location.href = './Pitrak-Nusha/index.html';
-  } else if (data.category) {
-    switchNavTab('quiz-view');
-    showTestsForCategory(data.category);
-  }
-}
-
-function teleportToExhibit(angle) {
-  targetLon = angle;
-  targetLat = 0;
-  autoTourEnabled = false;
-  const btn = document.getElementById('btnAutoTour');
-  if (btn) btn.classList.remove('active');
-  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
-}
-
-function zoomMuseum(delta) {
-  targetFov = Math.max(35, Math.min(95, targetFov + delta));
-}
-
-function toggleAutoTour() {
-  autoTourEnabled = !autoTourEnabled;
-  const btn = document.getElementById('btnAutoTour');
-  if (btn) btn.classList.toggle('active', autoTourEnabled);
-  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
-}
-
-function enterMuseumMode() {
-  isMuseumActive = true;
-  exhibitMeshes.forEach(m => m.visible = true);
-  document.body.classList.add('museum-mode-on');
-  const container = document.getElementById('museum3DContainer');
-  if (container) container.classList.add('museum-mode-active');
-  if (typeof UIAudio !== 'undefined' && UIAudio.playChime) UIAudio.playChime();
-  onMuseumResize();
-}
-
-function exitMuseumMode() {
-  isMuseumActive = false;
-  exhibitMeshes.forEach(m => m.visible = false);
-  document.body.classList.remove('museum-mode-on');
-  const container = document.getElementById('museum3DContainer');
-  if (container) container.classList.remove('museum-mode-active');
-  if (typeof UIAudio !== 'undefined' && UIAudio.playClick) UIAudio.playClick();
-}
-
-function toggleMuseumMode() {
-  if (isMuseumActive) exitMuseumMode();
-  else enterMuseumMode();
-}
-
-function onMuseumResize() {
-  if (!museumCamera || !museumRenderer) return;
-  museumCamera.aspect = window.innerWidth / window.innerHeight;
-  museumCamera.updateProjectionMatrix();
-  museumRenderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function renderMuseumLoop() {
-  requestAnimationFrame(renderMuseumLoop);
-
-  if (autoTourEnabled && isMuseumActive) {
-    targetLon += 0.08;
-  }
-
-  // Smooth lerp camera rotation
-  curLon += (targetLon - curLon) * 0.08;
-  curLat += (targetLat - curLat) * 0.08;
-  museumCamera.fov += (targetFov - museumCamera.fov) * 0.1;
-  museumCamera.updateProjectionMatrix();
-
-  curLat = Math.max(-85, Math.min(85, curLat));
-  const phi = THREE.MathUtils.degToRad(90 - curLat);
-  const theta = THREE.MathUtils.degToRad(curLon);
-
-  const lookTarget = new THREE.Vector3(
-    500 * Math.sin(phi) * Math.cos(theta),
-    500 * Math.cos(phi),
-    500 * Math.sin(phi) * Math.sin(theta)
-  );
-  museumCamera.lookAt(lookTarget);
-
-  // Update Compass Indicator
-  const compass = document.getElementById('museumCompass');
-  if (compass) {
-    const deg = Math.round(((curLon % 360) + 360) % 360);
-    let dir = "KUZEY";
-    if (deg >= 45 && deg < 135) dir = "DOĞU";
-    else if (deg >= 135 && deg < 225) dir = "GÜNEY";
-    else if (deg >= 225 && deg < 315) dir = "BATI";
-    compass.textContent = `🧭 ${dir} ${deg}°`;
-  }
-
-  museumRenderer.render(museumScene, museumCamera);
-}
-
-// Enhance UIAudio with chime and hover
-if (typeof UIAudio !== 'undefined') {
-  UIAudio.playChime = () => {
-    try {
-      const c = (typeof getAudioCtx === 'function' ? getAudioCtx() : null);
-      if (!c) return;
-      const now = c.currentTime;
-      [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
-        const osc = c.createOscillator();
-        const g = c.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now + i * 0.07);
-        g.gain.setValueAtTime(0.001, now + i * 0.07);
-        g.gain.exponentialRampToValueAtTime(0.09, now + i * 0.07 + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.07 + 0.9);
-        osc.connect(g); g.connect(c.destination);
-        osc.start(now + i * 0.07);
-        osc.stop(now + i * 0.07 + 1.0);
+      this.tendrils.forEach(t => {
+        const tGrad = ctx.createRadialGradient(t.x, t.y, 0, t.x, t.y, t.r);
+        tGrad.addColorStop(0, this.color + (t.alpha * 0.65) + ')');
+        tGrad.addColorStop(1, this.color + '0)');
+        ctx.fillStyle = tGrad;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2);
+        ctx.fill();
       });
-    } catch(e) {}
-  };
-  UIAudio.playPlaqueHover = () => {
-    try {
-      const c = (typeof getAudioCtx === 'function' ? getAudioCtx() : null);
-      if (!c) return;
-      const now = c.currentTime;
-      const osc = c.createOscillator();
-      const g = c.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(440, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.06);
-      g.gain.setValueAtTime(0.02, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-      osc.connect(g); g.connect(c.destination);
-      osc.start(now); osc.stop(now + 0.13);
-    } catch(e) {}
-  };
-}
-
-// Auto-initialize 3D Museum on window load
-window.addEventListener('load', () => {
-  setTimeout(init3DMuseum, 300);
-});
-
-// Keyboard shortcut: Press 'M' to toggle 3D Museum mode
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'm' || e.key === 'M') {
-    if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) return;
-    toggleMuseumMode();
+    }
   }
-});
+
+  const streams = [];
+  for (let i = 0; i < 20; i++) {
+    const s = new InkStream();
+    s.y = Math.random() * h;
+    streams.push(s);
+  }
+
+  const cursorInk = [];
+  window.addEventListener('pointermove', (e) => {
+    if (Math.random() < 0.6) {
+      cursorInk.push({
+        x: e.clientX,
+        y: e.clientY,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        r: 6 + Math.random() * 14,
+        alpha: 0.5,
+        color: Math.random() < 0.35 ? 'rgba(212, 175, 55, ' : 'rgba(10, 18, 34, '
+      });
+    }
+  });
+
+  function inkLoop() {
+    ctx.clearRect(0, 0, w, h);
+    streams.forEach(s => { s.update(); s.draw(); });
+
+    for (let i = cursorInk.length - 1; i >= 0; i--) {
+      const m = cursorInk[i];
+      m.x += m.vx;
+      m.y += m.vy;
+      m.r += 0.15;
+      m.alpha -= 0.008;
+
+      const grad = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r);
+      grad.addColorStop(0, m.color + m.alpha + ')');
+      grad.addColorStop(1, m.color + '0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (m.alpha <= 0) cursorInk.splice(i, 1);
+    }
+    requestAnimationFrame(inkLoop);
+  }
+  inkLoop();
+})();
 </script>
 
-  <script src="./assets/author_engine.js"></script>
 </body>
 </html>
