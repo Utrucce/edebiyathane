@@ -1907,17 +1907,34 @@
     }
 
     #speed-start-screen,
-    #speed-active-screen,
-    #speed-game-over,
+    #speed-gameover-screen,
     .game-overlay-card {
       width: 100% !important;
       max-width: 780px !important;
       margin: 0 auto !important;
-      display: flex !important;
+      display: flex;
       flex-direction: column !important;
       align-items: center !important;
       text-align: center !important;
       box-sizing: border-box !important;
+    }
+
+    #speed-active-screen {
+      width: 100% !important;
+      max-width: 780px !important;
+      margin: 0 auto !important;
+      display: flex;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+    }
+
+    #speed-start-screen[hidden],
+    #speed-gameover-screen[hidden],
+    #speed-active-screen[hidden],
+    .game-overlay-card[hidden] {
+      display: none !important;
     }
 
     .speed-card-display {
@@ -2224,8 +2241,6 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">⚡ HIZLI EŞLEŞTİRME DÜELLOSU</div>
-      
-    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2258,7 +2273,7 @@
         <button class="primary-game-btn" id="speed-resume-btn" onclick="resumeSpeedGame()" hidden>↩ Kaldığın yerden devam et</button>
       </div>
 
-      <div id="speed-active-screen" style="display: none;">
+      <div id="speed-active-screen" hidden style="display: none;">
         <div class="speed-card-display">
           <img id="speed-current-img" src="" alt="Eser Kapağı" class="speed-cover-img">
           <div class="speed-catalog-tag" id="speed-current-badge">Katalog #001</div>
@@ -2267,7 +2282,7 @@
         <div id="speed-answer-feedback" class="speed-answer-feedback" aria-live="polite"></div>
       </div>
 
-      <div id="speed-gameover-screen" class="game-overlay-card" style="display: none;">
+      <div id="speed-gameover-screen" class="game-overlay-card" hidden style="display: none;">
         <div class="big-game-title" style="color: #EF4444;">SÜRE DOLDU!</div>
         <div id="gameover-rank-title" style="font-size: 16px; margin-bottom: 12px; color: #E2E8F0;"></div>
         <div class="gameover-modal-grid">
@@ -2290,8 +2305,6 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🧩 PANO EŞLEŞTİRME ARENASI</div>
-      
-    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2333,8 +2346,6 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🧺 KİTAP YAĞMURU OYUNU</div>
-      
-    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -2380,8 +2391,6 @@
         <span>⬅</span> Efsanevi Ana Menüye Dön
       </button>
       <div class="return-bar-title">🎯 TÜR NİŞANCISI OYUNU</div>
-      
-    </div>
       <button class="game-fs-btn" onclick="toggleNativeFullscreen()">⛶ Tam Ekran</button>
     </div>
     <div class="game-stats-header">
@@ -3324,9 +3333,15 @@
       speedState = saved && Number(saved.timeLeft) > 0
         ? {...saved}
         : { timeLeft: 35, score: 0, matches: 0, streak: 0, maxStreak: 0, attempts: 0, currentIdx: 0, answered:false };
-      document.getElementById('speed-start-screen').style.display = 'none';
-      document.getElementById('speed-gameover-screen').style.display = 'none';
-      document.getElementById('speed-active-screen').style.display = 'block';
+
+      const startScr = document.getElementById('speed-start-screen');
+      const activeScr = document.getElementById('speed-active-screen');
+      const overScr = document.getElementById('speed-gameover-screen');
+
+      if (startScr) { startScr.hidden = true; startScr.style.display = 'none'; }
+      if (overScr) { overScr.hidden = true; overScr.style.display = 'none'; }
+      if (activeScr) { activeScr.hidden = false; activeScr.style.display = 'flex'; }
+
       updateSpeedHUD();
       if (saved) {
         if (saved.answered) {
@@ -3444,8 +3459,13 @@
         speedState.recorded = true;
         recordGameResult('speed', { score:speedState.score, correct:speedState.matches, attempts:speedState.attempts });
       }
-      document.getElementById('speed-active-screen').style.display = 'none';
-      document.getElementById('speed-gameover-screen').style.display = 'block';
+      const startScr = document.getElementById('speed-start-screen');
+      const activeScr = document.getElementById('speed-active-screen');
+      const overScr = document.getElementById('speed-gameover-screen');
+
+      if (startScr) { startScr.hidden = true; startScr.style.display = 'none'; }
+      if (activeScr) { activeScr.hidden = true; activeScr.style.display = 'none'; }
+      if (overScr) { overScr.hidden = false; overScr.style.display = 'flex'; }
       document.getElementById('go-score').textContent = speedState.score;
       document.getElementById('go-matches').textContent = speedState.matches;
       document.getElementById('go-streak').textContent = `${speedState.maxStreak}x`;
